@@ -1,0 +1,9 @@
+website:
+  sidebar:
+    contents:
+      - index.ipynb
+      - 00_Setup.ipynb
+      - 01_SQL_Cleanup.ipynb
+      - 01_SQL_Solution.ipynb
+      - 02_Pandas_Solution.ipynb
+      - 03_Gpt_Solution.ipynb
