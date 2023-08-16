@@ -1,21 +1,21 @@
-LegacyContactId,LegacyGiftId,GiftType,GiftDate,GiftAmount,Notes,CreditCardType,Project1Code,Project1Code,LegacyPledgeID
+LegacyContactId,LegacyGiftId,GiftType,GiftDate,GiftAmount,Notes,CreditCardType,Project1Code,Project2Code,LegacyPledgeID
 848348568-0,95196378,Other,2019-03-04,4.15,,,,,0
-729707142-0,95196889,Check,2019-03-05,2.3648,,,ChildSponsorship,ChildSponsorship,1
+729707142-0,95196889,Check,2019-03-05,2.3648,,,ChildSponsorship,,1
 687119652-8,95197689,Cash,2019-03-07,1.31,,,,,2
 653377813-7,95198998,Credit,2019-03-10,2.04,In honor of Mannie Turpin,AMEX,,,3
 390551098-7,95198999,Cash,2019-01-10,5.8,,,,,89752384
-848348568-0,95296677,Other,2019-03-20,9.28,,,General,General,5
+848348568-0,95296677,Other,2019-03-20,9.28,,,General,ReliefFund,5
 029456846-8,95298831,Check,2019-03-24,5.0,ACH check #7687,,,,6
 093004505-X,95298845,Check,2019-04-09,4.83,,,,,7
-315297729-8,95298997,Check,2019-04-12,7.0,,,SchoolSupplies2019,SchoolSupplies2019,8
+315297729-8,95298997,Check,2019-04-12,7.0,,,SchoolSupplies2019,,8
 809975531-Y,0,Credit,2019-08-14,8.48,,AMEX,,,9
 739131380-7,95329966,Credit,2019-04-13,5.84,,Visa,,,10
 739131380-7,95330011,Other,2019-04-13,7.45,,,,,11
-029456846-8,95330012,Check,2019-04-17,8.13,,,Mentorship2023,Mentorship2023,12
+029456846-8,95330012,Check,2019-04-17,8.13,,,Mentorship2023,,12
 315297729-8,95330110,Reversing Transaction,2019-04-19,-3.01,,,,,13
 739131380-7,95330662,Other,2019-05-10,3.4,,,,,14
 687119652-8,95419562,Other,2019-06-04,5.07,,,,,15
-488464926-5,95422266,Cash,2019-06-05,5.42,,,GeneralFund,GeneralFund,16
+488464926-5,95422266,Cash,2019-06-05,5.42,,,GeneralFund,,16
 848348568-0,95485564,Other,2019-06-10,6.8,,,,,57398862
 390551098-7,95496635,Other,2019-06-11,6.78,,,,,18
 729707142-0,95497782,Other,2019-06-20,5.27,,,,,19
@@ -26,7 +26,7 @@ LegacyContactId,LegacyGiftId,GiftType,GiftDate,GiftAmount,Notes,CreditCardType,P
 029456846-8,95801563,Other,2019-08-01,9.0,,,,,24
 729707142-0,95801564,Cash,2019-08-03,1.88,,,,,25
 687119652-8,95835492,Reversing Transaction,2019-08-12,-6.76,,,,,26
-809975531-Y,0,Credit,2019-08-14,7.58,,Mastercard,Color run,Color run,27
+809975531-Y,0,Credit,2019-08-14,7.58,,Mastercard,Color run,ChildSponsorship,27
 653377813-7,0,Cash,2019-08-26,5.49,,,,,28
-739131380-7,96638462,Other,2019-09-01,8.93,,,ReliefFund,ReliefFund,29
+739131380-7,96638462,Other,2019-09-01,8.93,,,ReliefFund,,29
 093004505-X,96638468,Credit,2019-09-06,2.62,,Discover,,,30
