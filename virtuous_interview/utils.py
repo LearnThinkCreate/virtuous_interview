@@ -109,19 +109,19 @@ for index, row in contacts.iterrows():
 # %% ../00_Setup.ipynb 51
 contacts.fillna('', inplace=True)
 
-# %% ../00_Setup.ipynb 53
+# %% ../00_Setup.ipynb 70
 project_codes = gifts.FundId.str.split(', ', expand=True)
 
-# %% ../00_Setup.ipynb 54
+# %% ../00_Setup.ipynb 71
 project_codes.head(3)
 
-# %% ../00_Setup.ipynb 55
+# %% ../00_Setup.ipynb 72
 gifts[['Project1Code', 'Project2Code']] = project_codes
 
-# %% ../00_Setup.ipynb 56
+# %% ../00_Setup.ipynb 73
 gifts = gifts.loc[:, gifts.columns.drop('FundId')].copy()
 
-# %% ../00_Setup.ipynb 60
+# %% ../00_Setup.ipynb 77
 from datetime import datetime
 def custom_parser(date_str):
     try:
@@ -131,8 +131,8 @@ def custom_parser(date_str):
 gifts['GiftDate'] = gifts['Date'].apply(custom_parser)
 gifts = gifts.loc[:, gifts.columns.drop('Date')].copy()
 
-# %% ../00_Setup.ipynb 63
+# %% ../00_Setup.ipynb 80
 gifts.loc[ gifts.PledgeNumber == 0, 'PledgeNumber'] = gifts[gifts.PledgeNumber == 0].index
 
-# %% ../00_Setup.ipynb 64
+# %% ../00_Setup.ipynb 81
 gifts = gifts.rename(columns={'PledgeNumber': 'LegacyPledgeID'})
