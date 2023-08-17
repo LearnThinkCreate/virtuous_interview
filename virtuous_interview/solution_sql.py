@@ -172,7 +172,7 @@ commit;
 """
 insert_proc(proc, 'update_gift_type', call=True)
 
-# %% ../01_SQL_Solution.ipynb 49
+# %% ../01_SQL_Solution.ipynb 50
 proc = """
 CREATE TABLE IF NOT EXISTS contact_methods (
     `LegacyContactId` VARCHAR(255),
@@ -180,42 +180,67 @@ CREATE TABLE IF NOT EXISTS contact_methods (
     `Value` VARCHAR(255)
 );
 
-CREATE TEMPORARY TABLE clean_data AS
-SELECT 
-    temp_contacts.`Number` AS LegacyContactId,
-    CASE
-        WHEN temp_contact_methods.`Phone` != '' THEN temp_contact_methods.`Phone`
-        ELSE temp_contacts.`Phone`
-    END AS phone,
-    CASE
-        WHEN temp_contact_methods.`EMail` != '' THEN temp_contact_methods.`EMail`
-        ELSE temp_contacts.`EMail`
-    END AS email,
-    temp_contact_methods.Fax AS fax
-FROM
-    temp_contacts
-LEFT JOIN
-    temp_contact_methods ON temp_contact_methods.DonorNumber = temp_contacts.`Number`
-WHERE
-    (temp_contacts.Phone != '' OR temp_contacts.`EMail` != '') OR
-    (temp_contact_methods.Phone != '' OR temp_contact_methods.EMail != '' OR temp_contact_methods.Fax != '');
+BEGIN
+DECLARE done INT DEFAULT FALSE;
+DECLARE v_LegacyContactId VARCHAR(255);
+DECLARE v_HomePhone VARCHAR(255);
+DECLARE v_HomeEmail VARCHAR(255);
+DECLARE v_Phone VARCHAR(255);
+DECLARE v_Email VARCHAR(255);
+DECLARE v_Fax VARCHAR(255);
+DECLARE cur CURSOR FOR 
+    SELECT 
+        temp_contacts.`Number` AS LegacyContactId,
+        temp_contact_methods.`Phone` AS HomePhone,
+        temp_contact_methods.`EMail` AS HomeEmail,
+        temp_contacts.`Phone` AS Phone,
+        temp_contacts.`EMail` AS Email,
+        temp_contact_methods.Fax AS fax
+    FROM 
+        temp_contacts
+    LEFT JOIN
+        temp_contact_methods ON temp_contact_methods.DonorNumber = temp_contacts.`Number`;
 
+DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+
+    OPEN cur;
+
+    read_loop: LOOP
+        FETCH cur INTO v_LegacyContactId, v_HomePhone, v_HomeEmail, v_Phone, v_Email, v_Fax;
+        
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+
+        INSERT INTO contact_methods (`LegacyContactId`, `Type`, `Value`) VALUES 
+            (v_LegacyContactId, 'HomePhone', v_HomePhone),
+            (v_LegacyContactId, 'HomeEmail', v_HomeEmail),
+            (v_LegacyContactId, 'HomePhone', v_Phone),
+            (v_LegacyContactId, 'HomeEmail', v_Email),
+            (v_LegacyContactId, 'Fax', v_Fax);
+    END LOOP;
+
+    CLOSE cur;
+END;
+
+-- Delete records from contact methods where value is null or ''
+DELETE FROM contact_methods WHERE `Value` IS NULL OR `Value` = '';
+
+CREATE TEMPORARY TABLE temp_contact_methods AS
+SELECT DISTINCT LegacyContactId, Type, Value
+FROM contact_methods;
+
+DELETE FROM contact_methods;
 
 INSERT INTO contact_methods (LegacyContactId, Type, Value)
-SELECT DISTINCT LegacyContactId, 'HomePhone', phone
-FROM clean_data
-WHERE phone != '';
+SELECT DISTINCT LegacyContactId, Type, Value
+FROM temp_contact_methods;
 
-INSERT INTO contact_methods (LegacyContactId, Type, Value)
-SELECT DISTINCT LegacyContactId, 'HomeEmail', email
-FROM clean_data
-WHERE email != '';
+DROP TEMPORARY TABLE IF EXISTS temp_contact_methods;
 
-INSERT INTO contact_methods (LegacyContactId, Type, Value)
-SELECT DISTINCT LegacyContactId, 'Fax', fax
-FROM clean_data
-WHERE fax != '';
 
 commit;
+
+
 """
 insert_proc(proc, 'transform_contact_methods', call=True)
