@@ -104,29 +104,6 @@ final_contacts.fillna('')
 </div>
 
 ``` python
-pd.read_csv('data/final_contact_methods.csv')
-```
-
-<div>
-
-|     | LegacyContactId | Type      | Value                        |
-|-----|-----------------|-----------|------------------------------|
-| 0   | 093004505-X     | HomePhone | 577-374-96523                |
-| 1   | 848348568-0     | HomePhone | 702-844-9524                 |
-| 2   | 029456846-8     | HomeEmail | jdoley6@telegraph.co.uk      |
-| 3   | 390551098-7     | HomeEmail | ebenech1@goodreads.com       |
-| 4   | 488464926-5     | HomeEmail | fcastille4@timesonline.co.uk |
-| 5   | 653377813-7     | HomeEmail | kklumbers@ yahoo.co          |
-| 6   | 687119652-8     | HomeEmail | cmakepeace7@1688.com         |
-| 7   | 093004505-X     | Fax       | 818-156-7985                 |
-| 8   | 739131380-7     | Fax       | 626-981-3874                 |
-| 9   | 093004505-X     | HomePhone | 818-323-9865                 |
-| 10  | 653377813-7     | HomePhone | 832-442-4988                 |
-| 11  | 315297729-8     | HomeEmail | dmouncey9@cnn.com            |
-
-</div>
-
-``` python
 final_contact_methods
 ```
 
