@@ -185,28 +185,24 @@ DECLARE done INT DEFAULT FALSE;
 DECLARE v_LegacyContactId VARCHAR(255);
 DECLARE v_HomePhone VARCHAR(255);
 DECLARE v_HomeEmail VARCHAR(255);
-DECLARE v_Phone VARCHAR(255);
-DECLARE v_Email VARCHAR(255);
 DECLARE v_Fax VARCHAR(255);
 DECLARE cur CURSOR FOR 
-    SELECT 
-        temp_contacts.`Number` AS LegacyContactId,
-        temp_contact_methods.`Phone` AS HomePhone,
-        temp_contact_methods.`EMail` AS HomeEmail,
-        temp_contacts.`Phone` AS Phone,
-        temp_contacts.`EMail` AS Email,
+    SELECT DISTINCT
+        contacts.`LegacyContactId` AS LegacyContactId,
+        contacts.`HomePhone` AS HomePhone,
+        contacts.`HomeEmail` AS HomeEmail,
         temp_contact_methods.Fax AS fax
     FROM 
-        temp_contacts
-    LEFT JOIN
-        temp_contact_methods ON temp_contact_methods.DonorNumber = temp_contacts.`Number`;
+        contacts
+    JOIN
+        temp_contact_methods ON temp_contact_methods.DonorNumber = contacts.`LegacyContactId`;
 
 DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
 
     OPEN cur;
 
     read_loop: LOOP
-        FETCH cur INTO v_LegacyContactId, v_HomePhone, v_HomeEmail, v_Phone, v_Email, v_Fax;
+        FETCH cur INTO v_LegacyContactId, v_HomePhone, v_HomeEmail,v_Fax;
         
         IF done THEN
             LEAVE read_loop;
@@ -215,8 +211,6 @@ DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
         INSERT INTO contact_methods (`LegacyContactId`, `Type`, `Value`) VALUES 
             (v_LegacyContactId, 'HomePhone', v_HomePhone),
             (v_LegacyContactId, 'HomeEmail', v_HomeEmail),
-            (v_LegacyContactId, 'HomePhone', v_Phone),
-            (v_LegacyContactId, 'HomeEmail', v_Email),
             (v_LegacyContactId, 'Fax', v_Fax);
     END LOOP;
 
@@ -225,18 +219,6 @@ END;
 
 -- Delete records from contact methods where value is null or ''
 DELETE FROM contact_methods WHERE `Value` IS NULL OR `Value` = '';
-
-CREATE TEMPORARY TABLE temp_contact_methods AS
-SELECT DISTINCT LegacyContactId, Type, Value
-FROM contact_methods;
-
-DELETE FROM contact_methods;
-
-INSERT INTO contact_methods (LegacyContactId, Type, Value)
-SELECT DISTINCT LegacyContactId, Type, Value
-FROM temp_contact_methods;
-
-DROP TEMPORARY TABLE IF EXISTS temp_contact_methods;
 
 
 commit;
