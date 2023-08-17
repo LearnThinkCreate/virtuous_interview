@@ -7,3 +7,4 @@ website:
       - 01_SQL_Solution.ipynb
       - 02_Pandas_Solution.ipynb
       - 03_Gpt_Solution.ipynb
+      - 04_Test.ipynb
