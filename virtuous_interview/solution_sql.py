@@ -172,7 +172,7 @@ commit;
 """
 insert_proc(proc, 'update_gift_type', call=True)
 
-# %% ../01_SQL_Solution.ipynb 50
+# %% ../01_SQL_Solution.ipynb 59
 proc = """
 CREATE TABLE IF NOT EXISTS contact_methods (
     `LegacyContactId` VARCHAR(255),

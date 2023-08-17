@@ -214,7 +214,7 @@ def fix_email(email):
 # %% ../00_Setup.ipynb 111
 contacts['EMail'] = contacts.EMail.apply(fix_email)
 
-# %% ../00_Setup.ipynb 117
+# %% ../00_Setup.ipynb 116
 def validate_us_phone_number(phone_number):
     # Patterns for different US phone number formats
     patterns = [
@@ -231,5 +231,8 @@ def validate_us_phone_number(phone_number):
 
     return ''
 
-# %% ../00_Setup.ipynb 118
+# %% ../00_Setup.ipynb 117
 contacts['Phone'] = contacts.Phone.apply(validate_us_phone_number)
+
+# %% ../00_Setup.ipynb 118
+contacts.fillna('', inplace=True)
