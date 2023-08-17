@@ -35,9 +35,12 @@ d = { 'settings': { 'branch': 'master',
                                                                                              'virtuous_interview/utils.py'),
                                           'virtuous_interview.utils.custom_parser': ( 'setup.html#custom_parser',
                                                                                       'virtuous_interview/utils.py'),
+                                          'virtuous_interview.utils.fix_email': ('setup.html#fix_email', 'virtuous_interview/utils.py'),
                                           'virtuous_interview.utils.set_contact_name': ( 'setup.html#set_contact_name',
                                                                                          'virtuous_interview/utils.py'),
                                           'virtuous_interview.utils.to_camel_case': ( 'setup.html#to_camel_case',
                                                                                       'virtuous_interview/utils.py'),
                                           'virtuous_interview.utils.transform_cnames': ( 'setup.html#transform_cnames',
-                                                                                         'virtuous_interview/utils.py')}}}
+                                                                                         'virtuous_interview/utils.py'),
+                                          'virtuous_interview.utils.valid_email': ( 'setup.html#valid_email',
+                                                                                    'virtuous_interview/utils.py')}}}

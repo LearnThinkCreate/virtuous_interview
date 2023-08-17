@@ -1,5 +1,5 @@
 LegacyContactId,LegacyIndividualId,ContactName,FirstName,LastName,SecondaryLegacyIndividualId,SecondaryFirstName,SecondaryLastName,HomePhone,HomeEmail,Address1,City,State,PostalCode,IsPrivate,IsDeceased,ContactType
-653377813-7,0,Karita & Kelvin Lumbers,Karita,Lumbers,1,Kelvin,Lumbers,,kklumbers@ yahoo.co,4 Bunting Parkway,Washington,DC,,True,False,Household
+653377813-7,0,Karita & Kelvin Lumbers,Karita,Lumbers,1,Kelvin,Lumbers,,kklumbers@yahoo.com,4 Bunting Parkway,Washington,DC,,True,False,Household
 390551098-7,2,Helga Benech,Helga,Benech,,,,,ebenech1@goodreads.com,48684 Jenifer Way,Las Vegas,NV,89130,False,False,Household
 093004505-X,3,Masha Butt Gow,Masha,Butt Gow,,,,577-374-96523,,353 Schmedeman Park,Indianapolis,IN,,False,False,Household
 729707142-0,4,Cymbre Cross,Cymbre,Cross,,,,,,2055 Lakewood Parkway,Camden,NJ,,False,False,Organization
