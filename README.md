@@ -86,6 +86,17 @@ final_contacts.fillna('')
 ```
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+&#10;    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+&#10;    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 
 |     | LegacyContactId | LegacyIndividualId | ContactName                    | FirstName | LastName    | SecondaryLegacyIndividualId | SecondaryFirstName | SecondaryLastName | HomePhone     | HomeEmail                    | Address1              | City         | State | PostalCode | IsPrivate | IsDeceased | ContactType  |
 |-----|-----------------|--------------------|--------------------------------|-----------|-------------|-----------------------------|--------------------|-------------------|---------------|------------------------------|-----------------------|--------------|-------|------------|-----------|------------|--------------|
@@ -104,6 +115,29 @@ final_contacts.fillna('')
 </div>
 
 ``` python
+pd.read_csv('data/final_contact_methods.csv')
+```
+
+<div>
+
+|     | LegacyContactId | Type      | Value                        |
+|-----|-----------------|-----------|------------------------------|
+| 0   | 093004505-X     | HomePhone | 577-374-96523                |
+| 1   | 848348568-0     | HomePhone | 702-844-9524                 |
+| 2   | 029456846-8     | HomeEmail | jdoley6@telegraph.co.uk      |
+| 3   | 390551098-7     | HomeEmail | ebenech1@goodreads.com       |
+| 4   | 488464926-5     | HomeEmail | fcastille4@timesonline.co.uk |
+| 5   | 653377813-7     | HomeEmail | kklumbers@ yahoo.co          |
+| 6   | 687119652-8     | HomeEmail | cmakepeace7@1688.com         |
+| 7   | 093004505-X     | Fax       | 818-156-7985                 |
+| 8   | 739131380-7     | Fax       | 626-981-3874                 |
+| 9   | 093004505-X     | HomePhone | 818-323-9865                 |
+| 10  | 653377813-7     | HomePhone | 832-442-4988                 |
+| 11  | 315297729-8     | HomeEmail | dmouncey9@cnn.com            |
+
+</div>
+
+``` python
 final_contact_methods
 ```
 
@@ -111,17 +145,18 @@ final_contact_methods
 
 |     | LegacyContactId | Type      | Value                        |
 |-----|-----------------|-----------|------------------------------|
-| 0   | 093004505-X     | HomePhone | 818-323-9865                 |
-| 1   | 653377813-7     | HomePhone | 832-442-4988                 |
-| 2   | 848348568-0     | HomePhone | 702-844-9524                 |
-| 3   | 029456846-8     | HomeEmail | jdoley6@telegraph.co.uk      |
-| 4   | 315297729-8     | HomeEmail | dmouncey9@cnn.com            |
-| 5   | 390551098-7     | HomeEmail | ebenech1@goodreads.com       |
-| 6   | 488464926-5     | HomeEmail | fcastille4@timesonline.co.uk |
-| 7   | 653377813-7     | HomeEmail | kklumbers@ yahoo.co          |
-| 8   | 687119652-8     | HomeEmail | cmakepeace7@1688.com         |
-| 9   | 093004505-X     | Fax       | 818-156-7985                 |
-| 10  | 739131380-7     | Fax       | 626-981-3874                 |
+| 0   | 093004505-X     | HomePhone | 577-374-96523                |
+| 1   | 848348568-0     | HomePhone | 702-844-9524                 |
+| 2   | 029456846-8     | HomeEmail | jdoley6@telegraph.co.uk      |
+| 3   | 390551098-7     | HomeEmail | ebenech1@goodreads.com       |
+| 4   | 488464926-5     | HomeEmail | fcastille4@timesonline.co.uk |
+| 5   | 653377813-7     | HomeEmail | kklumbers@ yahoo.co          |
+| 6   | 687119652-8     | HomeEmail | cmakepeace7@1688.com         |
+| 7   | 093004505-X     | Fax       | 818-156-7985                 |
+| 8   | 739131380-7     | Fax       | 626-981-3874                 |
+| 9   | 093004505-X     | HomePhone | 818-323-9865                 |
+| 10  | 653377813-7     | HomePhone | 832-442-4988                 |
+| 11  | 315297729-8     | HomeEmail | dmouncey9@cnn.com            |
 
 </div>
 
