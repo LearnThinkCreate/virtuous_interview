@@ -42,5 +42,6 @@ d = { 'settings': { 'branch': 'master',
                                                                                       'virtuous_interview/utils.py'),
                                           'virtuous_interview.utils.transform_cnames': ( 'setup.html#transform_cnames',
                                                                                          'virtuous_interview/utils.py'),
-                                          'virtuous_interview.utils.valid_email': ( 'setup.html#valid_email',
-                                                                                    'virtuous_interview/utils.py')}}}
+                                          'virtuous_interview.utils.valid_email': ('setup.html#valid_email', 'virtuous_interview/utils.py'),
+                                          'virtuous_interview.utils.validate_us_phone_number': ( 'setup.html#validate_us_phone_number',
+                                                                                                 'virtuous_interview/utils.py')}}}

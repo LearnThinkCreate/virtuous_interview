@@ -3,7 +3,8 @@
 # %% auto 0
 __all__ = ['contact_methods', 'contacts', 'gifts', 'int_cols', 'donors_not_in_contacts', 'records_to_join', 'id',
            'blank_name_records', 'blank_name_numbers', 'gift_name_records', 'project_codes', 'to_camel_case',
-           'transform_cnames', 'classify_phone_email', 'set_contact_name', 'custom_parser', 'valid_email', 'fix_email']
+           'transform_cnames', 'classify_phone_email', 'set_contact_name', 'custom_parser', 'valid_email', 'fix_email',
+           'validate_us_phone_number']
 
 # %% ../00_Setup.ipynb 6
 import pandas as pd
@@ -212,3 +213,23 @@ def fix_email(email):
 
 # %% ../00_Setup.ipynb 111
 contacts['EMail'] = contacts.EMail.apply(fix_email)
+
+# %% ../00_Setup.ipynb 117
+def validate_us_phone_number(phone_number):
+    # Patterns for different US phone number formats
+    patterns = [
+        r'^\+1\s?\d{3}-\d{3}-\d{4}$',
+        r'^\(\d{3}\)\s?\d{3}-\d{4}$',
+        r'^\d{3}-\d{3}-\d{4}$',
+        r'^\d{3}-\d{4}$' 
+    ]
+
+    # Check if the phone number matches any of the patterns
+    for pattern in patterns:
+        if re.match(pattern, phone_number):
+            return phone_number
+
+    return ''
+
+# %% ../00_Setup.ipynb 118
+contacts['Phone'] = contacts.Phone.apply(validate_us_phone_number)
