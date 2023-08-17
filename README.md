@@ -87,19 +87,19 @@ final_contacts.fillna('')
 
 <div>
 
-|     | LegacyContactId | LegacyIndividualId | ContactName                    | ContactType  | FirstName | LastName    | SecondaryLegacyIndividualId | SecondaryFirstName | SecondaryLastName | HomePhone     | HomeEmail                    | Address1              | City         | State | PostalCode | IsPrivate | IsDeceased |
-|-----|-----------------|--------------------|--------------------------------|--------------|-----------|-------------|-----------------------------|--------------------|-------------------|---------------|------------------------------|-----------------------|--------------|-------|------------|-----------|------------|
-| 0   | 653377813-7     | 0                  | Karita & Kelvin Lumbers        | Household    | Karita    | Lumbers     | 1.0                         | Kelvin             | Lumbers           |               | kklumbers@yahoo.com          | 4 Bunting Parkway     | Washington   | DC    |            | True      | False      |
-| 1   | 390551098-7     | 2                  | Helga Benech                   | Household    | Helga     | Benech      |                             |                    |                   |               | ebenech1@goodreads.com       | 48684 Jenifer Way     | Las Vegas    | NV    | 89130.0    | False     | False      |
-| 2   | 093004505-X     | 3                  | Masha Butt Gow                 | Household    | Masha     | Butt Gow    |                             |                    |                   | 577-374-96523 |                              | 353 Schmedeman Park   | Indianapolis | IN    |            | False     | False      |
-| 3   | 729707142-0     | 4                  | Cymbre Cross                   | Organization | Cymbre    | Cross       |                             |                    |                   |               |                              | 2055 Lakewood Parkway | Camden       | NJ    |            | False     | False      |
-| 4   | 488464926-5     | 5                  | Hoyt Castille                  | Household    | Hoyt      | Castille    |                             |                    |                   |               | fcastille4@timesonline.co.uk | 37 8th Trail          | Grand Rapids | MI    | 49560.0    | False     | False      |
-| 5   | 315297729-8     | 6                  | Benedict Oscar & Idell Mouncey | Household    | Benedict  | Oscar       | 7.0                         | Idell              | Mouncey           |               |                              | 4225 Madison Ave      | Boise        | ID    |            | False     | False      |
-| 6   | 848348568-0     | 8                  | Mannie Turpin                  | Household    | Mannie    | Turpin      |                             |                    |                   | 702-844-9524  |                              |                       |              | NV    |            | False     | True       |
-| 7   | 029456846-8     | 9                  | Romy Doley                     | Household    | Romy      | Doley       |                             |                    |                   |               | jdoley6@telegraph.co.uk      | 608 Old Shore Alley   | Marietta     | GA    | 30066.0    | False     | False      |
-| 8   | 687119652-8     | 10                 | Ruggiero Makepeace             | Household    | Ruggiero  | Makepeace   |                             |                    |                   |               | cmakepeace7@1688.com         | 15 Sunbrook Center    | Omaha        | NE    | 68164.0    | False     | False      |
-| 9   | 739131380-7     | 11                 | Rosemaria & Rogelio Dimond     | Household    | Rosemaria | Dimond      | 12.0                        | Rogelio            | Dimond            |               |                              |                       | Juneau       | AK    |            | False     | False      |
-| 10  | 809975531-Y     | 13                 | Adeline Shakespeare            | Household    | Adeline   | Shakespeare |                             |                    |                   |               |                              |                       |              |       |            | False     | False      |
+|     | LegacyContactId | LegacyIndividualId | ContactType  | ContactName                    | FirstName | LastName    | SecondaryLegacyIndividualId | SecondaryFirstName | SecondaryLastName | HomePhone    | HomeEmail                    | Address1              | City         | State | PostalCode | IsPrivate | IsDeceased |
+|-----|-----------------|--------------------|--------------|--------------------------------|-----------|-------------|-----------------------------|--------------------|-------------------|--------------|------------------------------|-----------------------|--------------|-------|------------|-----------|------------|
+| 0   | 653377813-7     | 0                  | Household    | Karita & Kelvin Lumbers        | Karita    | Lumbers     | 1.0                         | Kelvin             | Lumbers           | 832-442-4988 | kklumbers@yahoo.com          | 4 Bunting Parkway     | Washington   | DC    |            | True      | False      |
+| 1   | 390551098-7     | 2                  | Household    | Helga Benech                   | Helga     | Benech      |                             |                    |                   |              | ebenech1@goodreads.com       | 48684 Jenifer Way     | Las Vegas    | NV    | 89130.0    | False     | False      |
+| 2   | 093004505-X     | 3                  | Household    | Masha Butt Gow                 | Masha     | Butt Gow    |                             |                    |                   | 818-323-9865 |                              | 353 Schmedeman Park   | Indianapolis | IN    |            | False     | False      |
+| 3   | 729707142-0     | 4                  | Organization | Cymbre Cross                   | Cymbre    | Cross       |                             |                    |                   |              |                              | 2055 Lakewood Parkway | Camden       | NJ    |            | False     | False      |
+| 4   | 488464926-5     | 5                  | Household    | Hoyt Castille                  | Hoyt      | Castille    |                             |                    |                   |              | fcastille4@timesonline.co.uk | 37 8th Trail          | Grand Rapids | MI    | 49560.0    | False     | False      |
+| 5   | 315297729-8     | 6                  | Household    | Benedict Oscar & Idell Mouncey | Benedict  | Oscar       | 7.0                         | Idell              | Mouncey           |              | dmouncey9@cnn.com            | 4225 Madison Ave      | Boise        | ID    |            | False     | False      |
+| 6   | 848348568-0     | 8                  | Household    | Mannie Turpin                  | Mannie    | Turpin      |                             |                    |                   | 702-844-9524 |                              |                       |              | NV    |            | False     | True       |
+| 7   | 029456846-8     | 9                  | Household    | Romy Doley                     | Romy      | Doley       |                             |                    |                   |              | jdoley6@telegraph.co.uk      | 608 Old Shore Alley   | Marietta     | GA    | 30066.0    | False     | False      |
+| 8   | 687119652-8     | 10                 | Household    | Ruggiero Makepeace             | Ruggiero  | Makepeace   |                             |                    |                   |              | cmakepeace7@1688.com         | 15 Sunbrook Center    | Omaha        | NE    | 68164.0    | False     | False      |
+| 9   | 739131380-7     | 11                 | Household    | Rosemaria & Rogelio Dimond     | Rosemaria | Dimond      | 12.0                        | Rogelio            | Dimond            |              |                              |                       | Juneau       | AK    |            | False     | False      |
+| 10  | 809975531-Y     | 13                 | Household    | Adeline Shakespeare            | Adeline   | Shakespeare |                             |                    |                   |              |                              |                       |              |       |            | False     | False      |
 
 </div>
 
@@ -111,18 +111,17 @@ final_contact_methods
 
 |     | LegacyContactId | Type      | Value                        |
 |-----|-----------------|-----------|------------------------------|
-| 0   | 093004505-X     | HomePhone | 577-374-96523                |
-| 1   | 848348568-0     | HomePhone | 702-844-9524                 |
-| 2   | 029456846-8     | HomeEmail | jdoley6@telegraph.co.uk      |
-| 3   | 390551098-7     | HomeEmail | ebenech1@goodreads.com       |
-| 4   | 488464926-5     | HomeEmail | fcastille4@timesonline.co.uk |
-| 5   | 653377813-7     | HomeEmail | kklumbers@yahoo.com          |
-| 6   | 687119652-8     | HomeEmail | cmakepeace7@1688.com         |
-| 7   | 093004505-X     | Fax       | 818-156-7985                 |
-| 8   | 739131380-7     | Fax       | 626-981-3874                 |
-| 9   | 093004505-X     | HomePhone | 818-323-9865                 |
-| 10  | 653377813-7     | HomePhone | 832-442-4988                 |
-| 11  | 315297729-8     | HomeEmail | dmouncey9@cnn.com            |
+| 0   | 848348568-0     | HomePhone | 702-844-9524                 |
+| 1   | 029456846-8     | HomeEmail | jdoley6@telegraph.co.uk      |
+| 2   | 390551098-7     | HomeEmail | ebenech1@goodreads.com       |
+| 3   | 488464926-5     | HomeEmail | fcastille4@timesonline.co.uk |
+| 4   | 653377813-7     | HomeEmail | kklumbers@yahoo.com          |
+| 5   | 687119652-8     | HomeEmail | cmakepeace7@1688.com         |
+| 6   | 093004505-X     | Fax       | 818-156-7985                 |
+| 7   | 739131380-7     | Fax       | 626-981-3874                 |
+| 8   | 093004505-X     | HomePhone | 818-323-9865                 |
+| 9   | 653377813-7     | HomePhone | 832-442-4988                 |
+| 10  | 315297729-8     | HomeEmail | dmouncey9@cnn.com            |
 
 </div>
 
