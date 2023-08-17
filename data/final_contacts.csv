@@ -1,12 +1,12 @@
-LegacyContactId,LegacyIndividualId,ContactName,FirstName,LastName,SecondaryLegacyIndividualId,SecondaryFirstName,SecondaryLastName,HomePhone,HomeEmail,Address1,City,State,PostalCode,IsPrivate,IsDeceased
-653377813-7,0,,Karita,Lumbers,1,Kelvin,,,kklumbers@ yahoo.co,4 Bunting Parkway,Washington,DC,,True,False
-390551098-7,2,,Helga,Benech,,,,,ebenech1@goodreads.com,48684 Jenifer Way,Las Vegas,NV,89130,False,False
-093004505-X,3,,Masha,Butt Gow,,,,577-374-96523,,353 Schmedeman Park,Indianapolis,IN,,False,False
-729707142-0,4,A Company Co.,Cymbre,Cross,,,,,,2055 Lakewood Parkway,Camden,NJ,,False,False
-488464926-5,5,,Hoyt,Castille,,,,,fcastille4@timesonline.co.uk,37 8th Trail,Grand Rapids,MI,49560,False,False
-315297729-8,6,,Benedict,Oscar,7,Idell,Mouncey,,,4225 Madison Ave,Boise,ID,,False,False
-848348568-0,8,,Mannie,Turpin,,,,702-844-9524,,,,NV,,False,True
-029456846-8,9,,Romy,Doley,,,,,jdoley6@telegraph.co.uk,608 Old Shore Alley,Marietta,GA,30066,False,False
-687119652-8,10,,Ruggiero,Makepeace,,,,,cmakepeace7@1688.com,15 Sunbrook Center,Omaha,NE,68164,False,False
-739131380-7,11,,Rosemaria,Dimond,12,Rogelio,,,,,Juneau,AK,,False,False
-809975531-Y,13,,Adeline,Shakespeare,,,,,,,,,,False,False
+LegacyContactId,LegacyIndividualId,ContactName,FirstName,LastName,SecondaryLegacyIndividualId,SecondaryFirstName,SecondaryLastName,HomePhone,HomeEmail,Address1,City,State,PostalCode,IsPrivate,IsDeceased,ContactType
+653377813-7,0,Karita & Kelvin Lumbers,Karita,Lumbers,1,Kelvin,Lumbers,,kklumbers@ yahoo.co,4 Bunting Parkway,Washington,DC,,True,False,Household
+390551098-7,2,Helga Benech,Helga,Benech,,,,,ebenech1@goodreads.com,48684 Jenifer Way,Las Vegas,NV,89130,False,False,Household
+093004505-X,3,Masha Butt Gow,Masha,Butt Gow,,,,577-374-96523,,353 Schmedeman Park,Indianapolis,IN,,False,False,Household
+729707142-0,4,Cymbre Cross,Cymbre,Cross,,,,,,2055 Lakewood Parkway,Camden,NJ,,False,False,Organization
+488464926-5,5,Hoyt Castille,Hoyt,Castille,,,,,fcastille4@timesonline.co.uk,37 8th Trail,Grand Rapids,MI,49560,False,False,Household
+315297729-8,6,Benedict Oscar & Idell Mouncey,Benedict,Oscar,7,Idell,Mouncey,,,4225 Madison Ave,Boise,ID,,False,False,Household
+848348568-0,8,Mannie Turpin,Mannie,Turpin,,,,702-844-9524,,,,NV,,False,True,Household
+029456846-8,9,Romy Doley,Romy,Doley,,,,,jdoley6@telegraph.co.uk,608 Old Shore Alley,Marietta,GA,30066,False,False,Household
+687119652-8,10,Ruggiero Makepeace,Ruggiero,Makepeace,,,,,cmakepeace7@1688.com,15 Sunbrook Center,Omaha,NE,68164,False,False,Household
+739131380-7,11,Rosemaria & Rogelio Dimond,Rosemaria,Dimond,12,Rogelio,Dimond,,,,Juneau,AK,,False,False,Household
+809975531-Y,13,Adeline Shakespeare,Adeline,Shakespeare,,,,,,,,,,False,False,Household

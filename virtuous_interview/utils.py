@@ -3,7 +3,7 @@
 # %% auto 0
 __all__ = ['contact_methods', 'contacts', 'gifts', 'int_cols', 'donors_not_in_contacts', 'records_to_join', 'id',
            'blank_name_records', 'blank_name_numbers', 'gift_name_records', 'project_codes', 'to_camel_case',
-           'transform_cnames', 'classify_phone_email', 'custom_parser']
+           'transform_cnames', 'classify_phone_email', 'set_contact_name', 'custom_parser']
 
 # %% ../00_Setup.ipynb 6
 import pandas as pd
@@ -110,6 +110,9 @@ for index, row in contacts.iterrows():
 # %% ../00_Setup.ipynb 51
 contacts.fillna('', inplace=True)
 
+# %% ../00_Setup.ipynb 53
+contacts['SecondaryLastName'] = contacts.apply(lambda x: x['LastName'] if x['SecondaryLastName'] == '' and x['SecondaryFirstName'] != '' else x['SecondaryLastName'], axis=1)
+
 # %% ../00_Setup.ipynb 56
 blank_name_records = ((contacts.FirstName == '') | (contacts.LastName == ''))
 
@@ -127,19 +130,31 @@ gift_name_records
 for _, row in gift_name_records.iterrows():
     contacts.loc[contacts['Number'] == row['DonorNumber'], ['FirstName', 'LastName']] = [row['FirstName'], row['LastName']]
 
-# %% ../00_Setup.ipynb 70
-project_codes = gifts.FundId.str.split(', ', expand=True)
-
 # %% ../00_Setup.ipynb 71
-project_codes.head(3)
+def set_contact_name(row):
+    if row['LastName'] == row['SecondaryLastName']:
+        return row['FirstName'] + ' & ' + row['SecondaryFirstName'] + ' ' + row['LastName']
+    elif row['SecondaryFirstName'] != '':
+        return row['FirstName'] +  ' ' + row['LastName'] + ' & ' + row['SecondaryFirstName'] + ' ' + row['SecondaryLastName']
+    else:
+        return row['FirstName'] + ' ' + row['LastName']
 
 # %% ../00_Setup.ipynb 72
+contacts['ContactName'] = contacts.apply(set_contact_name, axis=1)
+
+# %% ../00_Setup.ipynb 74
+project_codes = gifts.FundId.str.split(', ', expand=True)
+
+# %% ../00_Setup.ipynb 75
+project_codes.head(3)
+
+# %% ../00_Setup.ipynb 76
 gifts[['Project1Code', 'Project2Code']] = project_codes
 
-# %% ../00_Setup.ipynb 73
+# %% ../00_Setup.ipynb 77
 gifts = gifts.loc[:, gifts.columns.drop('FundId')].copy()
 
-# %% ../00_Setup.ipynb 77
+# %% ../00_Setup.ipynb 81
 from datetime import datetime
 def custom_parser(date_str):
     try:
@@ -149,8 +164,8 @@ def custom_parser(date_str):
 gifts['GiftDate'] = gifts['Date'].apply(custom_parser)
 gifts = gifts.loc[:, gifts.columns.drop('Date')].copy()
 
-# %% ../00_Setup.ipynb 80
+# %% ../00_Setup.ipynb 84
 gifts.loc[ gifts.PledgeNumber == 0, 'PledgeNumber'] = gifts[gifts.PledgeNumber == 0].index
 
-# %% ../00_Setup.ipynb 81
+# %% ../00_Setup.ipynb 85
 gifts = gifts.rename(columns={'PledgeNumber': 'LegacyPledgeID'})
