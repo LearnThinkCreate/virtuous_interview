@@ -18,7 +18,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pandas pytest mysql-connector-python dotenv sqlalchemy numpy pandas_gpt
+        pip install pandas pytest mysql-connector-python python-dotenv sqlalchemy numpy pandas-gpt
 
     - name: Run tests
       run: pytest virtuous_interview/test.py

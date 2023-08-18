@@ -1,6 +1,6 @@
-sqlalchemy
-numpy
+fastcore
 pandas
-pandas-gpt
 mysql-connector-python
-dotenv
+sqlalchemy
+python-dotenv
+pandas-gpt
