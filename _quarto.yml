@@ -20,7 +20,7 @@ website:
   description: "Virtuous Interview"
   twitter-card: true
   open-graph: true
-  repo-branch: master
+  repo-branch: main
   repo-url: "https://github.com/LearnThinkCreate/virtuous_interview"
   repo-actions: [issue]
   navbar:
