@@ -101,10 +101,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="virtuous_interview - Setup">
-<meta property="og:description" content="">
 <meta property="og:site-name" content="virtuous_interview">
 <meta name="twitter:title" content="virtuous_interview - Setup">
-<meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -206,52 +204,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#previewing-the-initial-datasets" id="toc-previewing-the-initial-datasets" class="nav-link active" data-scroll-target="#previewing-the-initial-datasets">Previewing The Initial Datasets</a></li>
-  <li><a href="#column-name-transformation" id="toc-column-name-transformation" class="nav-link" data-scroll-target="#column-name-transformation">Column Name Transformation</a>
+  <li><a href="#inital-transformations" id="toc-inital-transformations" class="nav-link" data-scroll-target="#inital-transformations">Inital Transformations</a>
   <ul>
-  <li><a href="#creating-a-func-to-convert-string-to-camelcase" id="toc-creating-a-func-to-convert-string-to-camelcase" class="nav-link" data-scroll-target="#creating-a-func-to-convert-string-to-camelcase">Creating a Func to Convert String to CamelCase</a>
+  <li><a href="#column-name-transformation" id="toc-column-name-transformation" class="nav-link" data-scroll-target="#column-name-transformation">Column Name Transformation</a>
   <ul class="collapse">
+  <li><a href="#creating-a-func-to-convert-string-to-camelcase" id="toc-creating-a-func-to-convert-string-to-camelcase" class="nav-link" data-scroll-target="#creating-a-func-to-convert-string-to-camelcase">Creating a Func to Convert String to CamelCase</a></li>
   <li><a href="#to_camel_case" id="toc-to_camel_case" class="nav-link" data-scroll-target="#to_camel_case">to_camel_case</a></li>
-  </ul></li>
-  <li><a href="#creating-seperate-function-to-apply-string-transformation-to-pandas-columns" id="toc-creating-seperate-function-to-apply-string-transformation-to-pandas-columns" class="nav-link" data-scroll-target="#creating-seperate-function-to-apply-string-transformation-to-pandas-columns">Creating seperate function to apply string transformation to pandas columns</a>
-  <ul class="collapse">
+  <li><a href="#creating-seperate-function-to-apply-string-transformation-to-pandas-columns" id="toc-creating-seperate-function-to-apply-string-transformation-to-pandas-columns" class="nav-link" data-scroll-target="#creating-seperate-function-to-apply-string-transformation-to-pandas-columns">Creating seperate function to apply string transformation to pandas columns</a></li>
   <li><a href="#transform_cnames" id="toc-transform_cnames" class="nav-link" data-scroll-target="#transform_cnames">transform_cnames</a></li>
-  </ul></li>
   <li><a href="#applying-transformation" id="toc-applying-transformation" class="nav-link" data-scroll-target="#applying-transformation">Applying Transformation</a></li>
   </ul></li>
   <li><a href="#column-type-transformation" id="toc-column-type-transformation" class="nav-link" data-scroll-target="#column-type-transformation">Column Type Transformation</a></li>
   <li><a href="#misplaced-data-transformation" id="toc-misplaced-data-transformation" class="nav-link" data-scroll-target="#misplaced-data-transformation">Misplaced Data Transformation</a>
-  <ul>
+  <ul class="collapse">
   <li><a href="#classify_phone_email" id="toc-classify_phone_email" class="nav-link" data-scroll-target="#classify_phone_email">classify_phone_email</a></li>
   <li><a href="#applying-phoneemail-transformation" id="toc-applying-phoneemail-transformation" class="nav-link" data-scroll-target="#applying-phoneemail-transformation">Applying Phone/Email Transformation</a></li>
   </ul></li>
   <li><a href="#consolidate-contacts-table" id="toc-consolidate-contacts-table" class="nav-link" data-scroll-target="#consolidate-contacts-table">Consolidate Contacts Table</a>
-  <ul>
+  <ul class="collapse">
   <li><a href="#checking-for-missing-records" id="toc-checking-for-missing-records" class="nav-link" data-scroll-target="#checking-for-missing-records">Checking for Missing records</a></li>
   <li><a href="#spliting-rows-with-multiple-people" id="toc-spliting-rows-with-multiple-people" class="nav-link" data-scroll-target="#spliting-rows-with-multiple-people">Spliting rows with Multiple People</a></li>
   </ul></li>
   <li><a href="#cleaning-names" id="toc-cleaning-names" class="nav-link" data-scroll-target="#cleaning-names">Cleaning Names</a></li>
   <li><a href="#add-contact-name" id="toc-add-contact-name" class="nav-link" data-scroll-target="#add-contact-name">Add Contact Name</a>
-  <ul>
+  <ul class="collapse">
   <li><a href="#set_contact_name" id="toc-set_contact_name" class="nav-link" data-scroll-target="#set_contact_name">set_contact_name</a></li>
   <li><a href="#applying-contactname-transformation" id="toc-applying-contactname-transformation" class="nav-link" data-scroll-target="#applying-contactname-transformation">Applying ContactName Transformation</a></li>
   </ul></li>
   <li><a href="#projectcode-transformation" id="toc-projectcode-transformation" class="nav-link" data-scroll-target="#projectcode-transformation">ProjectCode Transformation</a></li>
   <li><a href="#date-transformation" id="toc-date-transformation" class="nav-link" data-scroll-target="#date-transformation">Date Transformation</a>
-  <ul>
+  <ul class="collapse">
   <li><a href="#custom_parser" id="toc-custom_parser" class="nav-link" data-scroll-target="#custom_parser">custom_parser</a></li>
   <li><a href="#transforming-dates" id="toc-transforming-dates" class="nav-link" data-scroll-target="#transforming-dates">Transforming Dates</a></li>
   </ul></li>
   <li><a href="#email-transformation" id="toc-email-transformation" class="nav-link" data-scroll-target="#email-transformation">Email Transformation</a>
-  <ul>
+  <ul class="collapse">
   <li><a href="#valid_email" id="toc-valid_email" class="nav-link" data-scroll-target="#valid_email">valid_email</a></li>
   <li><a href="#fix_email" id="toc-fix_email" class="nav-link" data-scroll-target="#fix_email">fix_email</a></li>
   <li><a href="#applying-email-transformation" id="toc-applying-email-transformation" class="nav-link" data-scroll-target="#applying-email-transformation">Applying Email Transformation</a></li>
   </ul></li>
   <li><a href="#phone-transformation" id="toc-phone-transformation" class="nav-link" data-scroll-target="#phone-transformation">Phone # Transformation</a>
-  <ul>
+  <ul class="collapse">
   <li><a href="#validate_us_phone_number" id="toc-validate_us_phone_number" class="nav-link" data-scroll-target="#validate_us_phone_number">validate_us_phone_number</a></li>
   <li><a href="#applying-phone-transformation" id="toc-applying-phone-transformation" class="nav-link" data-scroll-target="#applying-phone-transformation">Applying Phone # Transformation</a></li>
   </ul></li>
+  </ul></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
   <li><a href="#export" id="toc-export" class="nav-link" data-scroll-target="#export">Export</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/LearnThinkCreate/virtuous_interview/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -551,16 +549,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Before I begin the performing the analysis in each method’s respective notebook, I’m going to standardize the column names and types across the 3 DataFrames so I can pass them to each notebook and save myself some tedious typing<strong><br> <br> </strong> Also doing this to show usefullness of juptyer notebook in production environments :)</p>
 </section>
-<section id="column-name-transformation" class="level1">
-<h1>Column Name Transformation</h1>
+<section id="inital-transformations" class="level1">
+<h1>Inital Transformations</h1>
+<blockquote class="blockquote">
+<p>Transforming certain task on load in order to reduce redundency … and some work for me :)</p>
+</blockquote>
+<section id="column-name-transformation" class="level2">
+<h2 class="anchored" data-anchor-id="column-name-transformation">Column Name Transformation</h2>
 <p><br></p>
 <ul>
 <li>Nothing worse than malformed column names, amiright? <br> <br></li>
 </ul>
-<section id="creating-a-func-to-convert-string-to-camelcase" class="level2">
-<h2 class="anchored" data-anchor-id="creating-a-func-to-convert-string-to-camelcase">Creating a Func to Convert String to CamelCase</h2>
+<section id="creating-a-func-to-convert-string-to-camelcase" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-func-to-convert-string-to-camelcase">Creating a Func to Convert String to CamelCase</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> to_camel_case(s):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Remove all non-alphanumeric characters and replace with a space</span></span>
@@ -572,15 +574,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <hr>
 <p><a href="https://github.com/LearnThinkCreate/virtuous_interview/blob/master/virtuous_interview/utils.py#L20" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
 <section id="to_camel_case" class="level3">
 <h3 class="anchored" data-anchor-id="to_camel_case">to_camel_case</h3>
 <blockquote class="blockquote">
 <pre><code> to_camel_case (s)</code></pre>
 </blockquote>
 </section>
-</section>
-<section id="creating-seperate-function-to-apply-string-transformation-to-pandas-columns" class="level2">
-<h2 class="anchored" data-anchor-id="creating-seperate-function-to-apply-string-transformation-to-pandas-columns">Creating seperate function to apply string transformation to pandas columns</h2>
+<section id="creating-seperate-function-to-apply-string-transformation-to-pandas-columns" class="level3">
+<h3 class="anchored" data-anchor-id="creating-seperate-function-to-apply-string-transformation-to-pandas-columns">Creating seperate function to apply string transformation to pandas columns</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> transform_cnames(df, func<span class="op">=</span>to_camel_case):</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    df.columns <span class="op">=</span> df.columns.<span class="bu">map</span>(func)</span>
@@ -588,23 +590,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <hr>
 <p><a href="https://github.com/LearnThinkCreate/virtuous_interview/blob/master/virtuous_interview/utils.py#L29" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
 <section id="transform_cnames" class="level3">
 <h3 class="anchored" data-anchor-id="transform_cnames">transform_cnames</h3>
 <blockquote class="blockquote">
 <pre><code> transform_cnames (df, func=&lt;function to_camel_case&gt;)</code></pre>
 </blockquote>
 </section>
-</section>
-<section id="applying-transformation" class="level2">
-<h2 class="anchored" data-anchor-id="applying-transformation">Applying Transformation</h2>
+<section id="applying-transformation" class="level3">
+<h3 class="anchored" data-anchor-id="applying-transformation">Applying Transformation</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> df <span class="kw">in</span> [contact_methods, contacts, gifts]:</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    transform_cnames(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
-<section id="column-type-transformation" class="level1">
-<h1>Column Type Transformation</h1>
+<section id="column-type-transformation" class="level2">
+<h2 class="anchored" data-anchor-id="column-type-transformation">Column Type Transformation</h2>
 <p><br><br></p>
 <p>I identified 2 columns on the gift table that should be ints, replacing those values</p>
 <div class="cell">
@@ -638,8 +640,8 @@ Name: AmountReceived, dtype: float64</code></pre>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>gifts <span class="op">=</span> gifts.rename(columns<span class="op">=</span>{<span class="st">'PledgeNumber'</span>: <span class="st">'LegacyPledgeID'</span>, <span class="st">'GiftId'</span>: <span class="st">'LegacyGiftId'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="misplaced-data-transformation" class="level1">
-<h1>Misplaced Data Transformation</h1>
+<section id="misplaced-data-transformation" class="level2">
+<h2 class="anchored" data-anchor-id="misplaced-data-transformation">Misplaced Data Transformation</h2>
 <blockquote class="blockquote">
 <p>Identify and clean any pieces of data in the wrong column</p>
 </blockquote>
@@ -696,8 +698,8 @@ Name: AmountReceived, dtype: float64</code></pre>
 <pre><code> classify_phone_email (value)</code></pre>
 </blockquote>
 </section>
-<section id="applying-phoneemail-transformation" class="level2">
-<h2 class="anchored" data-anchor-id="applying-phoneemail-transformation">Applying Phone/Email Transformation</h2>
+<section id="applying-phoneemail-transformation" class="level3">
+<h3 class="anchored" data-anchor-id="applying-phoneemail-transformation">Applying Phone/Email Transformation</h3>
 <p>Looping over phone &amp; email records.<br> <br> If a phone and/or email are identified in the wrong column, they will be swapped</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, row <span class="kw">in</span> contacts.iterrows():</span>
@@ -750,14 +752,14 @@ Name: AmountReceived, dtype: float64</code></pre>
 </div>
 </section>
 </section>
-<section id="consolidate-contacts-table" class="level1">
-<h1>Consolidate Contacts Table</h1>
+<section id="consolidate-contacts-table" class="level2">
+<h2 class="anchored" data-anchor-id="consolidate-contacts-table">Consolidate Contacts Table</h2>
 <ul>
 <li>Searching for missing users <br></li>
 <li>Splitting / joining households <br></li>
 </ul>
-<section id="checking-for-missing-records" class="level2">
-<h2 class="anchored" data-anchor-id="checking-for-missing-records">Checking for Missing records</h2>
+<section id="checking-for-missing-records" class="level3">
+<h3 class="anchored" data-anchor-id="checking-for-missing-records">Checking for Missing records</h3>
 <p>Checking for any DonorNumbers that are NOT IN contacts Number…</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>(<span class="op">~</span>gifts.DonorNumber.isin(contacts.Number.unique())).<span class="bu">any</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -847,8 +849,8 @@ Name: AmountReceived, dtype: float64</code></pre>
 <span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="spliting-rows-with-multiple-people" class="level2">
-<h2 class="anchored" data-anchor-id="spliting-rows-with-multiple-people">Spliting rows with Multiple People</h2>
+<section id="spliting-rows-with-multiple-people" class="level3">
+<h3 class="anchored" data-anchor-id="spliting-rows-with-multiple-people">Spliting rows with Multiple People</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>contacts.FirstName.head(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -890,8 +892,8 @@ Name: FirstName, dtype: object</code></pre>
 </div>
 </section>
 </section>
-<section id="cleaning-names" class="level1">
-<h1>Cleaning Names</h1>
+<section id="cleaning-names" class="level2">
+<h2 class="anchored" data-anchor-id="cleaning-names">Cleaning Names</h2>
 <blockquote class="blockquote">
 <p>Cleaning Records with blank first or last names <br></p>
 </blockquote>
@@ -1187,8 +1189,8 @@ Name: FirstName, dtype: object</code></pre>
 </div>
 </div>
 </section>
-<section id="add-contact-name" class="level1">
-<h1>Add Contact Name</h1>
+<section id="add-contact-name" class="level2">
+<h2 class="anchored" data-anchor-id="add-contact-name">Add Contact Name</h2>
 <blockquote class="blockquote">
 <p>Adding Contact Name</p>
 </blockquote>
@@ -1302,15 +1304,15 @@ Name: FirstName, dtype: object</code></pre>
 <pre><code> set_contact_name (row)</code></pre>
 </blockquote>
 </section>
-<section id="applying-contactname-transformation" class="level2">
-<h2 class="anchored" data-anchor-id="applying-contactname-transformation">Applying ContactName Transformation</h2>
+<section id="applying-contactname-transformation" class="level3">
+<h3 class="anchored" data-anchor-id="applying-contactname-transformation">Applying ContactName Transformation</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>contacts[<span class="st">'ContactName'</span>] <span class="op">=</span> contacts.<span class="bu">apply</span>(set_contact_name, axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
-<section id="projectcode-transformation" class="level1">
-<h1>ProjectCode Transformation</h1>
+<section id="projectcode-transformation" class="level2">
+<h2 class="anchored" data-anchor-id="projectcode-transformation">ProjectCode Transformation</h2>
 <blockquote class="blockquote">
 <p>Splitting Project Codes</p>
 </blockquote>
@@ -1361,8 +1363,8 @@ Name: FirstName, dtype: object</code></pre>
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>gifts <span class="op">=</span> gifts.loc[:, gifts.columns.drop(<span class="st">'FundId'</span>)].copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="date-transformation" class="level1">
-<h1>Date Transformation</h1>
+<section id="date-transformation" class="level2">
+<h2 class="anchored" data-anchor-id="date-transformation">Date Transformation</h2>
 <blockquote class="blockquote">
 <p>Formating date</p>
 </blockquote>
@@ -1393,8 +1395,8 @@ Name: Date, dtype: object</code></pre>
 <pre><code> custom_parser (date_str)</code></pre>
 </blockquote>
 </section>
-<section id="transforming-dates" class="level2">
-<h2 class="anchored" data-anchor-id="transforming-dates">Transforming Dates</h2>
+<section id="transforming-dates" class="level3">
+<h3 class="anchored" data-anchor-id="transforming-dates">Transforming Dates</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>gifts[<span class="st">'GiftDate'</span>] <span class="op">=</span> gifts[<span class="st">'Date'</span>].<span class="bu">apply</span>(custom_parser)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1404,8 +1406,8 @@ Name: Date, dtype: object</code></pre>
 </div>
 </section>
 </section>
-<section id="email-transformation" class="level1">
-<h1>Email Transformation</h1>
+<section id="email-transformation" class="level2">
+<h2 class="anchored" data-anchor-id="email-transformation">Email Transformation</h2>
 <blockquote class="blockquote">
 <p>Validate emails</p>
 </blockquote>
@@ -1481,15 +1483,15 @@ Name: EMail, dtype: object</code></pre>
 </div>
 </div>
 </section>
-<section id="applying-email-transformation" class="level2">
-<h2 class="anchored" data-anchor-id="applying-email-transformation">Applying Email Transformation</h2>
+<section id="applying-email-transformation" class="level3">
+<h3 class="anchored" data-anchor-id="applying-email-transformation">Applying Email Transformation</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>contacts[<span class="st">'EMail'</span>] <span class="op">=</span> contacts.EMail.<span class="bu">apply</span>(fix_email)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
-<section id="phone-transformation" class="level1">
-<h1>Phone # Transformation</h1>
+<section id="phone-transformation" class="level2">
+<h2 class="anchored" data-anchor-id="phone-transformation">Phone # Transformation</h2>
 <blockquote class="blockquote">
 <p>Fix phone numbers</p>
 </blockquote>
@@ -1526,8 +1528,8 @@ Name: EMail, dtype: object</code></pre>
 <pre><code> validate_us_phone_number (phone_number)</code></pre>
 </blockquote>
 </section>
-<section id="applying-phone-transformation" class="level2">
-<h2 class="anchored" data-anchor-id="applying-phone-transformation">Applying Phone # Transformation</h2>
+<section id="applying-phone-transformation" class="level3">
+<h3 class="anchored" data-anchor-id="applying-phone-transformation">Applying Phone # Transformation</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>contacts[<span class="st">'Phone'</span>] <span class="op">=</span> contacts.Phone.<span class="bu">apply</span>(validate_us_phone_number)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1536,13 +1538,395 @@ Name: EMail, dtype: object</code></pre>
 </div>
 </section>
 </section>
+</section>
+<section id="results" class="level1">
+<h1>Results</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>contacts.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Number</th>
+<th data-quarto-table-cell-role="th">CompanyName</th>
+<th data-quarto-table-cell-role="th">FirstName</th>
+<th data-quarto-table-cell-role="th">LastName</th>
+<th data-quarto-table-cell-role="th">Street</th>
+<th data-quarto-table-cell-role="th">City</th>
+<th data-quarto-table-cell-role="th">State</th>
+<th data-quarto-table-cell-role="th">Postal</th>
+<th data-quarto-table-cell-role="th">Phone</th>
+<th data-quarto-table-cell-role="th">EMail</th>
+<th data-quarto-table-cell-role="th">Remarks</th>
+<th data-quarto-table-cell-role="th">Deceased</th>
+<th data-quarto-table-cell-role="th">SecondaryFirstName</th>
+<th data-quarto-table-cell-role="th">SecondaryLastName</th>
+<th data-quarto-table-cell-role="th">LegacyIndividualId</th>
+<th data-quarto-table-cell-role="th">SecondaryLegacyIndividualId</th>
+<th data-quarto-table-cell-role="th">ContactName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>653377813-7</td>
+<td></td>
+<td>Karita</td>
+<td>Lumbers</td>
+<td>4 Bunting Parkway</td>
+<td>Washington</td>
+<td>DC</td>
+<td>20535-871</td>
+<td></td>
+<td>kklumbers@yahoo.com</td>
+<td>Is anonymous</td>
+<td></td>
+<td>Kelvin</td>
+<td>Lumbers</td>
+<td>0</td>
+<td>1</td>
+<td>Karita &amp; Kelvin Lumbers</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>390551098-7</td>
+<td></td>
+<td>Helga</td>
+<td>Benech</td>
+<td>48684 Jenifer Way</td>
+<td>Las Vegas</td>
+<td>NV</td>
+<td>89130</td>
+<td></td>
+<td>ebenech1@goodreads.com</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>2</td>
+<td></td>
+<td>Helga Benech</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>093004505-X</td>
+<td></td>
+<td>Masha</td>
+<td>Butt Gow</td>
+<td>353 Schmedeman Park</td>
+<td>Indianapolis</td>
+<td>IN</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>3</td>
+<td></td>
+<td>Masha Butt Gow</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>729707142-0</td>
+<td>A Company Co.</td>
+<td>Cymbre</td>
+<td>Cross</td>
+<td>2055 Lakewood Parkway</td>
+<td>Camden</td>
+<td>NJ</td>
+<td>8104</td>
+<td></td>
+<td></td>
+<td></td>
+<td>No</td>
+<td></td>
+<td></td>
+<td>4</td>
+<td></td>
+<td>Cymbre Cross</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>488464926-5</td>
+<td></td>
+<td>Hoyt</td>
+<td>Castille</td>
+<td>37 8th Trail</td>
+<td>Grand Rapids</td>
+<td>MI</td>
+<td>49560</td>
+<td></td>
+<td>fcastille4@timesonline.co.uk</td>
+<td></td>
+<td>No</td>
+<td></td>
+<td></td>
+<td>5</td>
+<td></td>
+<td>Hoyt Castille</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>gifts.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">DonorNumber</th>
+<th data-quarto-table-cell-role="th">LegacyGiftId</th>
+<th data-quarto-table-cell-role="th">FirstName</th>
+<th data-quarto-table-cell-role="th">LastName</th>
+<th data-quarto-table-cell-role="th">AmountReceived</th>
+<th data-quarto-table-cell-role="th">CreditCardType</th>
+<th data-quarto-table-cell-role="th">PaymentMethod</th>
+<th data-quarto-table-cell-role="th">LegacyPledgeID</th>
+<th data-quarto-table-cell-role="th">Notes</th>
+<th data-quarto-table-cell-role="th">Project1Code</th>
+<th data-quarto-table-cell-role="th">Project2Code</th>
+<th data-quarto-table-cell-role="th">GiftDate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>848348568-0</td>
+<td>95196378</td>
+<td>Mannie</td>
+<td>Turpin</td>
+<td>4.1500</td>
+<td></td>
+<td>PayPal</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td>None</td>
+<td>2019-03-04</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>729707142-0</td>
+<td>95196889</td>
+<td>Cymbre</td>
+<td>Cross</td>
+<td>2.3648</td>
+<td></td>
+<td>check</td>
+<td>1</td>
+<td></td>
+<td>ChildSponsorship</td>
+<td>None</td>
+<td>2019-03-05</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>687119652-8</td>
+<td>95197689</td>
+<td>Ruggiero</td>
+<td>Makepeace</td>
+<td>1.3100</td>
+<td></td>
+<td>cash</td>
+<td>2</td>
+<td></td>
+<td></td>
+<td>None</td>
+<td>2019-03-07</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>653377813-7</td>
+<td>95198998</td>
+<td>Karita</td>
+<td>Lumbers</td>
+<td>2.0400</td>
+<td>American Ex</td>
+<td>credit card</td>
+<td>3</td>
+<td>In honor of Mannie Turpin</td>
+<td></td>
+<td>None</td>
+<td>2019-03-10</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>390551098-7</td>
+<td>95198999</td>
+<td>Helga</td>
+<td>Benech</td>
+<td>5.8000</td>
+<td></td>
+<td>cash</td>
+<td>89752384</td>
+<td></td>
+<td></td>
+<td>None</td>
+<td>2019-01-10</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>contacts.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Number</th>
+<th data-quarto-table-cell-role="th">CompanyName</th>
+<th data-quarto-table-cell-role="th">FirstName</th>
+<th data-quarto-table-cell-role="th">LastName</th>
+<th data-quarto-table-cell-role="th">Street</th>
+<th data-quarto-table-cell-role="th">City</th>
+<th data-quarto-table-cell-role="th">State</th>
+<th data-quarto-table-cell-role="th">Postal</th>
+<th data-quarto-table-cell-role="th">Phone</th>
+<th data-quarto-table-cell-role="th">EMail</th>
+<th data-quarto-table-cell-role="th">Remarks</th>
+<th data-quarto-table-cell-role="th">Deceased</th>
+<th data-quarto-table-cell-role="th">SecondaryFirstName</th>
+<th data-quarto-table-cell-role="th">SecondaryLastName</th>
+<th data-quarto-table-cell-role="th">LegacyIndividualId</th>
+<th data-quarto-table-cell-role="th">SecondaryLegacyIndividualId</th>
+<th data-quarto-table-cell-role="th">ContactName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>653377813-7</td>
+<td></td>
+<td>Karita</td>
+<td>Lumbers</td>
+<td>4 Bunting Parkway</td>
+<td>Washington</td>
+<td>DC</td>
+<td>20535-871</td>
+<td></td>
+<td>kklumbers@yahoo.com</td>
+<td>Is anonymous</td>
+<td></td>
+<td>Kelvin</td>
+<td>Lumbers</td>
+<td>0</td>
+<td>1</td>
+<td>Karita &amp; Kelvin Lumbers</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>390551098-7</td>
+<td></td>
+<td>Helga</td>
+<td>Benech</td>
+<td>48684 Jenifer Way</td>
+<td>Las Vegas</td>
+<td>NV</td>
+<td>89130</td>
+<td></td>
+<td>ebenech1@goodreads.com</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>2</td>
+<td></td>
+<td>Helga Benech</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>093004505-X</td>
+<td></td>
+<td>Masha</td>
+<td>Butt Gow</td>
+<td>353 Schmedeman Park</td>
+<td>Indianapolis</td>
+<td>IN</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>3</td>
+<td></td>
+<td>Masha Butt Gow</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>729707142-0</td>
+<td>A Company Co.</td>
+<td>Cymbre</td>
+<td>Cross</td>
+<td>2055 Lakewood Parkway</td>
+<td>Camden</td>
+<td>NJ</td>
+<td>8104</td>
+<td></td>
+<td></td>
+<td></td>
+<td>No</td>
+<td></td>
+<td></td>
+<td>4</td>
+<td></td>
+<td>Cymbre Cross</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>488464926-5</td>
+<td></td>
+<td>Hoyt</td>
+<td>Castille</td>
+<td>37 8th Trail</td>
+<td>Grand Rapids</td>
+<td>MI</td>
+<td>49560</td>
+<td></td>
+<td>fcastille4@timesonline.co.uk</td>
+<td></td>
+<td>No</td>
+<td></td>
+<td></td>
+<td>5</td>
+<td></td>
+<td>Hoyt Castille</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
 <section id="export" class="level1">
 <h1>Export</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> nbdev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> nbdev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>nbdev.nbdev_export(<span class="st">'00_Setup.ipynb'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>nbdev.nbdev_export(<span class="st">'00_Setup.ipynb'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 
