@@ -1,9 +1,8 @@
 name: virtuous
 dependencies:
 - pandas
-- pandas_gpt
 - mysql-connector-python
-- dotenv
+- python-dotenv
 - sqlalchemy
 - numpy
 - pip
