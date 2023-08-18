@@ -28,7 +28,10 @@ def to_camel_case(s):
 
 # %% ../00_Setup.ipynb 17
 def transform_cnames(df, func=to_camel_case):
-    """Apply a function to all column names of a dataframe."""
+    """Apply a function to all column names of a dataframe.
+    It may not always be the case that I want to apply to_camel_case as the column transformation function
+    Because of this func is an optional argument with a default value of to_camel_case  
+    """
     df.columns = df.columns.map(func)
     return None
 
@@ -61,7 +64,7 @@ def classify_phone_email(value):
         return "phone"
     return None
 
-# %% ../00_Setup.ipynb 45
+# %% ../00_Setup.ipynb 46
 for index, row in contacts.iterrows():
     phone_classification = classify_phone_email(row['Phone'])
     email_classification = classify_phone_email(row['EMail'])
@@ -74,10 +77,10 @@ for index, row in contacts.iterrows():
         contacts.at[index, 'Phone'] = row['EMail']
         contacts.at[index, 'EMail'] = ''
 
-# %% ../00_Setup.ipynb 54
+# %% ../00_Setup.ipynb 55
 donors_not_in_contacts = gifts.loc[~gifts.DonorNumber.isin(contacts.Number.unique()), :]
 
-# %% ../00_Setup.ipynb 57
+# %% ../00_Setup.ipynb 58
 contacts = pd.concat([
     contacts,
     # Dataframe of donors not in contacts
@@ -88,32 +91,32 @@ contacts = pd.concat([
                  .to_dict('records'))
 ])
 
-# %% ../00_Setup.ipynb 61
+# %% ../00_Setup.ipynb 62
 contacts[['FirstName', 'SecondaryFirstName']] = contacts['FirstName'].str.split(' & | and ', expand=True).fillna('')
 
-# %% ../00_Setup.ipynb 63
+# %% ../00_Setup.ipynb 64
 records_to_join = contacts.loc[contacts.Number.duplicated(), :].to_dict(orient='records')
 
-# %% ../00_Setup.ipynb 65
+# %% ../00_Setup.ipynb 66
 contacts = contacts.loc[~contacts.Number.duplicated(), :]
 
-# %% ../00_Setup.ipynb 67
+# %% ../00_Setup.ipynb 68
 for record in records_to_join:
     contacts.loc[contacts.Number.isin([record['Number']]), ['SecondaryFirstName', 'SecondaryLastName']] = [record['FirstName'], record['LastName']]
 
-# %% ../00_Setup.ipynb 68
+# %% ../00_Setup.ipynb 69
 contacts['SecondaryLastName'] = contacts.SecondaryLastName.fillna('')
 
-# %% ../00_Setup.ipynb 70
+# %% ../00_Setup.ipynb 71
 contacts['SecondaryLastName'] = contacts.apply(lambda x: x['LastName'] if x['SecondaryLastName'] == '' and x['SecondaryFirstName'] != '' else x['SecondaryLastName'], axis=1)
 
-# %% ../00_Setup.ipynb 73
+# %% ../00_Setup.ipynb 74
 contacts[['LegacyIndividualId', 'SecondaryLegacyIndividualId']] = None
 
-# %% ../00_Setup.ipynb 74
+# %% ../00_Setup.ipynb 75
 contacts.reset_index(inplace=True, drop=True)
 
-# %% ../00_Setup.ipynb 76
+# %% ../00_Setup.ipynb 77
 id = 0
 for index, row in contacts.iterrows():
     contacts.loc[index, 'LegacyIndividualId'] = id
@@ -123,27 +126,27 @@ for index, row in contacts.iterrows():
         id += 1
 
 
-# %% ../00_Setup.ipynb 77
+# %% ../00_Setup.ipynb 78
 contacts.fillna('', inplace=True)
 
-# %% ../00_Setup.ipynb 80
+# %% ../00_Setup.ipynb 81
 blank_name_records = ((contacts.FirstName == '') | (contacts.LastName == ''))
 
-# %% ../00_Setup.ipynb 84
+# %% ../00_Setup.ipynb 85
 blank_name_numbers= contacts.loc[blank_name_records, 'Number']
 
-# %% ../00_Setup.ipynb 87
+# %% ../00_Setup.ipynb 88
 gift_name_records = gifts.loc[gifts.DonorNumber.isin(blank_name_numbers), ['DonorNumber', 'FirstName', 'LastName']].drop_duplicates()
 
-# %% ../00_Setup.ipynb 89
+# %% ../00_Setup.ipynb 90
 gift_name_records = gift_name_records.loc[((gift_name_records.FirstName != '') & (gift_name_records.LastName != '')), :]
 gift_name_records
 
-# %% ../00_Setup.ipynb 91
+# %% ../00_Setup.ipynb 92
 for _, row in gift_name_records.iterrows():
     contacts.loc[contacts['Number'] == row['DonorNumber'], ['FirstName', 'LastName']] = [row['FirstName'], row['LastName']]
 
-# %% ../00_Setup.ipynb 97
+# %% ../00_Setup.ipynb 98
 def set_contact_name(row):
     """Sets the contact name for a given row in the dataframe."""
     if row['LastName'] == row['SecondaryLastName']:
@@ -159,16 +162,16 @@ contacts['ContactName'] = contacts.apply(set_contact_name, axis=1)
 # %% ../00_Setup.ipynb 104
 project_codes = gifts.FundId.str.split(', ', expand=True)
 
-# %% ../00_Setup.ipynb 109
+# %% ../00_Setup.ipynb 108
 gifts[['Project1Code', 'Project2Code']] = project_codes
 
-# %% ../00_Setup.ipynb 111
+# %% ../00_Setup.ipynb 110
 gifts = gifts.loc[:, gifts.columns.drop('FundId')].copy()
 
-# %% ../00_Setup.ipynb 115
+# %% ../00_Setup.ipynb 114
 from datetime import datetime
 
-# %% ../00_Setup.ipynb 116
+# %% ../00_Setup.ipynb 115
 def custom_parser(date_str):
     """Parses a date string into a datetime object."""
     try:
@@ -176,13 +179,13 @@ def custom_parser(date_str):
     except ValueError:
         return datetime.strptime(date_str, '%Y/%m/%d')
 
-# %% ../00_Setup.ipynb 121
+# %% ../00_Setup.ipynb 120
 gifts['GiftDate'] = gifts['Date'].apply(custom_parser)
 
-# %% ../00_Setup.ipynb 123
+# %% ../00_Setup.ipynb 122
 gifts = gifts.loc[:, gifts.columns.drop('Date')].copy()
 
-# %% ../00_Setup.ipynb 128
+# %% ../00_Setup.ipynb 127
 def valid_email(s):
     """Validates an email address."""
     pattern = re.compile(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')
@@ -213,10 +216,10 @@ def fix_email(email):
     return ''
 
 
-# %% ../00_Setup.ipynb 145
+# %% ../00_Setup.ipynb 146
 contacts['EMail'] = contacts.EMail.apply(fix_email)
 
-# %% ../00_Setup.ipynb 150
+# %% ../00_Setup.ipynb 151
 def validate_us_phone_number(phone_number):
     """Validates a US phone number and returns it if valid, otherwise returns an empty string."""
     # Patterns for different US phone number formats
@@ -240,8 +243,8 @@ def validate_us_phone_number(phone_number):
 
     return ''
 
-# %% ../00_Setup.ipynb 162
+# %% ../00_Setup.ipynb 164
 contacts['Phone'] = contacts.Phone.apply(validate_us_phone_number)
 
-# %% ../00_Setup.ipynb 163
+# %% ../00_Setup.ipynb 165
 contacts.fillna('', inplace=True)

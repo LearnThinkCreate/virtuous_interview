@@ -39,7 +39,7 @@ DB_USER = os.getenv("DB_USER")
 DB_PASSWORD = os.getenv("DB_PASSWORD")
 
 # %% ../01_SQL_Solution.ipynb 11
-def insert_sql(sql):
+def insert_sql(sql, hide_output=False):
     """Inserts data into the MySQL database."""
     try:
         # Connect to MySQL
@@ -48,7 +48,6 @@ def insert_sql(sql):
     
         # Execute the SQL command to create the view
         cursor.execute(sql)
-        print("SQL executed successfully")
     
     except Error as e:
         print(f"Error: {e}")
@@ -57,12 +56,13 @@ def insert_sql(sql):
         if connection.is_connected():
             cursor.close()
             connection.close()
-        print("MySQL connection closed")
+        if hide_output == False:
+            print("MySQL connection closed")
 
 # %% ../01_SQL_Solution.ipynb 13
-def insert_proc(sql, proc_name, call=True):
+def insert_proc(sql, proc_name, call=True, hide_output=False):
     """Create a stored procedure and call it"""
-    insert_sql(f'DROP PROCEDURE IF EXISTS {proc_name};')
+    insert_sql(f'DROP PROCEDURE IF EXISTS {proc_name};', hide_output=hide_output)
     stmt = f"""         
         CREATE PROCEDURE {proc_name}()
         BEGIN
@@ -70,9 +70,9 @@ def insert_proc(sql, proc_name, call=True):
         END;
         COMMIT;
     """
-    insert_sql(stmt)
+    insert_sql(stmt, hide_output=hide_output)
     if call:
-        insert_sql(f'CALL {proc_name}();')
+        insert_sql(f'CALL {proc_name}();', hide_output=hide_output)
 
 # %% ../01_SQL_Solution.ipynb 16
 tables = {'temp_contact_methods': contact_methods, 'temp_contacts': contacts, 'temp_gifts': gifts}
@@ -193,58 +193,3 @@ WHERE CreditCardType IN ('American Ex', 'Master car');
 commit;
 """
 insert_proc(proc, 'update_gift_type', call=True)
-
-# %% ../01_SQL_Solution.ipynb 59
-proc = """
-CREATE TABLE IF NOT EXISTS contact_methods (
-    `LegacyContactId` VARCHAR(255),
-    `Type` VARCHAR(255),
-    `Value` VARCHAR(255)
-);
-
-BEGIN
-DECLARE done INT DEFAULT FALSE;
-DECLARE v_LegacyContactId VARCHAR(255);
-DECLARE v_HomePhone VARCHAR(255);
-DECLARE v_HomeEmail VARCHAR(255);
-DECLARE v_Fax VARCHAR(255);
-DECLARE cur CURSOR FOR 
-    SELECT DISTINCT
-        contacts.`LegacyContactId` AS LegacyContactId,
-        contacts.`HomePhone` AS HomePhone,
-        contacts.`HomeEmail` AS HomeEmail,
-        temp_contact_methods.Fax AS fax
-    FROM 
-        contacts
-    JOIN
-        temp_contact_methods ON temp_contact_methods.DonorNumber = contacts.`LegacyContactId`;
-
-DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
-
-    OPEN cur;
-
-    read_loop: LOOP
-        FETCH cur INTO v_LegacyContactId, v_HomePhone, v_HomeEmail,v_Fax;
-        
-        IF done THEN
-            LEAVE read_loop;
-        END IF;
-
-        INSERT INTO contact_methods (`LegacyContactId`, `Type`, `Value`) VALUES 
-            (v_LegacyContactId, 'HomePhone', v_HomePhone),
-            (v_LegacyContactId, 'HomeEmail', v_HomeEmail),
-            (v_LegacyContactId, 'Fax', v_Fax);
-    END LOOP;
-
-    CLOSE cur;
-END;
-
--- Delete records from contact methods where value is null or ''
-DELETE FROM contact_methods WHERE `Value` IS NULL OR `Value` = '';
-
-
-commit;
-
-
-"""
-insert_proc(proc, 'transform_contact_methods', call=True)
