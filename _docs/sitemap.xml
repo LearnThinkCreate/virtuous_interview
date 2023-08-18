@@ -1,3 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://LearnThinkCreate.github.io/virtuous_interview/index.html</loc>
+    <lastmod>2023-08-18T04:07:18.621Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LearnThinkCreate.github.io/virtuous_interview/02_SQL_Solution.html</loc>
+    <lastmod>2023-08-18T04:07:17.466Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LearnThinkCreate.github.io/virtuous_interview/03_Pandas_Solution.html</loc>
+    <lastmod>2023-08-18T04:07:15.849Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LearnThinkCreate.github.io/virtuous_interview/01_Setup.html</loc>
+    <lastmod>2023-08-18T04:07:14.555Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LearnThinkCreate.github.io/virtuous_interview/00_Core.html</loc>
+    <lastmod>2023-08-18T04:07:13.331Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LearnThinkCreate.github.io/virtuous_interview/04_Gpt_Solution.html</loc>
+    <lastmod>2023-08-18T04:07:14.917Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LearnThinkCreate.github.io/virtuous_interview/05_Test.html</loc>
+    <lastmod>2023-08-18T04:07:16.192Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LearnThinkCreate.github.io/virtuous_interview/01_SQL_Cleanup.html</loc>
+    <lastmod>2023-08-18T04:07:17.737Z</lastmod>
+  </url>
 </urlset>
