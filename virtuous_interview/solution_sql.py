@@ -59,7 +59,7 @@ def insert_sql(sql, hide_output=False):
         if hide_output == False:
             print("MySQL connection closed")
 
-# %% ../01_SQL_Solution.ipynb 13
+# %% ../01_SQL_Solution.ipynb 12
 def insert_proc(sql, proc_name, call=True, hide_output=False):
     """Create a stored procedure and call it"""
     insert_sql(f'DROP PROCEDURE IF EXISTS {proc_name};', hide_output=hide_output)
@@ -74,13 +74,13 @@ def insert_proc(sql, proc_name, call=True, hide_output=False):
     if call:
         insert_sql(f'CALL {proc_name}();', hide_output=hide_output)
 
-# %% ../01_SQL_Solution.ipynb 16
+# %% ../01_SQL_Solution.ipynb 15
 tables = {'temp_contact_methods': contact_methods, 'temp_contacts': contacts, 'temp_gifts': gifts}
 
-# %% ../01_SQL_Solution.ipynb 17
+# %% ../01_SQL_Solution.ipynb 16
 engine = create_engine(f'mysql+mysqlconnector://{DB_USER}:{DB_PASSWORD}@localhost/{DB_NAME}')
 
-# %% ../01_SQL_Solution.ipynb 18
+# %% ../01_SQL_Solution.ipynb 17
 try:
     for table_name, df in tables.items():
         try:
@@ -97,7 +97,7 @@ finally:
         connection.close()
 
 
-# %% ../01_SQL_Solution.ipynb 25
+# %% ../01_SQL_Solution.ipynb 24
 add_column = """
     DROP PROCEDURE IF EXISTS add_column;
     
@@ -126,7 +126,7 @@ add_column = """
 """
 insert_sql(add_column)
 
-# %% ../01_SQL_Solution.ipynb 26
+# %% ../01_SQL_Solution.ipynb 25
 insert_contact_type = """
     CALL add_column('temp_contacts', 'ContactType', 'VARCHAR(255)');
     
@@ -136,7 +136,7 @@ insert_contact_type = """
 """
 insert_proc(insert_contact_type, 'insert_contact_type', call=True)
 
-# %% ../01_SQL_Solution.ipynb 28
+# %% ../01_SQL_Solution.ipynb 27
 insert_private = """
     CALL add_column('temp_contacts', 'Private', 'TINYINT');
 
@@ -146,7 +146,7 @@ insert_private = """
 """
 insert_proc(insert_private, 'insert_private', call=True)
 
-# %% ../01_SQL_Solution.ipynb 32
+# %% ../01_SQL_Solution.ipynb 31
 update_zip = """
     UPDATE temp_contacts
     SET Postal = ''
@@ -155,7 +155,7 @@ update_zip = """
 """
 insert_proc(update_zip, 'update_zip', call=True)
 
-# %% ../01_SQL_Solution.ipynb 34
+# %% ../01_SQL_Solution.ipynb 33
 update_deceased = f"""
     UPDATE temp_contacts
     SET Deceased = CASE
@@ -168,7 +168,7 @@ update_deceased = f"""
 """
 insert_proc(update_deceased, 'update_deceased', call=True)
 
-# %% ../01_SQL_Solution.ipynb 38
+# %% ../01_SQL_Solution.ipynb 37
 update_gift_type = f"""
   UPDATE temp_gifts
   SET PaymentMethod = CASE
@@ -182,7 +182,7 @@ update_gift_type = f"""
 """
 insert_proc(update_gift_type, 'update_gift_type', call=True)
 
-# %% ../01_SQL_Solution.ipynb 41
+# %% ../01_SQL_Solution.ipynb 40
 proc = f"""
 UPDATE temp_gifts
     SET CreditCardType = CASE

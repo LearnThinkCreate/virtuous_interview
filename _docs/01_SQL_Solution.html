@@ -289,7 +289,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code> insert_sql (sql, hide_output=False)</code></pre>
 </blockquote>
 <p>Inserts data into the MySQL database.</p>
-<p><br> <br> Since I’m going to be writing a lot of basic procedures , I’m going to create a function that will make that easy as well</p>
 <hr>
 <p><a href="https://github.com/LearnThinkCreate/virtuous_interview/blob/master/virtuous_interview/solution_sql.py#L63" target="_blank" style="float:right; font-size:smaller">source</a></p>
 </section>
@@ -368,7 +367,7 @@ Table temp_gifts already exists. Skipping.</code></pre>
 <td>Turpin</td>
 <td>4.1500</td>
 <td></td>
-<td>Other</td>
+<td>PayPal</td>
 <td>0</td>
 <td></td>
 <td></td>
@@ -383,7 +382,7 @@ Table temp_gifts already exists. Skipping.</code></pre>
 <td>Cross</td>
 <td>2.3648</td>
 <td></td>
-<td>Check</td>
+<td>check</td>
 <td>1</td>
 <td></td>
 <td>ChildSponsorship</td>
@@ -398,7 +397,7 @@ Table temp_gifts already exists. Skipping.</code></pre>
 <td>Makepeace</td>
 <td>1.3100</td>
 <td></td>
-<td>Cash</td>
+<td>cash</td>
 <td>2</td>
 <td></td>
 <td></td>
@@ -412,8 +411,8 @@ Table temp_gifts already exists. Skipping.</code></pre>
 <td>Karita</td>
 <td>Lumbers</td>
 <td>2.0400</td>
-<td>AMEX</td>
-<td>Credit</td>
+<td>American Ex</td>
+<td>credit card</td>
 <td>3</td>
 <td>In honor of Mannie Turpin</td>
 <td></td>
@@ -428,7 +427,7 @@ Table temp_gifts already exists. Skipping.</code></pre>
 <td>Benech</td>
 <td>5.8000</td>
 <td></td>
-<td>Cash</td>
+<td>cash</td>
 <td>89752384</td>
 <td></td>
 <td></td>
@@ -569,27 +568,33 @@ MySQL connection closed</code></pre>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
+<td>653377813-7</td>
+<td>20535-871</td>
+<td></td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
 <td>390551098-7</td>
 <td>89130</td>
 <td>89130</td>
 </tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>729707142-0</td>
+<td>8104</td>
+<td></td>
+</tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
+<td data-quarto-table-cell-role="th">3</td>
 <td>488464926-5</td>
 <td>49560</td>
 <td>49560</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>029456846-8</td>
-<td>30066</td>
-<td>30066</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>687119652-8</td>
-<td>68164</td>
-<td>68164</td>
+<td data-quarto-table-cell-role="th">4</td>
+<td>315297729-8</td>
+<td>837016</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -663,23 +668,27 @@ MySQL connection closed</code></pre>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
-<td>Other</td>
+<td>PayPal</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
-<td>Check</td>
+<td>check</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
-<td>Cash</td>
+<td>cash</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
-<td>Credit</td>
+<td>credit card</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
-<td>Reversing Transaction</td>
+<td></td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>money order</td>
 </tr>
 </tbody>
 </table>
@@ -734,22 +743,26 @@ MySQL connection closed</code></pre>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
-<td>AMEX</td>
+<td>American Ex</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
-<td>Visa</td>
+<td>AMEX</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
-<td>Master card</td>
+<td>Visa</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
-<td>Mastercard</td>
+<td>Master card</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">5</td>
+<td>Mastercard</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
 <td>Discover</td>
 </tr>
 </tbody>
@@ -792,231 +805,68 @@ MySQL connection closed</code></pre>
 <li>The cleaning is done <br></li>
 <li>Creating contacts table and renaming various columns <br></li>
 </ul>
-<p>Creating equivilant query and testing using pandas</p>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>pd.read_sql(<span class="st">"""</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="st">            SELECT </span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="st">                `Number`,</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="st">                `LegacyIndividualId`,</span></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="st">                `ContactType`</span></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="st">                `ContactName`,</span></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="st">                `FirstName`,</span></span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="st">                `LastName`</span></span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="st">                `SecondaryLegacyIndividualId`,</span></span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="st">                `SecondaryFirstName`,</span></span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="st">                `SecondaryLastName`,</span></span>
-<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="st">                CASE WHEN</span></span>
-<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a><span class="st">                    temp_contact_methods.`Phone`  = '' </span></span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="st">                    THEN temp_contacts.`Phone`</span></span>
-<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="st">                    ELSE temp_contact_methods.`Phone`</span></span>
-<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="st">                END AS HomePhone,</span></span>
-<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a><span class="st">                CASE WHEN</span></span>
-<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a><span class="st">                    temp_contact_methods.`EMail`  = ''</span></span>
-<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a><span class="st">                    THEN temp_contacts.`EMail`</span></span>
-<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a><span class="st">                    ELSE temp_contact_methods.`EMail`</span></span>
-<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a><span class="st">                END AS HomeEmail,</span></span>
-<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a><span class="st">                `Street`,</span></span>
-<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a><span class="st">                `City`,</span></span>
-<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a><span class="st">                `State`,</span></span>
-<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a><span class="st">                `Postal`,</span></span>
-<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a><span class="st">                `Private`,</span></span>
-<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a><span class="st">                `Deceased`</span></span>
-<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a><span class="st">            FROM </span></span>
-<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a><span class="st">            temp_contacts</span></span>
-<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a><span class="st">            LEFT JOIN</span></span>
-<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a><span class="st">                temp_contact_methods ON temp_contact_methods.DonorNumber = temp_contacts.`Number`</span></span>
-<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a><span class="st">            limit 5;</span></span>
-<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a><span class="st">            """</span>,</span>
-<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a>            engine</span>
-<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a>            )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Number</th>
-<th data-quarto-table-cell-role="th">LegacyIndividualId</th>
-<th data-quarto-table-cell-role="th">ContactName</th>
-<th data-quarto-table-cell-role="th">FirstName</th>
-<th data-quarto-table-cell-role="th">SecondaryLegacyIndividualId</th>
-<th data-quarto-table-cell-role="th">SecondaryFirstName</th>
-<th data-quarto-table-cell-role="th">SecondaryLastName</th>
-<th data-quarto-table-cell-role="th">HomePhone</th>
-<th data-quarto-table-cell-role="th">HomeEmail</th>
-<th data-quarto-table-cell-role="th">Street</th>
-<th data-quarto-table-cell-role="th">City</th>
-<th data-quarto-table-cell-role="th">State</th>
-<th data-quarto-table-cell-role="th">Postal</th>
-<th data-quarto-table-cell-role="th">Private</th>
-<th data-quarto-table-cell-role="th">Deceased</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>653377813-7</td>
-<td>0</td>
-<td>Household</td>
-<td>Karita</td>
-<td>Lumbers</td>
-<td>Kelvin</td>
-<td>Lumbers</td>
-<td>832-442-4988</td>
-<td>kklumbers@yahoo.com</td>
-<td>4 Bunting Parkway</td>
-<td>Washington</td>
-<td>DC</td>
-<td></td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>390551098-7</td>
-<td>2</td>
-<td>Household</td>
-<td>Helga</td>
-<td>Benech</td>
-<td></td>
-<td></td>
-<td></td>
-<td>ebenech1@goodreads.com</td>
-<td>48684 Jenifer Way</td>
-<td>Las Vegas</td>
-<td>NV</td>
-<td>89130</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>093004505-X</td>
-<td>3</td>
-<td>Household</td>
-<td>Masha</td>
-<td>Butt Gow</td>
-<td></td>
-<td></td>
-<td>818-323-9865</td>
-<td></td>
-<td>353 Schmedeman Park</td>
-<td>Indianapolis</td>
-<td>IN</td>
-<td></td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>729707142-0</td>
-<td>4</td>
-<td>Organization</td>
-<td>Cymbre</td>
-<td>Cross</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>2055 Lakewood Parkway</td>
-<td>Camden</td>
-<td>NJ</td>
-<td></td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>488464926-5</td>
-<td>5</td>
-<td>Household</td>
-<td>Hoyt</td>
-<td>Castille</td>
-<td></td>
-<td></td>
-<td></td>
-<td>fcastille4@timesonline.co.uk</td>
-<td>37 8th Trail</td>
-<td>Grand Rapids</td>
-<td>MI</td>
-<td>49560</td>
-<td>0</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p><br></p>
 <p>Creating procedure, selecting 5 rows from the contacts table</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>proc <span class="op">=</span> <span class="st">"""</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="st">CREATE TABLE IF NOT EXISTS contacts (</span></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="st">    `LegacyContactId` VARCHAR(255),</span></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="st">    `LegacyIndividualId` VARCHAR(255),</span></span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="st">    `ContactType` VARCHAR(255),</span></span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="st">    `ContactName` VARCHAR(255),</span></span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="st">    `FirstName` VARCHAR(255),</span></span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="st">    `LastName` VARCHAR(255),</span></span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="st">    `SecondaryLegacyIndividualId` VARCHAR(255),</span></span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="st">    `SecondaryFirstName` VARCHAR(255),</span></span>
-<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="st">    `SecondaryLastName` VARCHAR(255),</span></span>
-<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="st">    `HomePhone` VARCHAR(255),</span></span>
-<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="st">    `HomeEmail` VARCHAR(255),</span></span>
-<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a><span class="st">    `Address1` VARCHAR(255),</span></span>
-<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a><span class="st">    `City` VARCHAR(255),</span></span>
-<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a><span class="st">    `State` VARCHAR(255),</span></span>
-<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a><span class="st">    `PostalCode` VARCHAR(255),</span></span>
-<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a><span class="st">    `IsPrivate` VARCHAR(255),</span></span>
-<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a><span class="st">    `IsDeceased` VARCHAR(255)</span></span>
-<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a><span class="st">);</span></span>
-<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a><span class="st">insert into contacts</span></span>
-<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT </span></span>
-<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a><span class="st">    `Number` AS `LegacyContactId`,</span></span>
-<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a><span class="st">    `LegacyIndividualId`,</span></span>
-<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a><span class="st">    `ContactType`,</span></span>
-<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a><span class="st">    `ContactName`,</span></span>
-<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a><span class="st">    `FirstName`,</span></span>
-<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a><span class="st">    `LastName`,</span></span>
-<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a><span class="st">    `SecondaryLegacyIndividualId`,</span></span>
-<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a><span class="st">    `SecondaryFirstName`,</span></span>
-<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a><span class="st">    `SecondaryLastName`,</span></span>
-<span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a><span class="st">    CASE WHEN</span></span>
-<span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a><span class="st">        temp_contact_methods.`Phone`  = '' </span></span>
-<span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a><span class="st">        THEN temp_contacts.`Phone`</span></span>
-<span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a><span class="st">        ELSE temp_contact_methods.`Phone`</span></span>
-<span id="cb30-38"><a href="#cb30-38" aria-hidden="true" tabindex="-1"></a><span class="st">    END AS HomePhone,</span></span>
-<span id="cb30-39"><a href="#cb30-39" aria-hidden="true" tabindex="-1"></a><span class="st">    CASE WHEN</span></span>
-<span id="cb30-40"><a href="#cb30-40" aria-hidden="true" tabindex="-1"></a><span class="st">        temp_contact_methods.`EMail`  = ''</span></span>
-<span id="cb30-41"><a href="#cb30-41" aria-hidden="true" tabindex="-1"></a><span class="st">        THEN temp_contacts.`EMail`</span></span>
-<span id="cb30-42"><a href="#cb30-42" aria-hidden="true" tabindex="-1"></a><span class="st">        ELSE temp_contact_methods.`EMail`</span></span>
-<span id="cb30-43"><a href="#cb30-43" aria-hidden="true" tabindex="-1"></a><span class="st">    END AS HomeEmail,</span></span>
-<span id="cb30-44"><a href="#cb30-44" aria-hidden="true" tabindex="-1"></a><span class="st">    `Street` AS `Address1`,</span></span>
-<span id="cb30-45"><a href="#cb30-45" aria-hidden="true" tabindex="-1"></a><span class="st">    `City`,</span></span>
-<span id="cb30-46"><a href="#cb30-46" aria-hidden="true" tabindex="-1"></a><span class="st">    `State`,</span></span>
-<span id="cb30-47"><a href="#cb30-47" aria-hidden="true" tabindex="-1"></a><span class="st">    `Postal` AS `PostalCode`,</span></span>
-<span id="cb30-48"><a href="#cb30-48" aria-hidden="true" tabindex="-1"></a><span class="st">    `Private` AS `IsPrivate`,</span></span>
-<span id="cb30-49"><a href="#cb30-49" aria-hidden="true" tabindex="-1"></a><span class="st">    `Deceased` AS `IsDeceased`</span></span>
-<span id="cb30-50"><a href="#cb30-50" aria-hidden="true" tabindex="-1"></a><span class="st">FROM </span></span>
-<span id="cb30-51"><a href="#cb30-51" aria-hidden="true" tabindex="-1"></a><span class="st">temp_contacts</span></span>
-<span id="cb30-52"><a href="#cb30-52" aria-hidden="true" tabindex="-1"></a><span class="st">LEFT JOIN</span></span>
-<span id="cb30-53"><a href="#cb30-53" aria-hidden="true" tabindex="-1"></a><span class="st">    temp_contact_methods ON temp_contact_methods.DonorNumber = temp_contacts.`Number`;</span></span>
-<span id="cb30-54"><a href="#cb30-54" aria-hidden="true" tabindex="-1"></a><span class="st">    </span></span>
-<span id="cb30-55"><a href="#cb30-55" aria-hidden="true" tabindex="-1"></a><span class="st">commit;</span></span>
-<span id="cb30-56"><a href="#cb30-56" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
-<span id="cb30-57"><a href="#cb30-57" aria-hidden="true" tabindex="-1"></a>insert_proc(proc, <span class="st">'create_contacts'</span>, call<span class="op">=</span><span class="va">True</span>, hide_output<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb30-58"><a href="#cb30-58" aria-hidden="true" tabindex="-1"></a>pd.read_sql(<span class="st">'select * from contacts limit 5'</span>, engine)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>proc <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="st">CREATE TABLE IF NOT EXISTS contacts (</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="st">    `LegacyContactId` VARCHAR(255),</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="st">    `LegacyIndividualId` VARCHAR(255),</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="st">    `ContactType` VARCHAR(255),</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="st">    `ContactName` VARCHAR(255),</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="st">    `FirstName` VARCHAR(255),</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="st">    `LastName` VARCHAR(255),</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="st">    `SecondaryLegacyIndividualId` VARCHAR(255),</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="st">    `SecondaryFirstName` VARCHAR(255),</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a><span class="st">    `SecondaryLastName` VARCHAR(255),</span></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="st">    `HomePhone` VARCHAR(255),</span></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="st">    `HomeEmail` VARCHAR(255),</span></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="st">    `Address1` VARCHAR(255),</span></span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a><span class="st">    `City` VARCHAR(255),</span></span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a><span class="st">    `State` VARCHAR(255),</span></span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a><span class="st">    `PostalCode` VARCHAR(255),</span></span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a><span class="st">    `IsPrivate` VARCHAR(255),</span></span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a><span class="st">    `IsDeceased` VARCHAR(255)</span></span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a><span class="st">);</span></span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a><span class="st">insert into contacts</span></span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT </span></span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a><span class="st">    `Number` AS `LegacyContactId`,</span></span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a><span class="st">    `LegacyIndividualId`,</span></span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a><span class="st">    `ContactType`,</span></span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a><span class="st">    `ContactName`,</span></span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a><span class="st">    `FirstName`,</span></span>
+<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a><span class="st">    `LastName`,</span></span>
+<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a><span class="st">    `SecondaryLegacyIndividualId`,</span></span>
+<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a><span class="st">    `SecondaryFirstName`,</span></span>
+<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a><span class="st">    `SecondaryLastName`,</span></span>
+<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a><span class="st">    CASE WHEN</span></span>
+<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a><span class="st">        temp_contact_methods.`Phone`  = '' </span></span>
+<span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a><span class="st">        THEN temp_contacts.`Phone`</span></span>
+<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a><span class="st">        ELSE temp_contact_methods.`Phone`</span></span>
+<span id="cb29-38"><a href="#cb29-38" aria-hidden="true" tabindex="-1"></a><span class="st">    END AS HomePhone,</span></span>
+<span id="cb29-39"><a href="#cb29-39" aria-hidden="true" tabindex="-1"></a><span class="st">    CASE WHEN</span></span>
+<span id="cb29-40"><a href="#cb29-40" aria-hidden="true" tabindex="-1"></a><span class="st">        temp_contact_methods.`EMail`  = ''</span></span>
+<span id="cb29-41"><a href="#cb29-41" aria-hidden="true" tabindex="-1"></a><span class="st">        THEN temp_contacts.`EMail`</span></span>
+<span id="cb29-42"><a href="#cb29-42" aria-hidden="true" tabindex="-1"></a><span class="st">        ELSE temp_contact_methods.`EMail`</span></span>
+<span id="cb29-43"><a href="#cb29-43" aria-hidden="true" tabindex="-1"></a><span class="st">    END AS HomeEmail,</span></span>
+<span id="cb29-44"><a href="#cb29-44" aria-hidden="true" tabindex="-1"></a><span class="st">    `Street` AS `Address1`,</span></span>
+<span id="cb29-45"><a href="#cb29-45" aria-hidden="true" tabindex="-1"></a><span class="st">    `City`,</span></span>
+<span id="cb29-46"><a href="#cb29-46" aria-hidden="true" tabindex="-1"></a><span class="st">    `State`,</span></span>
+<span id="cb29-47"><a href="#cb29-47" aria-hidden="true" tabindex="-1"></a><span class="st">    `Postal` AS `PostalCode`,</span></span>
+<span id="cb29-48"><a href="#cb29-48" aria-hidden="true" tabindex="-1"></a><span class="st">    `Private` AS `IsPrivate`,</span></span>
+<span id="cb29-49"><a href="#cb29-49" aria-hidden="true" tabindex="-1"></a><span class="st">    `Deceased` AS `IsDeceased`</span></span>
+<span id="cb29-50"><a href="#cb29-50" aria-hidden="true" tabindex="-1"></a><span class="st">FROM </span></span>
+<span id="cb29-51"><a href="#cb29-51" aria-hidden="true" tabindex="-1"></a><span class="st">temp_contacts</span></span>
+<span id="cb29-52"><a href="#cb29-52" aria-hidden="true" tabindex="-1"></a><span class="st">LEFT JOIN</span></span>
+<span id="cb29-53"><a href="#cb29-53" aria-hidden="true" tabindex="-1"></a><span class="st">    temp_contact_methods ON temp_contact_methods.DonorNumber = temp_contacts.`Number`;</span></span>
+<span id="cb29-54"><a href="#cb29-54" aria-hidden="true" tabindex="-1"></a><span class="st">    </span></span>
+<span id="cb29-55"><a href="#cb29-55" aria-hidden="true" tabindex="-1"></a><span class="st">commit;</span></span>
+<span id="cb29-56"><a href="#cb29-56" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
+<span id="cb29-57"><a href="#cb29-57" aria-hidden="true" tabindex="-1"></a>insert_proc(proc, <span class="st">'create_contacts'</span>, call<span class="op">=</span><span class="va">True</span>, hide_output<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb29-58"><a href="#cb29-58" aria-hidden="true" tabindex="-1"></a>pd.read_sql(<span class="st">'select * from contacts limit 5'</span>, engine)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -1166,38 +1016,38 @@ MySQL connection closed</code></pre>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>proc <span class="op">=</span> <span class="st">"""</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="st">CREATE TABLE IF NOT EXISTS gifts (</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="st">    LegacyContactId VARCHAR(255),</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="st">    LegacyGiftId INTEGER,</span></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="st">    GiftType TEXT,</span></span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="st">    GiftDate TEXT,</span></span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="st">    GiftAmount REAL,</span></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="st">    Notes TEXT,</span></span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="st">    CreditCardType TEXT,</span></span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="st">    Project1Code TEXT,</span></span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="st">    Project2Code TEXT,</span></span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="st">    LegacyPledgeID INTEGER</span></span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="st">);</span></span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a><span class="st">insert into gifts</span></span>
-<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a><span class="st">select </span></span>
-<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a><span class="st">    DonorNumber as LegacyContactId,</span></span>
-<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a><span class="st">    LegacyGiftId,</span></span>
-<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a><span class="st">    PaymentMethod as GiftType,</span></span>
-<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a><span class="st">    GiftDate,</span></span>
-<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a><span class="st">    AmountReceived as GiftAmount,</span></span>
-<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a><span class="st">    Notes,</span></span>
-<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a><span class="st">    CreditCardType,</span></span>
-<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a><span class="st">    Project1Code,</span></span>
-<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a><span class="st">    Project2Code,</span></span>
-<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a><span class="st">    LegacyPledgeID</span></span>
-<span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a><span class="st">from temp_gifts;</span></span>
-<span id="cb31-28"><a href="#cb31-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-29"><a href="#cb31-29" aria-hidden="true" tabindex="-1"></a><span class="st">commit;</span></span>
-<span id="cb31-30"><a href="#cb31-30" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
-<span id="cb31-31"><a href="#cb31-31" aria-hidden="true" tabindex="-1"></a>insert_proc(proc, <span class="st">'create_gifts'</span>, call<span class="op">=</span><span class="va">True</span>, hide_output<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb31-32"><a href="#cb31-32" aria-hidden="true" tabindex="-1"></a>pd.read_sql(<span class="st">'select * from gifts limit 5'</span>, engine)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>proc <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="st">CREATE TABLE IF NOT EXISTS gifts (</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="st">    LegacyContactId VARCHAR(255),</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="st">    LegacyGiftId INTEGER,</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="st">    GiftType TEXT,</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="st">    GiftDate TEXT,</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="st">    GiftAmount REAL,</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="st">    Notes TEXT,</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="st">    CreditCardType TEXT,</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="st">    Project1Code TEXT,</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="st">    Project2Code TEXT,</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="st">    LegacyPledgeID INTEGER</span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="st">);</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="st">insert into gifts</span></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a><span class="st">select </span></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a><span class="st">    DonorNumber as LegacyContactId,</span></span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a><span class="st">    LegacyGiftId,</span></span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a><span class="st">    PaymentMethod as GiftType,</span></span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a><span class="st">    GiftDate,</span></span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a><span class="st">    AmountReceived as GiftAmount,</span></span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a><span class="st">    Notes,</span></span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a><span class="st">    CreditCardType,</span></span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="st">    Project1Code,</span></span>
+<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a><span class="st">    Project2Code,</span></span>
+<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a><span class="st">    LegacyPledgeID</span></span>
+<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a><span class="st">from temp_gifts;</span></span>
+<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a><span class="st">commit;</span></span>
+<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
+<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a>insert_proc(proc, <span class="st">'create_gifts'</span>, call<span class="op">=</span><span class="va">True</span>, hide_output<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a>pd.read_sql(<span class="st">'select * from gifts limit 5'</span>, engine)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -1303,60 +1153,60 @@ MySQL connection closed</code></pre>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>proc <span class="op">=</span> <span class="st">"""</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="st">CREATE TABLE IF NOT EXISTS contact_methods (</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="st">    `LegacyContactId` VARCHAR(255),</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="st">    `Type` VARCHAR(255),</span></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="st">    `Value` VARCHAR(255)</span></span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="st">);</span></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="st">BEGIN</span></span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="st">DECLARE done INT DEFAULT FALSE;</span></span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="st">DECLARE v_LegacyContactId VARCHAR(255);</span></span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="st">DECLARE v_HomePhone VARCHAR(255);</span></span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a><span class="st">DECLARE v_HomeEmail VARCHAR(255);</span></span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a><span class="st">DECLARE v_Fax VARCHAR(255);</span></span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a><span class="st">DECLARE cur CURSOR FOR </span></span>
-<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a><span class="st">    SELECT DISTINCT</span></span>
-<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a><span class="st">        contacts.`LegacyContactId` AS LegacyContactId,</span></span>
-<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a><span class="st">        contacts.`HomePhone` AS HomePhone,</span></span>
-<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a><span class="st">        contacts.`HomeEmail` AS HomeEmail,</span></span>
-<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a><span class="st">        temp_contact_methods.Fax AS fax</span></span>
-<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a><span class="st">    FROM </span></span>
-<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a><span class="st">        contacts</span></span>
-<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a><span class="st">    JOIN</span></span>
-<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a><span class="st">        temp_contact_methods ON temp_contact_methods.DonorNumber = contacts.`LegacyContactId`;</span></span>
-<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a><span class="st">DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;</span></span>
-<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a><span class="st">    OPEN cur;</span></span>
-<span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-29"><a href="#cb32-29" aria-hidden="true" tabindex="-1"></a><span class="st">    read_loop: LOOP</span></span>
-<span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a><span class="st">        FETCH cur INTO v_LegacyContactId, v_HomePhone, v_HomeEmail,v_Fax;</span></span>
-<span id="cb32-31"><a href="#cb32-31" aria-hidden="true" tabindex="-1"></a><span class="st">        </span></span>
-<span id="cb32-32"><a href="#cb32-32" aria-hidden="true" tabindex="-1"></a><span class="st">        IF done THEN</span></span>
-<span id="cb32-33"><a href="#cb32-33" aria-hidden="true" tabindex="-1"></a><span class="st">            LEAVE read_loop;</span></span>
-<span id="cb32-34"><a href="#cb32-34" aria-hidden="true" tabindex="-1"></a><span class="st">        END IF;</span></span>
-<span id="cb32-35"><a href="#cb32-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-36"><a href="#cb32-36" aria-hidden="true" tabindex="-1"></a><span class="st">        INSERT INTO contact_methods (`LegacyContactId`, `Type`, `Value`) VALUES </span></span>
-<span id="cb32-37"><a href="#cb32-37" aria-hidden="true" tabindex="-1"></a><span class="st">            (v_LegacyContactId, 'HomePhone', v_HomePhone),</span></span>
-<span id="cb32-38"><a href="#cb32-38" aria-hidden="true" tabindex="-1"></a><span class="st">            (v_LegacyContactId, 'HomeEmail', v_HomeEmail),</span></span>
-<span id="cb32-39"><a href="#cb32-39" aria-hidden="true" tabindex="-1"></a><span class="st">            (v_LegacyContactId, 'Fax', v_Fax);</span></span>
-<span id="cb32-40"><a href="#cb32-40" aria-hidden="true" tabindex="-1"></a><span class="st">    END LOOP;</span></span>
-<span id="cb32-41"><a href="#cb32-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-42"><a href="#cb32-42" aria-hidden="true" tabindex="-1"></a><span class="st">    CLOSE cur;</span></span>
-<span id="cb32-43"><a href="#cb32-43" aria-hidden="true" tabindex="-1"></a><span class="st">END;</span></span>
-<span id="cb32-44"><a href="#cb32-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-45"><a href="#cb32-45" aria-hidden="true" tabindex="-1"></a><span class="st">-- Delete records from contact methods where value is null or ''</span></span>
-<span id="cb32-46"><a href="#cb32-46" aria-hidden="true" tabindex="-1"></a><span class="st">DELETE FROM contact_methods WHERE `Value` IS NULL OR `Value` = '';</span></span>
-<span id="cb32-47"><a href="#cb32-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-48"><a href="#cb32-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-49"><a href="#cb32-49" aria-hidden="true" tabindex="-1"></a><span class="st">commit;</span></span>
-<span id="cb32-50"><a href="#cb32-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-51"><a href="#cb32-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-52"><a href="#cb32-52" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
-<span id="cb32-53"><a href="#cb32-53" aria-hidden="true" tabindex="-1"></a>insert_proc(proc, <span class="st">'transform_contact_methods'</span>, call<span class="op">=</span><span class="va">True</span>, hide_output<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb32-54"><a href="#cb32-54" aria-hidden="true" tabindex="-1"></a>pd.read_sql(<span class="st">'select * from contact_methods order by LegacyContactId'</span>, con<span class="op">=</span>engine)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>proc <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="st">CREATE TABLE IF NOT EXISTS contact_methods (</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="st">    `LegacyContactId` VARCHAR(255),</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="st">    `Type` VARCHAR(255),</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="st">    `Value` VARCHAR(255)</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="st">);</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="st">BEGIN</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="st">DECLARE done INT DEFAULT FALSE;</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="st">DECLARE v_LegacyContactId VARCHAR(255);</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="st">DECLARE v_HomePhone VARCHAR(255);</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="st">DECLARE v_HomeEmail VARCHAR(255);</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="st">DECLARE v_Fax VARCHAR(255);</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="st">DECLARE cur CURSOR FOR </span></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a><span class="st">    SELECT DISTINCT</span></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a><span class="st">        contacts.`LegacyContactId` AS LegacyContactId,</span></span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a><span class="st">        contacts.`HomePhone` AS HomePhone,</span></span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a><span class="st">        contacts.`HomeEmail` AS HomeEmail,</span></span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a><span class="st">        temp_contact_methods.Fax AS fax</span></span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a><span class="st">    FROM </span></span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a><span class="st">        contacts</span></span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a><span class="st">    JOIN</span></span>
+<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a><span class="st">        temp_contact_methods ON temp_contact_methods.DonorNumber = contacts.`LegacyContactId`;</span></span>
+<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a><span class="st">DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;</span></span>
+<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a><span class="st">    OPEN cur;</span></span>
+<span id="cb31-28"><a href="#cb31-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-29"><a href="#cb31-29" aria-hidden="true" tabindex="-1"></a><span class="st">    read_loop: LOOP</span></span>
+<span id="cb31-30"><a href="#cb31-30" aria-hidden="true" tabindex="-1"></a><span class="st">        FETCH cur INTO v_LegacyContactId, v_HomePhone, v_HomeEmail,v_Fax;</span></span>
+<span id="cb31-31"><a href="#cb31-31" aria-hidden="true" tabindex="-1"></a><span class="st">        </span></span>
+<span id="cb31-32"><a href="#cb31-32" aria-hidden="true" tabindex="-1"></a><span class="st">        IF done THEN</span></span>
+<span id="cb31-33"><a href="#cb31-33" aria-hidden="true" tabindex="-1"></a><span class="st">            LEAVE read_loop;</span></span>
+<span id="cb31-34"><a href="#cb31-34" aria-hidden="true" tabindex="-1"></a><span class="st">        END IF;</span></span>
+<span id="cb31-35"><a href="#cb31-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-36"><a href="#cb31-36" aria-hidden="true" tabindex="-1"></a><span class="st">        INSERT INTO contact_methods (`LegacyContactId`, `Type`, `Value`) VALUES </span></span>
+<span id="cb31-37"><a href="#cb31-37" aria-hidden="true" tabindex="-1"></a><span class="st">            (v_LegacyContactId, 'HomePhone', v_HomePhone),</span></span>
+<span id="cb31-38"><a href="#cb31-38" aria-hidden="true" tabindex="-1"></a><span class="st">            (v_LegacyContactId, 'HomeEmail', v_HomeEmail),</span></span>
+<span id="cb31-39"><a href="#cb31-39" aria-hidden="true" tabindex="-1"></a><span class="st">            (v_LegacyContactId, 'Fax', v_Fax);</span></span>
+<span id="cb31-40"><a href="#cb31-40" aria-hidden="true" tabindex="-1"></a><span class="st">    END LOOP;</span></span>
+<span id="cb31-41"><a href="#cb31-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-42"><a href="#cb31-42" aria-hidden="true" tabindex="-1"></a><span class="st">    CLOSE cur;</span></span>
+<span id="cb31-43"><a href="#cb31-43" aria-hidden="true" tabindex="-1"></a><span class="st">END;</span></span>
+<span id="cb31-44"><a href="#cb31-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-45"><a href="#cb31-45" aria-hidden="true" tabindex="-1"></a><span class="st">-- Delete records from contact methods where value is null or ''</span></span>
+<span id="cb31-46"><a href="#cb31-46" aria-hidden="true" tabindex="-1"></a><span class="st">DELETE FROM contact_methods WHERE `Value` IS NULL OR `Value` = '';</span></span>
+<span id="cb31-47"><a href="#cb31-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-48"><a href="#cb31-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-49"><a href="#cb31-49" aria-hidden="true" tabindex="-1"></a><span class="st">commit;</span></span>
+<span id="cb31-50"><a href="#cb31-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-51"><a href="#cb31-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-52"><a href="#cb31-52" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
+<span id="cb31-53"><a href="#cb31-53" aria-hidden="true" tabindex="-1"></a>insert_proc(proc, <span class="st">'transform_contact_methods'</span>, call<span class="op">=</span><span class="va">True</span>, hide_output<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb31-54"><a href="#cb31-54" aria-hidden="true" tabindex="-1"></a>pd.read_sql(<span class="st">'select * from contact_methods order by LegacyContactId'</span>, con<span class="op">=</span>engine)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -1380,126 +1230,60 @@ MySQL connection closed</code></pre>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
-<td>029456846-8</td>
-<td>HomeEmail</td>
-<td>jdoley6@telegraph.co.uk</td>
+<td>093004505-X</td>
+<td>HomePhone</td>
+<td>818-323-9865</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
 <td>093004505-X</td>
-<td>HomePhone</td>
-<td>818-323-9865</td>
+<td>Fax</td>
+<td>818-156-7985</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
-<td>093004505-X</td>
-<td>Fax</td>
-<td>818-156-7985</td>
+<td>315297729-8</td>
+<td>HomeEmail</td>
+<td>dmouncey9@cnn.com</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
-<td>093004505-X</td>
-<td>HomePhone</td>
-<td>818-323-9865</td>
+<td>390551098-7</td>
+<td>HomeEmail</td>
+<td>ebenech1@goodreads.com</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">5</td>
-<td>093004505-X</td>
-<td>Fax</td>
-<td>818-156-7985</td>
+<td>488464926-5</td>
+<td>HomeEmail</td>
+<td>fcastille4@timesonline.co.uk</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">6</td>
-<td>315297729-8</td>
-<td>HomeEmail</td>
-<td>dmouncey9@cnn.com</td>
+<td>653377813-7</td>
+<td>HomePhone</td>
+<td>832-442-4988</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">7</td>
-<td>315297729-8</td>
+<td>653377813-7</td>
 <td>HomeEmail</td>
-<td>dmouncey9@cnn.com</td>
+<td>kklumbers@yahoo.com</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">8</td>
-<td>390551098-7</td>
+<td>687119652-8</td>
 <td>HomeEmail</td>
-<td>ebenech1@goodreads.com</td>
+<td>cmakepeace7@1688.com</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">9</td>
-<td>390551098-7</td>
-<td>HomeEmail</td>
-<td>ebenech1@goodreads.com</td>
+<td>739131380-7</td>
+<td>Fax</td>
+<td>626-981-3874</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">10</td>
-<td>488464926-5</td>
-<td>HomeEmail</td>
-<td>fcastille4@timesonline.co.uk</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">11</td>
-<td>488464926-5</td>
-<td>HomeEmail</td>
-<td>fcastille4@timesonline.co.uk</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">12</td>
-<td>653377813-7</td>
-<td>HomePhone</td>
-<td>832-442-4988</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">13</td>
-<td>653377813-7</td>
-<td>HomeEmail</td>
-<td>kklumbers@yahoo.com</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">14</td>
-<td>653377813-7</td>
-<td>HomePhone</td>
-<td>832-442-4988</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">15</td>
-<td>653377813-7</td>
-<td>HomeEmail</td>
-<td>kklumbers@yahoo.com</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">16</td>
-<td>687119652-8</td>
-<td>HomeEmail</td>
-<td>cmakepeace7@1688.com</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">17</td>
-<td>687119652-8</td>
-<td>HomeEmail</td>
-<td>cmakepeace7@1688.com</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">18</td>
-<td>739131380-7</td>
-<td>Fax</td>
-<td>626-981-3874</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">19</td>
-<td>739131380-7</td>
-<td>Fax</td>
-<td>626-981-3874</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">20</td>
-<td>848348568-0</td>
-<td>HomePhone</td>
-<td>702-844-9524</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">21</td>
 <td>848348568-0</td>
 <td>HomePhone</td>
 <td>702-844-9524</td>
@@ -1516,10 +1300,10 @@ MySQL connection closed</code></pre>
 <section id="export" class="level1">
 <h1>Export</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> nbdev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> nbdev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>nbdev.nbdev_export(<span class="st">'01_SQL_Solution.ipynb'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>nbdev.nbdev_export(<span class="st">'01_SQL_Solution.ipynb'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

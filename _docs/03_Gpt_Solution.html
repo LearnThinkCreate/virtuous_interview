@@ -205,10 +205,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#configuring-openai-credentials" id="toc-configuring-openai-credentials" class="nav-link active" data-scroll-target="#configuring-openai-credentials">Configuring OpenAI Credentials</a></li>
-  <li><a href="#gptprompt" id="toc-gptprompt" class="nav-link" data-scroll-target="#gptprompt">GptPrompt</a>
+  <li><a href="#configuring-openai-credentials" id="toc-configuring-openai-credentials" class="nav-link active" data-scroll-target="#configuring-openai-credentials">Configuring OpenAI Credentials</a>
   <ul>
-  <li><a href="#gptprompt-1" id="toc-gptprompt-1" class="nav-link" data-scroll-target="#gptprompt-1">GptPrompt</a></li>
+  <li><a href="#gptprompt" id="toc-gptprompt" class="nav-link" data-scroll-target="#gptprompt">GptPrompt</a></li>
   </ul></li>
   <li><a href="#openai-solutoins" id="toc-openai-solutoins" class="nav-link" data-scroll-target="#openai-solutoins">OpenAI Solutoins</a>
   <ul>
@@ -256,21 +255,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>openai.api_key <span class="op">=</span> os.getenv(<span class="st">"OPENAI_API_KEY"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="gptprompt" class="level2">
-<h2 class="anchored" data-anchor-id="gptprompt">GptPrompt</h2>
-<blockquote class="blockquote">
-<p>Class For sending messages to Open AI <br> <br></p>
-</blockquote>
-<p>Simple class to make reusing a prompt easier</p>
 <hr>
 <p><a href="https://github.com/LearnThinkCreate/virtuous_interview/blob/master/virtuous_interview/solution_gpt.py#L25" target="_blank" style="float:right; font-size:smaller">source</a></p>
-<section id="gptprompt-1" class="level3">
-<h3 class="anchored" data-anchor-id="gptprompt-1">GptPrompt</h3>
+<section id="gptprompt" class="level3">
+<h3 class="anchored" data-anchor-id="gptprompt">GptPrompt</h3>
 <blockquote class="blockquote">
 <pre><code> GptPrompt (messages)</code></pre>
 </blockquote>
-<p>GPT-3.5 Turbo 16k 0613</p>
+<p>Class For sending messages to Open AI using GPT-3.5 Turbo 16k 0613</p>
 </section>
 </section>
 <section id="openai-solutoins" class="level1">
@@ -571,7 +563,7 @@ dtype: object</code></pre>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
-<td>89130</td>
+<td>89130-</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
@@ -583,7 +575,7 @@ dtype: object</code></pre>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
-<td>49560</td>
+<td>49560-</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">5</td>
@@ -595,11 +587,11 @@ dtype: object</code></pre>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">7</td>
-<td>30066</td>
+<td>30066-</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">8</td>
-<td>68164</td>
+<td>68164-</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">9</td>
@@ -632,12 +624,14 @@ dtype: object</code></pre>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>gpt_response <span class="op">=</span> df.ask(<span class="st">'Can you convert the Deceased column to a boolean. Assume empty strings '' are False'</span>)</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>gpt_response.Deceased.unique()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   Number CompanyName  ... SecondaryLegacyIndividualId    ContactName
-0       1         ABC  ...                                   John Doe
-1       2         DEF  ...                                 Jane Smith
-2       3         GHI  ...                              Alice Johnson
+<pre><code>  Number CompanyName  ... SecondaryLegacyIndividualId ContactName
+0      1         ABC  ...                                        
+1      2         DEF  ...                                        
+2      3         GHI  ...                                        
+3      4         JKL  ...                                        
+4      5         MNO  ...                                        
 
-[3 rows x 17 columns]</code></pre>
+[5 rows x 17 columns]</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>array([False,  True])</code></pre>
