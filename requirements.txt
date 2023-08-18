@@ -4,3 +4,5 @@ mysql-connector-python
 sqlalchemy
 python-dotenv
 pandas-gpt
+openai
+nbdev
