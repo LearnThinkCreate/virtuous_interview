@@ -86,6 +86,17 @@ final_contacts.fillna('')
 ```
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+&#10;    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+&#10;    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 
 |     | LegacyContactId | LegacyIndividualId | ContactType  | ContactName                    | FirstName | LastName    | SecondaryLegacyIndividualId | SecondaryFirstName | SecondaryLastName | HomePhone    | HomeEmail                    | Address1              | City         | State | PostalCode | IsPrivate | IsDeceased |
 |-----|-----------------|--------------------|--------------|--------------------------------|-----------|-------------|-----------------------------|--------------------|-------------------|--------------|------------------------------|-----------------------|--------------|-------|------------|-----------|------------|
@@ -108,6 +119,17 @@ final_contact_methods
 ```
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+&#10;    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+&#10;    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 
 |     | LegacyContactId | Type      | Value                        |
 |-----|-----------------|-----------|------------------------------|
@@ -130,6 +152,17 @@ final_gifts.fillna('')
 ```
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+&#10;    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+&#10;    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 
 |     | LegacyContactId | LegacyGiftId | GiftType              | GiftDate   | GiftAmount | Notes                     | CreditCardType | Project1Code       | Project2Code     | LegacyPledgeID |
 |-----|-----------------|--------------|-----------------------|------------|------------|---------------------------|----------------|--------------------|------------------|----------------|
