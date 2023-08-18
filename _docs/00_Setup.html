@@ -226,8 +226,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#spliting-rows-with-multiple-people" id="toc-spliting-rows-with-multiple-people" class="nav-link" data-scroll-target="#spliting-rows-with-multiple-people">Spliting rows with Multiple People</a></li>
   <li><a href="#updating-unique-identifiers" id="toc-updating-unique-identifiers" class="nav-link" data-scroll-target="#updating-unique-identifiers">Updating unique identifiers</a></li>
   </ul></li>
-  <li><a href="#cleaning-contact-names" id="toc-cleaning-contact-names" class="nav-link" data-scroll-target="#cleaning-contact-names">Cleaning Contact Names</a></li>
-  <li><a href="#add-contact-name" id="toc-add-contact-name" class="nav-link" data-scroll-target="#add-contact-name">Add Contact Name</a>
+  <li><a href="#cleaning-contact-first-last-names" id="toc-cleaning-contact-first-last-names" class="nav-link" data-scroll-target="#cleaning-contact-first-last-names">Cleaning Contact First &amp; Last Names</a></li>
+  <li><a href="#add-contactname-column" id="toc-add-contactname-column" class="nav-link" data-scroll-target="#add-contactname-column">Add ContactName Column</a>
   <ul class="collapse">
   <li><a href="#set_contact_name" id="toc-set_contact_name" class="nav-link" data-scroll-target="#set_contact_name">set_contact_name</a></li>
   <li><a href="#applying-contactname-transformation" id="toc-applying-contactname-transformation" class="nav-link" data-scroll-target="#applying-contactname-transformation">Applying ContactName Transformation</a></li>
@@ -968,8 +968,8 @@ Name: FirstName, dtype: object</code></pre>
 </div>
 </section>
 </section>
-<section id="cleaning-contact-names" class="level2">
-<h2 class="anchored" data-anchor-id="cleaning-contact-names">Cleaning Contact Names</h2>
+<section id="cleaning-contact-first-last-names" class="level2">
+<h2 class="anchored" data-anchor-id="cleaning-contact-first-last-names">Cleaning Contact First &amp; Last Names</h2>
 <blockquote class="blockquote">
 <p>Cleaning Records with blank first or last names <br></p>
 </blockquote>
@@ -1265,11 +1265,8 @@ Name: FirstName, dtype: object</code></pre>
 </div>
 </div>
 </section>
-<section id="add-contact-name" class="level2">
-<h2 class="anchored" data-anchor-id="add-contact-name">Add Contact Name</h2>
-<blockquote class="blockquote">
-<p>Adding Contact Name</p>
-</blockquote>
+<section id="add-contactname-column" class="level2">
+<h2 class="anchored" data-anchor-id="add-contactname-column">Add ContactName Column</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>contacts.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -1455,7 +1452,7 @@ Name: FirstName, dtype: object</code></pre>
 <section id="projectcode-transformation" class="level2">
 <h2 class="anchored" data-anchor-id="projectcode-transformation">ProjectCode Transformation</h2>
 <blockquote class="blockquote">
-<p>Splitting Project Codes</p>
+<p>Splitting FundId</p>
 </blockquote>
 <p>Splitting the FundId column by <code>','</code></p>
 <div class="cell">
