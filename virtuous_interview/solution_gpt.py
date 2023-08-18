@@ -23,6 +23,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # %% ../03_Gpt_Solution.ipynb 7
 class GptPrompt:
+    """GPT-3.5 Turbo 16k 0613"""
     def __init__(self, messages):
         self.messages = messages
 
