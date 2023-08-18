@@ -24,10 +24,10 @@
 
 > I’ve demonstrated 3 methods of performing the data migraiton <br> <br>
 
-- [Setup](/01_Setup.ipynb) <br>
-- Method 1: [SQL](02_SQL_Solution.ipynb) <br>
-- Method 2: [Python / Pandas](03_Pandas_Solution.ipynb) <br>
-- Method 3: [Generative AI / Chat GPT](04_Gpt_Solution.ipynb) <br>
+- [Setup](/00_Setup.ipynb) <br>
+- Method 1: [SQL](01_SQL_Solution.ipynb) <br>
+- Method 2: [Python / Pandas](02_Pandas_Solution.ipynb) <br>
+- Method 3: [Generative AI / Chat GPT](03_Gpt_Solution.ipynb) <br>
 
 ## Result
 

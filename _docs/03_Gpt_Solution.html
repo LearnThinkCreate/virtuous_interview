@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>virtuous_interview - virtuous_inverview</title>
+<title>virtuous_interview - GPT Solution</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,12 +93,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="virtuous_interview - virtuous_inverview">
+<meta property="og:title" content="virtuous_interview - GPT Solution">
+<meta property="og:description" content="">
 <meta property="og:site-name" content="virtuous_interview">
-<meta name="twitter:title" content="virtuous_interview - virtuous_inverview">
+<meta name="twitter:title" content="virtuous_interview - GPT Solution">
+<meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -135,7 +140,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00_Core.html">virtuous_inverview</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03_Gpt_Solution.html">GPT Solution</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -155,44 +160,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./00_Core.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">virtuous_inverview</span></a>
+  <a href="./00_Setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Setup</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01_SQL_Cleanup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">01_SQL_Cleanup.html</span></a>
+ <span class="menu-text">SQL Cleanup</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_Setup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Virtuous Interview Exam</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./02_SQL_Solution.html" class="sidebar-item-text sidebar-link">
+  <a href="./01_SQL_Solution.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">SQL Solution</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_Pandas_Solution.html" class="sidebar-item-text sidebar-link">
+  <a href="./02_Pandas_Solution.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Python Solution</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_Gpt_Solution.html" class="sidebar-item-text sidebar-link">
+  <a href="./03_Gpt_Solution.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">GPT Solution</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_Test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Testing</span></a>
+  <a href="./04_Test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Validation</span></a>
   </div>
 </li>
     </ul>
@@ -201,14 +200,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#configuring-openai-credentials" id="toc-configuring-openai-credentials" class="nav-link active" data-scroll-target="#configuring-openai-credentials">Configuring OpenAI Credentials</a></li>
+  <li><a href="#gptprompt" id="toc-gptprompt" class="nav-link" data-scroll-target="#gptprompt">GptPrompt</a>
+  <ul>
+  <li><a href="#gptprompt-1" id="toc-gptprompt-1" class="nav-link" data-scroll-target="#gptprompt-1">GptPrompt</a></li>
+  <li><a href="#to_csl" id="toc-to_csl" class="nav-link" data-scroll-target="#to_csl">to_csl</a></li>
+  <li><a href="#to_csl-1" id="toc-to_csl-1" class="nav-link" data-scroll-target="#to_csl-1">to_csl</a></li>
+  </ul></li>
+  <li><a href="#openai-solutoins" id="toc-openai-solutoins" class="nav-link" data-scroll-target="#openai-solutoins">OpenAI Solutoins</a>
+  <ul>
+  <li><a href="#creditcardtype" id="toc-creditcardtype" class="nav-link" data-scroll-target="#creditcardtype">CreditCardType</a></li>
+  <li><a href="#gifttype" id="toc-gifttype" class="nav-link" data-scroll-target="#gifttype">GiftType</a></li>
+  </ul></li>
+  <li><a href="#pandas-gpt-solutions" id="toc-pandas-gpt-solutions" class="nav-link" data-scroll-target="#pandas-gpt-solutions">Pandas GPT Solutions</a>
+  <ul>
+  <li><a href="#contacttype" id="toc-contacttype" class="nav-link" data-scroll-target="#contacttype">ContactType</a></li>
+  <li><a href="#postal-code" id="toc-postal-code" class="nav-link" data-scroll-target="#postal-code">Postal Code</a></li>
+  <li><a href="#isdeceased" id="toc-isdeceased" class="nav-link" data-scroll-target="#isdeceased">IsDeceased</a></li>
+  </ul></li>
+  <li><a href="#export" id="toc-export" class="nav-link" data-scroll-target="#export">Export</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/LearnThinkCreate/virtuous_interview/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">virtuous_inverview</h1>
+<h1 class="title">GPT Solution</h1>
 </div>
 
 
@@ -224,11 +247,154 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
+<section id="configuring-openai-credentials" class="level2">
+<h2 class="anchored" data-anchor-id="configuring-openai-credentials">Configuring OpenAI Credentials</h2>
+</section>
+<section id="gptprompt" class="level2">
+<h2 class="anchored" data-anchor-id="gptprompt">GptPrompt</h2>
+<p><code>Class For sending messages to Open AI</code> <br> <br></p>
+<p>Simple class to make reusing a prompt easier</p>
+<hr>
+<p><a href="https://github.com/LearnThinkCreate/virtuous_interview/blob/master/virtuous_interview/solution_gpt.py#L20" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="gptprompt-1" class="level3">
+<h3 class="anchored" data-anchor-id="gptprompt-1">GptPrompt</h3>
+<blockquote class="blockquote">
+<pre><code> GptPrompt (messages)</code></pre>
+</blockquote>
+<p>Initialize self. See help(type(self)) for accurate signature.</p>
+</section>
+<section id="to_csl" class="level3">
+<h3 class="anchored" data-anchor-id="to_csl">to_csl</h3>
+<p><code>Formats pd series to a comma seperated list of unique values</code></p>
+<hr>
+<p><a href="https://github.com/LearnThinkCreate/virtuous_interview/blob/master/virtuous_interview/solution_gpt.py#L48" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="to_csl-1" class="level3">
+<h3 class="anchored" data-anchor-id="to_csl-1">to_csl</h3>
+<blockquote class="blockquote">
+<pre><code> to_csl (pd_series)</code></pre>
+</blockquote>
+</section>
+</section>
+<section id="openai-solutoins" class="level1">
+<h1>OpenAI Solutoins</h1>
+<p><code>Solutions to a subeset of the data modifications using OpenAI API :)</code></p>
+<section id="creditcardtype" class="level2">
+<h2 class="anchored" data-anchor-id="creditcardtype">CreditCardType</h2>
+<p><code>Can only be Visa, Mastercard, AMEX, Discover</code><br> <br> - Solution: <br> - Asking Chat GPT to format the unique CreditCardTypes into the pre-approved list of values <br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># default export core</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>values_to_replace</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>{'American Ex': 'AMEX', 'Master card': 'Mastercard', '': ''}</code></pre>
 </div>
+</div>
+</section>
+<section id="gifttype" class="level2">
+<h2 class="anchored" data-anchor-id="gifttype">GiftType</h2>
+<p><code>Can only be Cash, Check, Credit, Other, or Reversing Transaction</code> <br> <br> - Solution: <br> - Asking Chat GPT to format the unique GiftTypes into the pre-approved list of values <br> - Replace ‘Reversing Transaction’ using simple logic in Python <br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>values_to_replace</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>{'PayPal': 'Other',
+ 'check': 'Check',
+ 'cash': 'Cash',
+ 'credit card': 'Credit',
+ 'money order': 'Other',
+ '': 'Other'}</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="pandas-gpt-solutions" class="level1">
+<h1>Pandas GPT Solutions</h1>
+<section id="contacttype" class="level2">
+<h2 class="anchored" data-anchor-id="contacttype">ContactType</h2>
+<p>`is required and can only be Household or Organization <br> <br> - Source Table: Contacts Table <br> - Solution: <br> - Create procedure to add new column ContactType <br></p>
+</section>
+<section id="postal-code" class="level2">
+<h2 class="anchored" data-anchor-id="postal-code">Postal Code</h2>
+<p><code>if address is present and is US, must be a valid zip code, either 12345 or 12345-1234</code> <br> <br> - Source Table: Contacts - Solution: - Create procedure to remove any postal codees that doesn’t match the approved format from the <a href="https://pe.usps.com/archive/html/dmmarchive20030810/A010.htm">usps</a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>contacts[[<span class="st">'Postal'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
 
 
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Postal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>20535-871</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>89130</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td></td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>8104</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>49560</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>837016</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td></td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>30066</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>68164</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="isdeceased" class="level2">
+<h2 class="anchored" data-anchor-id="isdeceased">IsDeceased</h2>
+<p><code>can only be TRUE or FALSE</code> <br> <br> - Source Table: Contacts <br> - Solution: <br> - Create procedure to update Deceased to TRUE/FALSE <br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>gpt_response.Deceased.unique()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>array(['', 'No', 'Yes'], dtype=object)</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="export" class="level1">
+<h1>Export</h1>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -468,4 +634,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/LearnThinkCreate/virtuous_interview/issues/new" class="toc-action">Report an issue</a></p></div></div></div></div></footer></body></html>
+</body></html>

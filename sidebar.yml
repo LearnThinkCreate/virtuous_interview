@@ -2,10 +2,9 @@ website:
   sidebar:
     contents:
       - index.ipynb
-      - 00_Core.ipynb
+      - 00_Setup.ipynb
       - 01_SQL_Cleanup.ipynb
-      - 01_Setup.ipynb
-      - 02_SQL_Solution.ipynb
-      - 03_Pandas_Solution.ipynb
-      - 04_Gpt_Solution.ipynb
-      - 05_Test.ipynb
+      - 01_SQL_Solution.ipynb
+      - 02_Pandas_Solution.ipynb
+      - 03_Gpt_Solution.ipynb
+      - 04_Test.ipynb

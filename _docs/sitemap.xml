@@ -1,35 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://LearnThinkCreate.github.io/virtuous_interview/index.html</loc>
-    <lastmod>2023-08-18T04:07:18.621Z</lastmod>
+    <loc>https://LearnThinkCreate.github.io/virtuous_interview/03_Gpt_Solution.html</loc>
+    <lastmod>2023-08-18T12:28:32.119Z</lastmod>
   </url>
   <url>
-    <loc>https://LearnThinkCreate.github.io/virtuous_interview/02_SQL_Solution.html</loc>
-    <lastmod>2023-08-18T04:07:17.466Z</lastmod>
+    <loc>https://LearnThinkCreate.github.io/virtuous_interview/01_SQL_Solution.html</loc>
+    <lastmod>2023-08-18T12:28:30.867Z</lastmod>
   </url>
   <url>
-    <loc>https://LearnThinkCreate.github.io/virtuous_interview/03_Pandas_Solution.html</loc>
-    <lastmod>2023-08-18T04:07:15.849Z</lastmod>
+    <loc>https://LearnThinkCreate.github.io/virtuous_interview/00_Setup.html</loc>
+    <lastmod>2023-08-18T12:28:28.755Z</lastmod>
   </url>
   <url>
-    <loc>https://LearnThinkCreate.github.io/virtuous_interview/01_Setup.html</loc>
-    <lastmod>2023-08-18T04:07:14.555Z</lastmod>
-  </url>
-  <url>
-    <loc>https://LearnThinkCreate.github.io/virtuous_interview/00_Core.html</loc>
-    <lastmod>2023-08-18T04:07:13.331Z</lastmod>
-  </url>
-  <url>
-    <loc>https://LearnThinkCreate.github.io/virtuous_interview/04_Gpt_Solution.html</loc>
-    <lastmod>2023-08-18T04:07:14.917Z</lastmod>
-  </url>
-  <url>
-    <loc>https://LearnThinkCreate.github.io/virtuous_interview/05_Test.html</loc>
-    <lastmod>2023-08-18T04:07:16.192Z</lastmod>
+    <loc>https://LearnThinkCreate.github.io/virtuous_interview/04_Test.html</loc>
+    <lastmod>2023-08-18T12:28:27.198Z</lastmod>
   </url>
   <url>
     <loc>https://LearnThinkCreate.github.io/virtuous_interview/01_SQL_Cleanup.html</loc>
-    <lastmod>2023-08-18T04:07:17.737Z</lastmod>
+    <lastmod>2023-08-18T12:28:27.491Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LearnThinkCreate.github.io/virtuous_interview/02_Pandas_Solution.html</loc>
+    <lastmod>2023-08-18T12:28:29.743Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LearnThinkCreate.github.io/virtuous_interview/index.html</loc>
+    <lastmod>2023-08-18T12:28:31.782Z</lastmod>
   </url>
 </urlset>
