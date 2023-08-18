@@ -210,9 +210,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#creating-a-func-to-convert-string-to-camelcase" id="toc-creating-a-func-to-convert-string-to-camelcase" class="nav-link" data-scroll-target="#creating-a-func-to-convert-string-to-camelcase">Creating a Func to Convert String to CamelCase</a></li>
   <li><a href="#to_camel_case" id="toc-to_camel_case" class="nav-link" data-scroll-target="#to_camel_case">to_camel_case</a></li>
-  <li><a href="#creating-seperate-function-to-apply-string-transformation-to-pandas-columns" id="toc-creating-seperate-function-to-apply-string-transformation-to-pandas-columns" class="nav-link" data-scroll-target="#creating-seperate-function-to-apply-string-transformation-to-pandas-columns">Creating seperate function to apply string transformation to pandas columns</a></li>
+  <li><a href="#creating-seperate-function-to-apply-string-transformation-to-pandas-columns" id="toc-creating-seperate-function-to-apply-string-transformation-to-pandas-columns" class="nav-link" data-scroll-target="#creating-seperate-function-to-apply-string-transformation-to-pandas-columns">Creating seperate function to apply string transformation to pandas columns <br></a></li>
   <li><a href="#transform_cnames" id="toc-transform_cnames" class="nav-link" data-scroll-target="#transform_cnames">transform_cnames</a></li>
-  <li><a href="#applying-transformation" id="toc-applying-transformation" class="nav-link" data-scroll-target="#applying-transformation">Applying Transformation</a></li>
+  <li><a href="#applying-transformation" id="toc-applying-transformation" class="nav-link" data-scroll-target="#applying-transformation">Applying Transformation <br><br></a></li>
   </ul></li>
   <li><a href="#column-type-transformation" id="toc-column-type-transformation" class="nav-link" data-scroll-target="#column-type-transformation">Column Type Transformation</a></li>
   <li><a href="#misplaced-data-transformation" id="toc-misplaced-data-transformation" class="nav-link" data-scroll-target="#misplaced-data-transformation">Misplaced Data Transformation</a>
@@ -224,8 +224,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#checking-for-missing-records" id="toc-checking-for-missing-records" class="nav-link" data-scroll-target="#checking-for-missing-records">Checking for Missing records</a></li>
   <li><a href="#spliting-rows-with-multiple-people" id="toc-spliting-rows-with-multiple-people" class="nav-link" data-scroll-target="#spliting-rows-with-multiple-people">Spliting rows with Multiple People</a></li>
+  <li><a href="#updating-unique-identifiers" id="toc-updating-unique-identifiers" class="nav-link" data-scroll-target="#updating-unique-identifiers">Updating unique identifiers</a></li>
   </ul></li>
-  <li><a href="#cleaning-names" id="toc-cleaning-names" class="nav-link" data-scroll-target="#cleaning-names">Cleaning Names</a></li>
+  <li><a href="#cleaning-contact-names" id="toc-cleaning-contact-names" class="nav-link" data-scroll-target="#cleaning-contact-names">Cleaning Contact Names</a></li>
   <li><a href="#add-contact-name" id="toc-add-contact-name" class="nav-link" data-scroll-target="#add-contact-name">Add Contact Name</a>
   <ul class="collapse">
   <li><a href="#set_contact_name" id="toc-set_contact_name" class="nav-link" data-scroll-target="#set_contact_name">set_contact_name</a></li>
@@ -235,6 +236,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#date-transformation" id="toc-date-transformation" class="nav-link" data-scroll-target="#date-transformation">Date Transformation</a>
   <ul class="collapse">
   <li><a href="#custom_parser" id="toc-custom_parser" class="nav-link" data-scroll-target="#custom_parser">custom_parser</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
   <li><a href="#transforming-dates" id="toc-transforming-dates" class="nav-link" data-scroll-target="#transforming-dates">Transforming Dates</a></li>
   </ul></li>
   <li><a href="#email-transformation" id="toc-email-transformation" class="nav-link" data-scroll-target="#email-transformation">Email Transformation</a>
@@ -580,13 +582,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <blockquote class="blockquote">
 <pre><code> to_camel_case (s)</code></pre>
 </blockquote>
+<p>stripping spaces</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>to_camel_case(<span class="st">'this isa test'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Stripping Special Characters</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>to_camel_case(<span class="st">'this_is_a_test'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>'ThisIsATest'</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>to_camel_case(<span class="st">'hello!world_what_is_up?'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>'HelloWorldWhatIsUp'</code></pre>
+</div>
+</div>
 </section>
 <section id="creating-seperate-function-to-apply-string-transformation-to-pandas-columns" class="level3">
-<h3 class="anchored" data-anchor-id="creating-seperate-function-to-apply-string-transformation-to-pandas-columns">Creating seperate function to apply string transformation to pandas columns</h3>
+<h3 class="anchored" data-anchor-id="creating-seperate-function-to-apply-string-transformation-to-pandas-columns">Creating seperate function to apply string transformation to pandas columns <br></h3>
+<p><br> It may not always be the case that I want to apply to_camel_case as the column transformation <br> <br> Because of this I’m going to set the apply func to be a optional parameter</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> transform_cnames(df, func<span class="op">=</span>to_camel_case):</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    df.columns <span class="op">=</span> df.columns.<span class="bu">map</span>(func)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">None</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> transform_cnames(df, func<span class="op">=</span>to_camel_case):</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    df.columns <span class="op">=</span> df.columns.<span class="bu">map</span>(func)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">None</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
 <p><a href="https://github.com/LearnThinkCreate/virtuous_interview/blob/master/virtuous_interview/utils.py#L29" target="_blank" style="float:right; font-size:smaller">source</a></p>
@@ -598,30 +618,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </blockquote>
 </section>
 <section id="applying-transformation" class="level3">
-<h3 class="anchored" data-anchor-id="applying-transformation">Applying Transformation</h3>
+<h3 class="anchored" data-anchor-id="applying-transformation">Applying Transformation <br><br></h3>
+<p>Going to transform the column names of each of the 3 tables</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> df <span class="kw">in</span> [contact_methods, contacts, gifts]:</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    transform_cnames(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> df <span class="kw">in</span> [contact_methods, contacts, gifts]:</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    transform_cnames(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Validating that the contacts column names are now CamelCase</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>contacts.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>Index(['Number', 'CompanyName', 'FirstName', 'LastName', 'Street', 'City',
+       'State', 'Postal', 'Phone', 'EMail', 'Remarks', 'Deceased'],
+      dtype='object')</code></pre>
+</div>
 </div>
 </section>
 </section>
 <section id="column-type-transformation" class="level2">
 <h2 class="anchored" data-anchor-id="column-type-transformation">Column Type Transformation</h2>
-<p><br><br></p>
-<p>I identified 2 columns on the gift table that should be ints, replacing those values</p>
+<p><br></p>
+<p>I identified 2 columns on the gift table that should be ints <br><br></p>
+<p>I’m going to convert them both to type int</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>int_cols <span class="op">=</span> [<span class="st">'GiftId'</span>, <span class="st">'PledgeNumber'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>int_cols <span class="op">=</span> [<span class="st">'GiftId'</span>, <span class="st">'PledgeNumber'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>gifts[int_cols] <span class="op">=</span> gifts[int_cols].replace({<span class="st">''</span>:<span class="dv">0</span>}).astype(<span class="bu">int</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>gifts[int_cols] <span class="op">=</span> gifts[int_cols].replace({<span class="st">''</span>:<span class="dv">0</span>}).astype(<span class="bu">int</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Looks like AmountRecieved should really be a float, I’m removing any special characters (besides dashes and periods) and converting to a float :)</p>
+<p>AmountRecieved should be a float,= <br><br></p>
+<p>I’m remove any special characters (besides dashes and periods) and converting to a float :)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>gifts[<span class="st">'AmountReceived'</span>] <span class="op">=</span> gifts.AmountReceived.<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="bu">float</span>(re.sub(<span class="vs">r'[^a-zA-Z0-9\.-]'</span>, <span class="st">''</span>, x)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>gifts[<span class="st">'AmountReceived'</span>] <span class="op">=</span> gifts.AmountReceived.<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="bu">float</span>(re.sub(<span class="vs">r'[^a-zA-Z0-9\.-]'</span>, <span class="st">''</span>, x)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Previewing change</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>gifts.AmountReceived.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>gifts.AmountReceived.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>0    4.1500
 1    2.3648
@@ -631,13 +663,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 Name: AmountReceived, dtype: float64</code></pre>
 </div>
 </div>
-<p>Replacing 0 (formally null) values with unique id</p>
+<p>I previously replaced na values with 0 <br><br></p>
+<p>I’m now going to replace ‘0’ values in <code>PledgeNumber</code> &amp; <code>GiftId</code> to thier index so that each row is unique</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>gifts.loc[ gifts.PledgeNumber <span class="op">==</span> <span class="dv">0</span>, <span class="st">'PledgeNumber'</span>] <span class="op">=</span> gifts[gifts.PledgeNumber <span class="op">==</span> <span class="dv">0</span>].index</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>gifts.loc[ gifts.GiftId <span class="op">==</span> <span class="dv">0</span>, <span class="st">'GiftId'</span>] <span class="op">=</span> gifts[gifts.GiftId <span class="op">==</span> <span class="dv">0</span>].index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>gifts.loc[ gifts.PledgeNumber <span class="op">==</span> <span class="dv">0</span>, <span class="st">'PledgeNumber'</span>] <span class="op">=</span> gifts[gifts.PledgeNumber <span class="op">==</span> <span class="dv">0</span>].index</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>gifts.loc[ gifts.GiftId <span class="op">==</span> <span class="dv">0</span>, <span class="st">'GiftId'</span>] <span class="op">=</span> gifts[gifts.GiftId <span class="op">==</span> <span class="dv">0</span>].index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Renaming the columns to match virtuous requirements</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>gifts <span class="op">=</span> gifts.rename(columns<span class="op">=</span>{<span class="st">'PledgeNumber'</span>: <span class="st">'LegacyPledgeID'</span>, <span class="st">'GiftId'</span>: <span class="st">'LegacyGiftId'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>gifts <span class="op">=</span> gifts.rename(columns<span class="op">=</span>{<span class="st">'PledgeNumber'</span>: <span class="st">'LegacyPledgeID'</span>, <span class="st">'GiftId'</span>: <span class="st">'LegacyGiftId'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="misplaced-data-transformation" class="level2">
@@ -646,7 +680,7 @@ Name: AmountReceived, dtype: float64</code></pre>
 <p>Identify and clean any pieces of data in the wrong column</p>
 </blockquote>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>contacts[[<span class="st">'Phone'</span>, <span class="st">'EMail'</span>]].head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>contacts[[<span class="st">'Phone'</span>, <span class="st">'EMail'</span>]].head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 
@@ -683,12 +717,12 @@ Name: AmountReceived, dtype: float64</code></pre>
 </div>
 <p>Creating a function that uses regular expressions to identify a string as a phone or a email</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> classify_phone_email(value):</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">"@"</span> <span class="kw">in</span> value:</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"email"</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> re.search(<span class="vs">r'\d</span><span class="sc">{3}</span><span class="vs">-\d</span><span class="sc">{3}</span><span class="vs">-\d</span><span class="sc">{4}</span><span class="vs">'</span>, value):</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"phone"</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">None</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> classify_phone_email(value):</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">"@"</span> <span class="kw">in</span> value:</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"email"</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> re.search(<span class="vs">r'\d</span><span class="sc">{3}</span><span class="vs">-\d</span><span class="sc">{3}</span><span class="vs">-\d</span><span class="sc">{4}</span><span class="vs">'</span>, value):</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"phone"</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">None</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
 <p><a href="https://github.com/LearnThinkCreate/virtuous_interview/blob/master/virtuous_interview/utils.py#L54" target="_blank" style="float:right; font-size:smaller">source</a></p>
@@ -697,25 +731,55 @@ Name: AmountReceived, dtype: float64</code></pre>
 <blockquote class="blockquote">
 <pre><code> classify_phone_email (value)</code></pre>
 </blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>classify_phone_email(<span class="st">'321-295-2502'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>'phone'</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>classify_phone_email(<span class="st">'warren.hyson5@gmail.com'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>'email'</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>classify_phone_email(<span class="st">'test321-29@gmail.com'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>'email'</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>classify_phone_email(<span class="st">'3212952502@gmail.com'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>'email'</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>classify_phone_email(<span class="st">'321-295-2502@gmail.com'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>'email'</code></pre>
+</div>
+</div>
 </section>
 <section id="applying-phoneemail-transformation" class="level3">
 <h3 class="anchored" data-anchor-id="applying-phoneemail-transformation">Applying Phone/Email Transformation</h3>
 <p>Looping over phone &amp; email records.<br> <br> If a phone and/or email are identified in the wrong column, they will be swapped</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, row <span class="kw">in</span> contacts.iterrows():</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    phone_classification <span class="op">=</span> classify_phone_email(row[<span class="st">'Phone'</span>])</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    email_classification <span class="op">=</span> classify_phone_email(row[<span class="st">'EMail'</span>])</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> phone_classification <span class="op">==</span> <span class="st">"email"</span>:</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>        contacts.at[index, <span class="st">'EMail'</span>] <span class="op">=</span> row[<span class="st">'Phone'</span>]</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>        contacts.at[index, <span class="st">'Phone'</span>] <span class="op">=</span> <span class="st">''</span></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> email_classification <span class="op">==</span> <span class="st">"phone"</span>:</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>        contacts.at[index, <span class="st">'Phone'</span>] <span class="op">=</span> row[<span class="st">'EMail'</span>]</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>        contacts.at[index, <span class="st">'EMail'</span>] <span class="op">=</span> <span class="st">''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, row <span class="kw">in</span> contacts.iterrows():</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    phone_classification <span class="op">=</span> classify_phone_email(row[<span class="st">'Phone'</span>])</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    email_classification <span class="op">=</span> classify_phone_email(row[<span class="st">'EMail'</span>])</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> phone_classification <span class="op">==</span> <span class="st">"email"</span>:</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>        contacts.at[index, <span class="st">'EMail'</span>] <span class="op">=</span> row[<span class="st">'Phone'</span>]</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>        contacts.at[index, <span class="st">'Phone'</span>] <span class="op">=</span> <span class="st">''</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> email_classification <span class="op">==</span> <span class="st">"phone"</span>:</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>        contacts.at[index, <span class="st">'Phone'</span>] <span class="op">=</span> row[<span class="st">'EMail'</span>]</span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>        contacts.at[index, <span class="st">'EMail'</span>] <span class="op">=</span> <span class="st">''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>contacts[[<span class="st">'Phone'</span>, <span class="st">'EMail'</span>]].head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>contacts[[<span class="st">'Phone'</span>, <span class="st">'EMail'</span>]].head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 
@@ -762,24 +826,24 @@ Name: AmountReceived, dtype: float64</code></pre>
 <h3 class="anchored" data-anchor-id="checking-for-missing-records">Checking for Missing records</h3>
 <p>Checking for any DonorNumbers that are NOT IN contacts Number…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>(<span class="op">~</span>gifts.DonorNumber.isin(contacts.Number.unique())).<span class="bu">any</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>(<span class="op">~</span>gifts.DonorNumber.isin(contacts.Number.unique())).<span class="bu">any</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>True</code></pre>
 </div>
 </div>
 <p><br>Found 1! <br> <br> Doing the same for contact_methods</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>(<span class="op">~</span>contact_methods.DonorNumber.isin(contacts.Number.unique())).<span class="bu">any</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>(<span class="op">~</span>contact_methods.DonorNumber.isin(contacts.Number.unique())).<span class="bu">any</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>False</code></pre>
 </div>
 </div>
-<p><br>Didn’t find any there <br><br> Going to extract the missing records from the gifts table</p>
+<p><br>Didn’t find any there <br><br><br> Going to extract the missing records from the gifts table</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>donors_not_in_contacts <span class="op">=</span> gifts.loc[<span class="op">~</span>gifts.DonorNumber.isin(contacts.Number.unique()), :]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>donors_not_in_contacts <span class="op">=</span> gifts.loc[<span class="op">~</span>gifts.DonorNumber.isin(contacts.Number.unique()), :]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>donors_not_in_contacts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>donors_not_in_contacts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 
@@ -838,21 +902,21 @@ Name: AmountReceived, dtype: float64</code></pre>
 </div>
 <p><br>Adding to Shakespeare to our contacts!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>contacts <span class="op">=</span> pd.concat([</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    contacts,</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Dataframe of donors not in contacts</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    pd.DataFrame(donors_not_in_contacts[[<span class="st">'DonorNumber'</span>, <span class="st">'FirstName'</span>, <span class="st">'LastName'</span>]]</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>                 .drop_duplicates()</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>                 .rename(columns<span class="op">=</span>{<span class="st">'DonorNumber'</span>: <span class="st">'Number'</span>})</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>                 .drop_duplicates()</span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>                 .to_dict(<span class="st">'records'</span>))</span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>contacts <span class="op">=</span> pd.concat([</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>    contacts,</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Dataframe of donors not in contacts</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>    pd.DataFrame(donors_not_in_contacts[[<span class="st">'DonorNumber'</span>, <span class="st">'FirstName'</span>, <span class="st">'LastName'</span>]]</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>                 .drop_duplicates()</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>                 .rename(columns<span class="op">=</span>{<span class="st">'DonorNumber'</span>: <span class="st">'Number'</span>})</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>                 .drop_duplicates()</span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>                 .to_dict(<span class="st">'records'</span>))</span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="spliting-rows-with-multiple-people" class="level3">
 <h3 class="anchored" data-anchor-id="spliting-rows-with-multiple-people">Spliting rows with Multiple People</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>contacts.FirstName.head(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>contacts.FirstName.head(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>0    Karita &amp; Kelvin
 Name: FirstName, dtype: object</code></pre>
@@ -860,50 +924,59 @@ Name: FirstName, dtype: object</code></pre>
 </div>
 <p><br>Split the names on ’ &amp; ’ or ’ and ’, then expand the resulting lists into new rows</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>contacts[[<span class="st">'FirstName'</span>, <span class="st">'SecondaryFirstName'</span>]] <span class="op">=</span> contacts[<span class="st">'FirstName'</span>].<span class="bu">str</span>.split(<span class="st">' &amp; | and '</span>, expand<span class="op">=</span><span class="va">True</span>).fillna(<span class="st">''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>contacts[[<span class="st">'FirstName'</span>, <span class="st">'SecondaryFirstName'</span>]] <span class="op">=</span> contacts[<span class="st">'FirstName'</span>].<span class="bu">str</span>.split(<span class="st">' &amp; | and '</span>, expand<span class="op">=</span><span class="va">True</span>).fillna(<span class="st">''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Aditionally, going to look for any records where there’s a duplicated <code>Number</code> <br> <br> I’m assuming <code>Number</code> is a primary key for a household or organization</p>
+<p>Aditionally, going to look for any records where there’s a duplicated <code>Number</code> <br> <br></p>
+<p>The following Python code will return <code>True</code> for rows where the <code>Number</code> was deemed to be a duplicate:</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>contacts.Number.duplicated()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For all the rows that are duplicates, I’m going to:<br> 1. Place them in a seperate variable <br> 2. Remove them from the original dataset <br> 3. Add them as the <code>2nd Person</code> on the non-duplicated row <br> 4. Ensure they have proper first &amp; last names</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>records_to_join <span class="op">=</span> contacts.loc[contacts.Number.duplicated(), :].to_dict(orient<span class="op">=</span><span class="st">'records'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>records_to_join <span class="op">=</span> contacts.loc[contacts.Number.duplicated(), :].to_dict(orient<span class="op">=</span><span class="st">'records'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Removing duplicates from contacts before joining</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>contacts <span class="op">=</span> contacts.loc[<span class="op">~</span>contacts.Number.duplicated(), :]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>contacts <span class="op">=</span> contacts.loc[<span class="op">~</span>contacts.Number.duplicated(), :]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Adding dupliates as secondary contacts</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> record <span class="kw">in</span> records_to_join:</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    contacts.loc[contacts.Number.isin([record[<span class="st">'Number'</span>]]), [<span class="st">'SecondaryFirstName'</span>, <span class="st">'SecondaryLastName'</span>]] <span class="op">=</span> [record[<span class="st">'FirstName'</span>], record[<span class="st">'LastName'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> record <span class="kw">in</span> records_to_join:</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>    contacts.loc[contacts.Number.isin([record[<span class="st">'Number'</span>]]), [<span class="st">'SecondaryFirstName'</span>, <span class="st">'SecondaryLastName'</span>]] <span class="op">=</span> [record[<span class="st">'FirstName'</span>], record[<span class="st">'LastName'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Adding Secondary Last Name for the appropriate users</p>
+<p>Adding Secondary Last Name where it was previously missing</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>contacts[<span class="st">'SecondaryLastName'</span>] <span class="op">=</span> contacts.<span class="bu">apply</span>(<span class="kw">lambda</span> x: x[<span class="st">'LastName'</span>] <span class="cf">if</span> x[<span class="st">'SecondaryLastName'</span>] <span class="op">==</span> <span class="st">''</span> <span class="kw">and</span> x[<span class="st">'SecondaryFirstName'</span>] <span class="op">!=</span> <span class="st">''</span> <span class="cf">else</span> x[<span class="st">'SecondaryLastName'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>contacts[<span class="st">'SecondaryLastName'</span>] <span class="op">=</span> contacts.<span class="bu">apply</span>(<span class="kw">lambda</span> x: x[<span class="st">'LastName'</span>] <span class="cf">if</span> x[<span class="st">'SecondaryLastName'</span>] <span class="op">==</span> <span class="st">''</span> <span class="kw">and</span> x[<span class="st">'SecondaryFirstName'</span>] <span class="op">!=</span> <span class="st">''</span> <span class="cf">else</span> x[<span class="st">'SecondaryLastName'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Initializing new columns</p>
+</section>
+<section id="updating-unique-identifiers" class="level3">
+<h3 class="anchored" data-anchor-id="updating-unique-identifiers">Updating unique identifiers</h3>
+<blockquote class="blockquote">
+<p>Ensuring LegacyIndividualId is present for all contacts &amp; is unique</p>
+</blockquote>
+<p>Initalizing empty collumns</p>
 <p>Adding id since none was provided</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">id</span> <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, row <span class="kw">in</span> contacts.iterrows():</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    contacts.loc[index, <span class="st">'LegacyIndividualId'</span>] <span class="op">=</span> <span class="bu">id</span></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">id</span> <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> row[<span class="st">'SecondaryFirstName'</span>] <span class="op">!=</span> <span class="st">''</span>:</span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>        contacts.loc[index, <span class="st">'SecondaryLegacyIndividualId'</span>] <span class="op">=</span> <span class="bu">id</span></span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">id</span> <span class="op">+=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="bu">id</span> <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, row <span class="kw">in</span> contacts.iterrows():</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>    contacts.loc[index, <span class="st">'LegacyIndividualId'</span>] <span class="op">=</span> <span class="bu">id</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">id</span> <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> row[<span class="st">'SecondaryFirstName'</span>] <span class="op">!=</span> <span class="st">''</span>:</span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>        contacts.loc[index, <span class="st">'SecondaryLegacyIndividualId'</span>] <span class="op">=</span> <span class="bu">id</span></span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">id</span> <span class="op">+=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
-<section id="cleaning-names" class="level2">
-<h2 class="anchored" data-anchor-id="cleaning-names">Cleaning Names</h2>
+<section id="cleaning-contact-names" class="level2">
+<h2 class="anchored" data-anchor-id="cleaning-contact-names">Cleaning Contact Names</h2>
 <blockquote class="blockquote">
 <p>Cleaning Records with blank first or last names <br></p>
 </blockquote>
 <p>Checking for records where FirstName and/or LastName is blank</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>blank_name_records <span class="op">=</span> ((contacts.FirstName <span class="op">==</span> <span class="st">''</span>) <span class="op">|</span> (contacts.LastName <span class="op">==</span> <span class="st">''</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>blank_name_records <span class="op">=</span> ((contacts.FirstName <span class="op">==</span> <span class="st">''</span>) <span class="op">|</span> (contacts.LastName <span class="op">==</span> <span class="st">''</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Previewing the blank name records</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>contacts.loc[((contacts.FirstName <span class="op">==</span> <span class="st">''</span>) <span class="op">|</span> (contacts.LastName <span class="op">==</span> <span class="st">''</span>)), :]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>contacts.loc[((contacts.FirstName <span class="op">==</span> <span class="st">''</span>) <span class="op">|</span> (contacts.LastName <span class="op">==</span> <span class="st">''</span>)), :]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 
@@ -996,10 +1069,10 @@ Name: FirstName, dtype: object</code></pre>
 </div>
 <p><br>Before I delete the records I’m going to check if the names are present on the gift table <br> <br> I’m going to start by getting the unique Numbers that the records belong too</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>blank_name_numbers<span class="op">=</span> contacts.loc[blank_name_records, <span class="st">'Number'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>blank_name_numbers<span class="op">=</span> contacts.loc[blank_name_records, <span class="st">'Number'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>gifts.loc[gifts.DonorNumber.isin(blank_name_numbers), [<span class="st">'DonorNumber'</span>, <span class="st">'FirstName'</span>, <span class="st">'LastName'</span>]].drop_duplicates().head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>gifts.loc[gifts.DonorNumber.isin(blank_name_numbers), [<span class="st">'DonorNumber'</span>, <span class="st">'FirstName'</span>, <span class="st">'LastName'</span>]].drop_duplicates().head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 
@@ -1046,12 +1119,12 @@ Name: FirstName, dtype: object</code></pre>
 </div>
 <p><br>The names are present on the gifts table!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>gift_name_records <span class="op">=</span> gifts.loc[gifts.DonorNumber.isin(blank_name_numbers), [<span class="st">'DonorNumber'</span>, <span class="st">'FirstName'</span>, <span class="st">'LastName'</span>]].drop_duplicates()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>gift_name_records <span class="op">=</span> gifts.loc[gifts.DonorNumber.isin(blank_name_numbers), [<span class="st">'DonorNumber'</span>, <span class="st">'FirstName'</span>, <span class="st">'LastName'</span>]].drop_duplicates()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Removing the invalid record</p>
 <div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>gift_name_records <span class="op">=</span> gift_name_records.loc[((gift_name_records.FirstName <span class="op">!=</span> <span class="st">''</span>) <span class="op">&amp;</span> (gift_name_records.LastName <span class="op">!=</span> <span class="st">''</span>)), :]</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>gift_name_records</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>gift_name_records <span class="op">=</span> gift_name_records.loc[((gift_name_records.FirstName <span class="op">!=</span> <span class="st">''</span>) <span class="op">&amp;</span> (gift_name_records.LastName <span class="op">!=</span> <span class="st">''</span>)), :]</span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>gift_name_records</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 
@@ -1092,12 +1165,12 @@ Name: FirstName, dtype: object</code></pre>
 </div>
 <p><br>Updating the records that previousuly had a blank first or last name</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _, row <span class="kw">in</span> gift_name_records.iterrows():</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>    contacts.loc[contacts[<span class="st">'Number'</span>] <span class="op">==</span> row[<span class="st">'DonorNumber'</span>], [<span class="st">'FirstName'</span>, <span class="st">'LastName'</span>]] <span class="op">=</span> [row[<span class="st">'FirstName'</span>], row[<span class="st">'LastName'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _, row <span class="kw">in</span> gift_name_records.iterrows():</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>    contacts.loc[contacts[<span class="st">'Number'</span>] <span class="op">==</span> row[<span class="st">'DonorNumber'</span>], [<span class="st">'FirstName'</span>, <span class="st">'LastName'</span>]] <span class="op">=</span> [row[<span class="st">'FirstName'</span>], row[<span class="st">'LastName'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>All the records valid names now!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>contacts.loc[blank_name_records, :]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>contacts.loc[blank_name_records, :]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 
@@ -1195,7 +1268,7 @@ Name: FirstName, dtype: object</code></pre>
 <p>Adding Contact Name</p>
 </blockquote>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>contacts.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>contacts.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 
@@ -1288,13 +1361,13 @@ Name: FirstName, dtype: object</code></pre>
 </div>
 <p><br>Creating a function to update the contact name depending on the individuals on the household record</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> set_contact_name(row):</span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> row[<span class="st">'LastName'</span>] <span class="op">==</span> row[<span class="st">'SecondaryLastName'</span>]:</span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> row[<span class="st">'FirstName'</span>] <span class="op">+</span> <span class="st">' &amp; '</span> <span class="op">+</span> row[<span class="st">'SecondaryFirstName'</span>] <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> row[<span class="st">'LastName'</span>]</span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> row[<span class="st">'SecondaryFirstName'</span>] <span class="op">!=</span> <span class="st">''</span>:</span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> row[<span class="st">'FirstName'</span>] <span class="op">+</span>  <span class="st">' '</span> <span class="op">+</span> row[<span class="st">'LastName'</span>] <span class="op">+</span> <span class="st">' &amp; '</span> <span class="op">+</span> row[<span class="st">'SecondaryFirstName'</span>] <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> row[<span class="st">'SecondaryLastName'</span>]</span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> row[<span class="st">'FirstName'</span>] <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> row[<span class="st">'LastName'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> set_contact_name(row):</span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> row[<span class="st">'LastName'</span>] <span class="op">==</span> row[<span class="st">'SecondaryLastName'</span>]:</span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> row[<span class="st">'FirstName'</span>] <span class="op">+</span> <span class="st">' &amp; '</span> <span class="op">+</span> row[<span class="st">'SecondaryFirstName'</span>] <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> row[<span class="st">'LastName'</span>]</span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> row[<span class="st">'SecondaryFirstName'</span>] <span class="op">!=</span> <span class="st">''</span>:</span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> row[<span class="st">'FirstName'</span>] <span class="op">+</span>  <span class="st">' '</span> <span class="op">+</span> row[<span class="st">'LastName'</span>] <span class="op">+</span> <span class="st">' &amp; '</span> <span class="op">+</span> row[<span class="st">'SecondaryFirstName'</span>] <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> row[<span class="st">'SecondaryLastName'</span>]</span>
+<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> row[<span class="st">'FirstName'</span>] <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> row[<span class="st">'LastName'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
 <p><a href="https://github.com/LearnThinkCreate/virtuous_interview/blob/master/virtuous_interview/utils.py#L144" target="_blank" style="float:right; font-size:smaller">source</a></p>
@@ -1307,7 +1380,72 @@ Name: FirstName, dtype: object</code></pre>
 <section id="applying-contactname-transformation" class="level3">
 <h3 class="anchored" data-anchor-id="applying-contactname-transformation">Applying ContactName Transformation</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>contacts[<span class="st">'ContactName'</span>] <span class="op">=</span> contacts.<span class="bu">apply</span>(set_contact_name, axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>contacts[<span class="st">'ContactName'</span>] <span class="op">=</span> contacts.<span class="bu">apply</span>(set_contact_name, axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Previewing result</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>contacts[[<span class="st">'ContactName'</span>, <span class="st">'FirstName'</span>, <span class="st">'LastName'</span>, <span class="st">'SecondaryFirstName'</span>, <span class="st">'SecondaryLastName'</span>]].head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">ContactName</th>
+<th data-quarto-table-cell-role="th">FirstName</th>
+<th data-quarto-table-cell-role="th">LastName</th>
+<th data-quarto-table-cell-role="th">SecondaryFirstName</th>
+<th data-quarto-table-cell-role="th">SecondaryLastName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Karita &amp; Kelvin Lumbers</td>
+<td>Karita</td>
+<td>Lumbers</td>
+<td>Kelvin</td>
+<td>Lumbers</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Helga Benech</td>
+<td>Helga</td>
+<td>Benech</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Masha Butt Gow</td>
+<td>Masha</td>
+<td>Butt Gow</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Cymbre Cross</td>
+<td>Cymbre</td>
+<td>Cross</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Hoyt Castille</td>
+<td>Hoyt</td>
+<td>Castille</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -1316,11 +1454,12 @@ Name: FirstName, dtype: object</code></pre>
 <blockquote class="blockquote">
 <p>Splitting Project Codes</p>
 </blockquote>
+<p>Splitting the FundId column by <code>','</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>project_codes <span class="op">=</span> gifts.FundId.<span class="bu">str</span>.split(<span class="st">', '</span>, expand<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>project_codes <span class="op">=</span> gifts.FundId.<span class="bu">str</span>.split(<span class="st">', '</span>, expand<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>project_codes.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>project_codes.head(<span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 
@@ -1349,6 +1488,21 @@ Name: FirstName, dtype: object</code></pre>
 <td></td>
 <td>None</td>
 </tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td></td>
+<td>None</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td></td>
+<td>None</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>General</td>
+<td>ReliefFund</td>
+</tr>
 </tbody>
 </table>
 
@@ -1356,11 +1510,14 @@ Name: FirstName, dtype: object</code></pre>
 </div>
 </div>
 <p><br></p>
+<p><br></p>
+<p>Assigning the values to the Project1 &amp; 2 columns</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>gifts[[<span class="st">'Project1Code'</span>, <span class="st">'Project2Code'</span>]] <span class="op">=</span> project_codes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>gifts[[<span class="st">'Project1Code'</span>, <span class="st">'Project2Code'</span>]] <span class="op">=</span> project_codes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Removing FundId from the dataset</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>gifts <span class="op">=</span> gifts.loc[:, gifts.columns.drop(<span class="st">'FundId'</span>)].copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>gifts <span class="op">=</span> gifts.loc[:, gifts.columns.drop(<span class="st">'FundId'</span>)].copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="date-transformation" class="level2">
@@ -1369,7 +1526,7 @@ Name: FirstName, dtype: object</code></pre>
 <p>Formating date</p>
 </blockquote>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Date'</span>].head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Date'</span>].head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>0     3/4/2019
 1     3/5/2019
@@ -1381,11 +1538,11 @@ Name: Date, dtype: object</code></pre>
 </div>
 <p><br>Since Dates are in different formats I’m going to create a custom parser</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> custom_parser(date_str):</span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
-<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> datetime.strptime(date_str, <span class="st">'%m/</span><span class="sc">%d</span><span class="st">/%Y'</span>)</span>
-<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">ValueError</span>:</span>
-<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> datetime.strptime(date_str, <span class="st">'%Y/%m/</span><span class="sc">%d</span><span class="st">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> custom_parser(date_str):</span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> datetime.strptime(date_str, <span class="st">'%m/</span><span class="sc">%d</span><span class="st">/%Y'</span>)</span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">ValueError</span>:</span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> datetime.strptime(date_str, <span class="st">'%Y/%m/</span><span class="sc">%d</span><span class="st">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
 <p><a href="https://github.com/LearnThinkCreate/virtuous_interview/blob/master/virtuous_interview/utils.py#L168" target="_blank" style="float:right; font-size:smaller">source</a></p>
@@ -1395,14 +1552,29 @@ Name: Date, dtype: object</code></pre>
 <pre><code> custom_parser (date_str)</code></pre>
 </blockquote>
 </section>
+<section id="examples" class="level3">
+<h3 class="anchored" data-anchor-id="examples">Examples</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>custom_parser(<span class="st">'4/14/1999'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>datetime.datetime(1999, 4, 14, 0, 0)</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>custom_parser(<span class="st">'1999/04/14'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>datetime.datetime(1999, 4, 14, 0, 0)</code></pre>
+</div>
+</div>
+</section>
 <section id="transforming-dates" class="level3">
 <h3 class="anchored" data-anchor-id="transforming-dates">Transforming Dates</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>gifts[<span class="st">'GiftDate'</span>] <span class="op">=</span> gifts[<span class="st">'Date'</span>].<span class="bu">apply</span>(custom_parser)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>gifts[<span class="st">'GiftDate'</span>] <span class="op">=</span> gifts[<span class="st">'Date'</span>].<span class="bu">apply</span>(custom_parser)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Dropping old date columns</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>gifts <span class="op">=</span> gifts.loc[:, gifts.columns.drop(<span class="st">'Date'</span>)].copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>gifts <span class="op">=</span> gifts.loc[:, gifts.columns.drop(<span class="st">'Date'</span>)].copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -1413,7 +1585,7 @@ Name: Date, dtype: object</code></pre>
 </blockquote>
 <p>Previewing the <code>Email</code> column</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>contacts.EMail.head(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>contacts.EMail.head(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>0    kklumbers@ yahoo.co
 Name: EMail, dtype: object</code></pre>
@@ -1421,11 +1593,11 @@ Name: EMail, dtype: object</code></pre>
 </div>
 <p><br>It looks like the first email ‘kklumbers@ yahoo.co’ is invalid and should be fixed <br> <br> I’m going to write a function to validate emails and fix common mistakes</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> valid_email(s):</span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>    pattern <span class="op">=</span> re.<span class="bu">compile</span>(<span class="vs">r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'</span>)</span>
-<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> pattern.match(s):</span>
-<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">True</span></span>
-<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> valid_email(s):</span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>    pattern <span class="op">=</span> re.<span class="bu">compile</span>(<span class="vs">r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'</span>)</span>
+<span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> pattern.match(s):</span>
+<span id="cb83-4"><a href="#cb83-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb83-5"><a href="#cb83-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
 <p><a href="https://github.com/LearnThinkCreate/virtuous_interview/blob/master/virtuous_interview/utils.py#L181" target="_blank" style="float:right; font-size:smaller">source</a></p>
@@ -1434,27 +1606,57 @@ Name: EMail, dtype: object</code></pre>
 <blockquote class="blockquote">
 <pre><code> valid_email (s)</code></pre>
 </blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>valid_email(<span class="st">'warren.hyson5@gmail.com'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>True</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>valid_email(<span class="st">'warren.hyson5@gmail'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>False</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>valid_email(<span class="st">'warren.hyson5@.com'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>False</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>valid_email(<span class="st">'warren.hyson5@gmailcom'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>False</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>valid_email(<span class="st">'warren.hyson5@@gmail.com'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>False</code></pre>
+</div>
+</div>
 <p><br> Creating a second function that attempts to fix common email mistakes like mispelled domains</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fix_email(email):</span>
-<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> email:</span>
-<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">''</span></span>
-<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>    email <span class="op">=</span> re.sub(<span class="vs">r'\s'</span>, <span class="st">''</span>, email)</span>
-<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb62-7"><a href="#cb62-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Check and fix common mistakes in top-level domain (TLD)</span></span>
-<span id="cb62-8"><a href="#cb62-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> wrong_tld, correct_tld <span class="kw">in</span> [(<span class="st">'co'</span>, <span class="st">'com'</span>), (<span class="st">'cmo'</span>, <span class="st">'com'</span>), (<span class="st">'con'</span>, <span class="st">'com'</span>)]:</span>
-<span id="cb62-9"><a href="#cb62-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> email.endswith(<span class="st">'.'</span> <span class="op">+</span> wrong_tld):</span>
-<span id="cb62-10"><a href="#cb62-10" aria-hidden="true" tabindex="-1"></a>            email <span class="op">=</span> email[:<span class="op">-</span><span class="bu">len</span>(wrong_tld)] <span class="op">+</span> correct_tld</span>
-<span id="cb62-11"><a href="#cb62-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb62-12"><a href="#cb62-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Check and fix common mistakes in domain names</span></span>
-<span id="cb62-13"><a href="#cb62-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> wrong_domain, correct_domain <span class="kw">in</span> [(<span class="st">'gmial'</span>, <span class="st">'gmail'</span>), (<span class="st">'yahho'</span>, <span class="st">'yahoo'</span>)]:</span>
-<span id="cb62-14"><a href="#cb62-14" aria-hidden="true" tabindex="-1"></a>        email <span class="op">=</span> email.replace(<span class="st">'@'</span> <span class="op">+</span> wrong_domain, <span class="st">'@'</span> <span class="op">+</span> correct_domain)</span>
-<span id="cb62-15"><a href="#cb62-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb62-16"><a href="#cb62-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> valid_email(email):</span>
-<span id="cb62-17"><a href="#cb62-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> email</span>
-<span id="cb62-18"><a href="#cb62-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb62-19"><a href="#cb62-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fix_email(email):</span>
+<span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> email:</span>
+<span id="cb95-3"><a href="#cb95-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">''</span></span>
+<span id="cb95-4"><a href="#cb95-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb95-5"><a href="#cb95-5" aria-hidden="true" tabindex="-1"></a>    email <span class="op">=</span> re.sub(<span class="vs">r'\s'</span>, <span class="st">''</span>, email)</span>
+<span id="cb95-6"><a href="#cb95-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-7"><a href="#cb95-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Check and fix common mistakes in top-level domain (TLD)</span></span>
+<span id="cb95-8"><a href="#cb95-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> wrong_tld, correct_tld <span class="kw">in</span> [(<span class="st">'co'</span>, <span class="st">'com'</span>), (<span class="st">'cmo'</span>, <span class="st">'com'</span>), (<span class="st">'con'</span>, <span class="st">'com'</span>)]:</span>
+<span id="cb95-9"><a href="#cb95-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> email.endswith(<span class="st">'.'</span> <span class="op">+</span> wrong_tld):</span>
+<span id="cb95-10"><a href="#cb95-10" aria-hidden="true" tabindex="-1"></a>            email <span class="op">=</span> email[:<span class="op">-</span><span class="bu">len</span>(wrong_tld)] <span class="op">+</span> correct_tld</span>
+<span id="cb95-11"><a href="#cb95-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-12"><a href="#cb95-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Check and fix common mistakes in domain names</span></span>
+<span id="cb95-13"><a href="#cb95-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> wrong_domain, correct_domain <span class="kw">in</span> [(<span class="st">'gmial'</span>, <span class="st">'gmail'</span>), (<span class="st">'yahho'</span>, <span class="st">'yahoo'</span>)]:</span>
+<span id="cb95-14"><a href="#cb95-14" aria-hidden="true" tabindex="-1"></a>        email <span class="op">=</span> email.replace(<span class="st">'@'</span> <span class="op">+</span> wrong_domain, <span class="st">'@'</span> <span class="op">+</span> correct_domain)</span>
+<span id="cb95-15"><a href="#cb95-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-16"><a href="#cb95-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> valid_email(email):</span>
+<span id="cb95-17"><a href="#cb95-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> email</span>
+<span id="cb95-18"><a href="#cb95-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-19"><a href="#cb95-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
 <p><a href="https://github.com/LearnThinkCreate/virtuous_interview/blob/master/virtuous_interview/utils.py#L188" target="_blank" style="float:right; font-size:smaller">source</a></p>
@@ -1464,29 +1666,33 @@ Name: EMail, dtype: object</code></pre>
 <blockquote class="blockquote">
 <pre><code> fix_email (email)</code></pre>
 </blockquote>
-<p><br>Testing the email validator</p>
+<p><code>correct</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>contacts.EMail.<span class="bu">apply</span>(fix_email)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>fix_email(<span class="st">'warren.hyson5@gmail.com'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<pre><code>0              kklumbers@yahoo.com
-1           ebenech1@goodreads.com
-2                                 
-3                                 
-4     fcastille4@timesonline.co.uk
-5                                 
-6                                 
-7          jdoley6@telegraph.co.uk
-8             cmakepeace7@1688.com
-9                                 
-10                                
-Name: EMail, dtype: object</code></pre>
+<pre><code>'warren.hyson5@gmail.com'</code></pre>
+</div>
+</div>
+<p><code>gmail</code> spelled wrong</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a>fix_email(<span class="st">'warren.hyson5@gmial.com'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>com</code> spelled wrong</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a>fix_email(<span class="st">'warren.hyson5@gmial.con'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>'warren.hyson5@gmail.com'</code></pre>
 </div>
 </div>
 </section>
 <section id="applying-email-transformation" class="level3">
 <h3 class="anchored" data-anchor-id="applying-email-transformation">Applying Email Transformation</h3>
+<p>Previewing</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>contacts[<span class="st">'EMail'</span>] <span class="op">=</span> contacts.EMail.<span class="bu">apply</span>(fix_email)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>contacts.EMail.head(<span class="dv">1</span>).<span class="bu">apply</span>(fix_email)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a>contacts[<span class="st">'EMail'</span>] <span class="op">=</span> contacts.EMail.<span class="bu">apply</span>(fix_email)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -1497,28 +1703,34 @@ Name: EMail, dtype: object</code></pre>
 </blockquote>
 <p>There appears to be a invalid phone number</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>contacts.loc[<span class="dv">2</span>, <span class="st">'Phone'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a>contacts.loc[<span class="dv">2</span>, <span class="st">'Phone'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>'577-374-96523'</code></pre>
 </div>
 </div>
 <p>Writing a function to validate US phone numbers, assuming the phone numbers provided are from the US</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> validate_us_phone_number(phone_number):</span>
-<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Patterns for different US phone number formats</span></span>
-<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>    patterns <span class="op">=</span> [</span>
-<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>        <span class="vs">r'^\+1\s?\d</span><span class="sc">{3}</span><span class="vs">-\d</span><span class="sc">{3}</span><span class="vs">-\d</span><span class="sc">{4}</span><span class="vs">$'</span>,</span>
-<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a>        <span class="vs">r'^\(\d</span><span class="sc">{3}</span><span class="vs">\)\s?\d</span><span class="sc">{3}</span><span class="vs">-\d</span><span class="sc">{4}</span><span class="vs">$'</span>,</span>
-<span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a>        <span class="vs">r'^\d</span><span class="sc">{3}</span><span class="vs">-\d</span><span class="sc">{3}</span><span class="vs">-\d</span><span class="sc">{4}</span><span class="vs">$'</span>,</span>
-<span id="cb69-7"><a href="#cb69-7" aria-hidden="true" tabindex="-1"></a>        <span class="vs">r'^\d</span><span class="sc">{3}</span><span class="vs">-\d</span><span class="sc">{4}</span><span class="vs">$'</span> </span>
-<span id="cb69-8"><a href="#cb69-8" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb69-9"><a href="#cb69-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-10"><a href="#cb69-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Check if the phone number matches any of the patterns</span></span>
-<span id="cb69-11"><a href="#cb69-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> pattern <span class="kw">in</span> patterns:</span>
-<span id="cb69-12"><a href="#cb69-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> re.match(pattern, phone_number):</span>
-<span id="cb69-13"><a href="#cb69-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> phone_number</span>
-<span id="cb69-14"><a href="#cb69-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-15"><a href="#cb69-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> validate_us_phone_number(phone_number):</span>
+<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Patterns for different US phone number formats</span></span>
+<span id="cb106-3"><a href="#cb106-3" aria-hidden="true" tabindex="-1"></a>    patterns <span class="op">=</span> [</span>
+<span id="cb106-4"><a href="#cb106-4" aria-hidden="true" tabindex="-1"></a>        <span class="vs">r'^\+1\s?\d</span><span class="sc">{3}</span><span class="vs">-\d</span><span class="sc">{3}</span><span class="vs">-\d</span><span class="sc">{4}</span><span class="vs">$'</span>,</span>
+<span id="cb106-5"><a href="#cb106-5" aria-hidden="true" tabindex="-1"></a>        <span class="vs">r'^\(\d</span><span class="sc">{3}</span><span class="vs">\)\s?\d</span><span class="sc">{3}</span><span class="vs">-\d</span><span class="sc">{4}</span><span class="vs">$'</span>,</span>
+<span id="cb106-6"><a href="#cb106-6" aria-hidden="true" tabindex="-1"></a>        <span class="vs">r'^\d</span><span class="sc">{3}</span><span class="vs">-\d</span><span class="sc">{3}</span><span class="vs">-\d</span><span class="sc">{4}</span><span class="vs">$'</span>,</span>
+<span id="cb106-7"><a href="#cb106-7" aria-hidden="true" tabindex="-1"></a>        <span class="vs">r'^\d</span><span class="sc">{3}</span><span class="vs">-\d</span><span class="sc">{4}</span><span class="vs">$'</span> </span>
+<span id="cb106-8"><a href="#cb106-8" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb106-9"><a href="#cb106-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-10"><a href="#cb106-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Check if the phone number matches any of the patterns</span></span>
+<span id="cb106-11"><a href="#cb106-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> pattern <span class="kw">in</span> patterns:</span>
+<span id="cb106-12"><a href="#cb106-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> re.match(pattern, phone_number):</span>
+<span id="cb106-13"><a href="#cb106-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> phone_number</span>
+<span id="cb106-14"><a href="#cb106-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-15"><a href="#cb106-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Checking if the string contains only numbers and is of length 7 or 10</span></span>
+<span id="cb106-16"><a href="#cb106-16" aria-hidden="true" tabindex="-1"></a>    numeric_string <span class="op">=</span> re.sub(<span class="st">'[^0-9]'</span>, <span class="st">''</span>, phone_number)</span>
+<span id="cb106-17"><a href="#cb106-17" aria-hidden="true" tabindex="-1"></a>    length <span class="op">=</span> <span class="bu">len</span>(numeric_string)</span>
+<span id="cb106-18"><a href="#cb106-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> length <span class="op">==</span> <span class="dv">7</span> <span class="kw">or</span> length <span class="op">==</span> <span class="dv">10</span>:</span>
+<span id="cb106-19"><a href="#cb106-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> phone_number</span>
+<span id="cb106-20"><a href="#cb106-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-21"><a href="#cb106-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
 <p><a href="https://github.com/LearnThinkCreate/virtuous_interview/blob/master/virtuous_interview/utils.py#L213" target="_blank" style="float:right; font-size:smaller">source</a></p>
@@ -1527,14 +1739,54 @@ Name: EMail, dtype: object</code></pre>
 <blockquote class="blockquote">
 <pre><code> validate_us_phone_number (phone_number)</code></pre>
 </blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a>validate_us_phone_number(<span class="st">'321-295-2502'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>'321-295-2502'</code></pre>
+</div>
+</div>
+<p><code>no-dashes</code> 10 digit</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a>validate_us_phone_number(<span class="st">'3212952502'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>'3212952502'</code></pre>
+</div>
+</div>
+<p><code>no-dashes</code> 7 digit</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a>validate_us_phone_number(<span class="st">'2952502'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>'2952502'</code></pre>
+</div>
+</div>
+<p><code>no-dashes</code> 11</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a>validate_us_phone_number(<span class="st">'13212952502'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>''</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a>validate_us_phone_number(<span class="st">"(123) 456-7890"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>'(123) 456-7890'</code></pre>
+</div>
+</div>
+<p><code>Random Text</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a>validate_us_phone_number(<span class="st">'407-555-1234 ext. 1234'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>''</code></pre>
+</div>
+</div>
 </section>
 <section id="applying-phone-transformation" class="level3">
 <h3 class="anchored" data-anchor-id="applying-phone-transformation">Applying Phone # Transformation</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>contacts[<span class="st">'Phone'</span>] <span class="op">=</span> contacts.Phone.<span class="bu">apply</span>(validate_us_phone_number)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a>contacts[<span class="st">'Phone'</span>] <span class="op">=</span> contacts.Phone.<span class="bu">apply</span>(validate_us_phone_number)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>contacts.fillna(<span class="st">''</span>, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a>contacts.fillna(<span class="st">''</span>, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -1542,7 +1794,7 @@ Name: EMail, dtype: object</code></pre>
 <section id="results" class="level1">
 <h1>Results</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>contacts.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a>contacts.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 
@@ -1678,7 +1930,7 @@ Name: EMail, dtype: object</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>gifts.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a>gifts.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 
@@ -1784,7 +2036,7 @@ Name: EMail, dtype: object</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>contacts.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a>contacts.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 
@@ -1923,10 +2175,10 @@ Name: EMail, dtype: object</code></pre>
 <section id="export" class="level1">
 <h1>Export</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> nbdev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> nbdev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>nbdev.nbdev_export(<span class="st">'00_Setup.ipynb'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a>nbdev.nbdev_export(<span class="st">'00_Setup.ipynb'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 
