@@ -8,15 +8,16 @@ import pandas as pd
 import openai
 import pandas_gpt
 import json
+import os
 
-from dotenv import dotenv_values
+from dotenv import dotenv_values, load_dotenv
 from .utils import contacts, contact_methods, gifts
 from nbdev.showdoc import *
 
-# %% ../03_Gpt_Solution.ipynb 4
-openai.api_key = dotenv_values()['OPENAI_API_KEY']
+# %% ../03_Gpt_Solution.ipynb 5
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
-# %% ../03_Gpt_Solution.ipynb 6
+# %% ../03_Gpt_Solution.ipynb 7
 class GptPrompt:
     def __init__(self, messages):
         self.messages = messages
@@ -44,10 +45,10 @@ class GptPrompt:
 
         return json.loads(response.choices[0]['message']['content'])
 
-# %% ../03_Gpt_Solution.ipynb 8
+# %% ../03_Gpt_Solution.ipynb 9
 def to_csl(pd_series): return ','.join(pd_series.dropna().unique())
 
-# %% ../03_Gpt_Solution.ipynb 11
+# %% ../03_Gpt_Solution.ipynb 12
 credit_card_prompt =[ 
     {
       "role": "system",
@@ -76,16 +77,16 @@ credit_card_prompt =[
     },
 ]
 
-# %% ../03_Gpt_Solution.ipynb 12
+# %% ../03_Gpt_Solution.ipynb 13
 CreditCardCleaner = GptPrompt(messages=credit_card_prompt)
 
-# %% ../03_Gpt_Solution.ipynb 13
+# %% ../03_Gpt_Solution.ipynb 14
 values_to_replace = CreditCardCleaner.call_gpt(to_csl(gifts['CreditCardType']))
 
-# %% ../03_Gpt_Solution.ipynb 15
+# %% ../03_Gpt_Solution.ipynb 16
 gifts['CreditCardType'] = gifts['CreditCardType'].replace(values_to_replace)
 
-# %% ../03_Gpt_Solution.ipynb 17
+# %% ../03_Gpt_Solution.ipynb 18
 gift_type_prompt = [
         {
           "role": "system",
@@ -115,27 +116,27 @@ gift_type_prompt = [
         },
       ]
 
-# %% ../03_Gpt_Solution.ipynb 18
+# %% ../03_Gpt_Solution.ipynb 19
 GiftTypeCleaner = GptPrompt(messages=gift_type_prompt)
 
-# %% ../03_Gpt_Solution.ipynb 19
+# %% ../03_Gpt_Solution.ipynb 20
 values_to_replace = GiftTypeCleaner.call_gpt(to_csl(gifts['PaymentMethod']))
 values_to_replace[''] = 'Other'
 
-# %% ../03_Gpt_Solution.ipynb 21
+# %% ../03_Gpt_Solution.ipynb 22
 gifts.apply(lambda row: 'Reversing Transaction' if row['AmountReceived'] < 0 else values_to_replace[row['PaymentMethod']], axis=1)
 
-# %% ../03_Gpt_Solution.ipynb 25
+# %% ../03_Gpt_Solution.ipynb 26
 df = contacts.copy()
 gpt_response = df.ask("create a new column called ContactType. The value is required and can only be either Household or Organization. If CompanyName is '' assume it's a household")
 gpt_response[['Number', 'CompanyName', 'ContactType']].head(5)
 
-# %% ../03_Gpt_Solution.ipynb 28
+# %% ../03_Gpt_Solution.ipynb 29
 df = contacts.copy()
 gpt_response = df.ask("Clean the Postal Column. If address is present and is US, must be a valid zip code, either 12345 or 12345-1234. Don't delete rows with an invalid zip, just replace the invalid zip with ''")
 gpt_response[['Postal']]
 
-# %% ../03_Gpt_Solution.ipynb 31
+# %% ../03_Gpt_Solution.ipynb 32
 df = contacts.copy()
 gpt_response = df.ask('Can you convert the Deceased column to a boolean. Assume empty strings '' are False')
 gpt_response.Deceased.unique()
