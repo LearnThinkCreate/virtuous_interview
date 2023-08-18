@@ -1,0 +1,11 @@
+name: virtuous
+dependencies:
+- pandas
+- pandas_gpt
+- mysql-connector-python
+- dotenv
+- sqlalchemy
+- numpy
+- pip
+- pip:
+  - pandas-gpt

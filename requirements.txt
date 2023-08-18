@@ -1,0 +1,6 @@
+fastcore
+pandas
+mysql-connector-python
+sqlalchemy
+python-dotenv
+pandas-gpt

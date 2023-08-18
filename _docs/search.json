@@ -1,0 +1,450 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Virtuous Interview Exam",
+    "section": "",
+    "text": "Virtuous Data Schema, changes that require ETL have been highlighted \n\n\n\n\n\nalternative text\n\n\n\n\n\nI performed ETL of 3 spreadsheets into SQL tables & csv files that match the Virtuous schema  \n\n\nContacts: A table of contacts, with 1 or 2 constituents per row\nGifts: Donations from individual constituents\nContact Methods: Contact information for individual constituents\n\n\n\n\n\nI’ve demonstrated 3 methods of performing the data migraiton  \n\n\nSetup \nMethod 1: SQL \nMethod 2: Python / Pandas \nMethod 3: Generative AI / Chat GPT \n\n\n\n\n\nCSV files generated from the Python ETL process  \n\n\nfinal_contacts\nfinal_gifts\nfinal_contact_methods   The intial datasets are also available in the data folder\n\n\n\n\n\nIdea bananza!\n\n\n\n\nAugust 10th, 2:29 PM EST  \n\n\n\n\nEmail with assignment details\n\n\n\n\n\n\nCompleted: August 10th, 3:13 PM EST  \n\n\n\n\nRough Action Plan\n\n\n\n\n\n\nI got a little carried away  \n\nSometimes I can’t help myself! I love working with data. Finding new & interesting ways to solve problems is something I’m naturally passionate about   The downside? I tend to wander a little too close to the sun…   While this project was simply to migrate the data to tables compatible with the Virtuous schema, I felt a deep desire to do more. To go above & beyond. While I pride myself on adapting to the needs of a team, the desire to grow and change is core to who I am. And I believe it’s a valuable asset to a great team.   I promise to do what’s best for the team.  And I also promise to always push the boundries of what’s possible"
+  },
+  {
+    "objectID": "index.html#summary",
+    "href": "index.html#summary",
+    "title": "Virtuous Interview Exam",
+    "section": "",
+    "text": "I performed ETL of 3 spreadsheets into SQL tables & csv files that match the Virtuous schema  \n\n\nContacts: A table of contacts, with 1 or 2 constituents per row\nGifts: Donations from individual constituents\nContact Methods: Contact information for individual constituents"
+  },
+  {
+    "objectID": "index.html#notebooks",
+    "href": "index.html#notebooks",
+    "title": "Virtuous Interview Exam",
+    "section": "",
+    "text": "I’ve demonstrated 3 methods of performing the data migraiton  \n\n\nSetup \nMethod 1: SQL \nMethod 2: Python / Pandas \nMethod 3: Generative AI / Chat GPT"
+  },
+  {
+    "objectID": "index.html#result",
+    "href": "index.html#result",
+    "title": "Virtuous Interview Exam",
+    "section": "",
+    "text": "CSV files generated from the Python ETL process  \n\n\nfinal_contacts\nfinal_gifts\nfinal_contact_methods   The intial datasets are also available in the data folder"
+  },
+  {
+    "objectID": "index.html#my-approach",
+    "href": "index.html#my-approach",
+    "title": "Virtuous Interview Exam",
+    "section": "",
+    "text": "Idea bananza!\n\n\n\n\nAugust 10th, 2:29 PM EST  \n\n\n\n\nEmail with assignment details\n\n\n\n\n\n\nCompleted: August 10th, 3:13 PM EST  \n\n\n\n\nRough Action Plan\n\n\n\n\n\n\nI got a little carried away  \n\nSometimes I can’t help myself! I love working with data. Finding new & interesting ways to solve problems is something I’m naturally passionate about   The downside? I tend to wander a little too close to the sun…   While this project was simply to migrate the data to tables compatible with the Virtuous schema, I felt a deep desire to do more. To go above & beyond. While I pride myself on adapting to the needs of a team, the desire to grow and change is core to who I am. And I believe it’s a valuable asset to a great team.   I promise to do what’s best for the team.  And I also promise to always push the boundries of what’s possible"
+  },
+  {
+    "objectID": "02_SQL_Solution.html",
+    "href": "02_SQL_Solution.html",
+    "title": "SQL Solution",
+    "section": "",
+    "text": "Creating a new db instance and loading tables\n\n\nexam_db\nUsing mysql library to connect as root user and create a new db instance\n\n\n\nFunction to execute sql on the DEV db\nSince that was a lot of code just to execute 1 line of SQL, I’m going to create a new function that will make it easier\n\nsource\n\n\n\n insert_sql (sql)\n\n\n\n\n\nFunction to insert procedure into the Database   - Useful since I’ll need to create many procedures\n\nsource\n\n\n\n insert_proc (sql, proc_name, call=True)\n\n\n\n\n\nUsing prefix 'temp_'\nMapping DataFrames to table names\nPreviewing the data"
+  },
+  {
+    "objectID": "02_SQL_Solution.html#creating-db",
+    "href": "02_SQL_Solution.html#creating-db",
+    "title": "SQL Solution",
+    "section": "",
+    "text": "exam_db\nUsing mysql library to connect as root user and create a new db instance"
+  },
+  {
+    "objectID": "02_SQL_Solution.html#execute_sql",
+    "href": "02_SQL_Solution.html#execute_sql",
+    "title": "SQL Solution",
+    "section": "",
+    "text": "Function to execute sql on the DEV db\nSince that was a lot of code just to execute 1 line of SQL, I’m going to create a new function that will make it easier\n\nsource\n\n\n\n insert_sql (sql)"
+  },
+  {
+    "objectID": "02_SQL_Solution.html#insert_proc",
+    "href": "02_SQL_Solution.html#insert_proc",
+    "title": "SQL Solution",
+    "section": "",
+    "text": "Function to insert procedure into the Database   - Useful since I’ll need to create many procedures\n\nsource\n\n\n\n insert_proc (sql, proc_name, call=True)"
+  },
+  {
+    "objectID": "02_SQL_Solution.html#loading-datasets-into-database",
+    "href": "02_SQL_Solution.html#loading-datasets-into-database",
+    "title": "SQL Solution",
+    "section": "",
+    "text": "Using prefix 'temp_'\nMapping DataFrames to table names\nPreviewing the data"
+  },
+  {
+    "objectID": "02_SQL_Solution.html#contacttype",
+    "href": "02_SQL_Solution.html#contacttype",
+    "title": "SQL Solution",
+    "section": "ContactType",
+    "text": "ContactType\nis required and can only be Household or Organization  - Source Table: Contacts Table - Solution: - Create procedure to add new column ContactType\nNow I’m going to write a procedure that would perform this transformation on the temp table.   Since it’s possible that I may need to run this procedure multiple times, each time the data is updated I’m going to write 2 procedures to solve this problem   1. Add column procedure - Add a column if it doesn’t exist 2. Procedure to add ContactType"
+  },
+  {
+    "objectID": "02_SQL_Solution.html#private",
+    "href": "02_SQL_Solution.html#private",
+    "title": "SQL Solution",
+    "section": "Private",
+    "text": "Private\nDoes someone want to be private  - Source Table: Contacts Table - Solution: - Create procedure to add new column Private\n\ninsert_private = \"\"\"\n    CALL add_column('temp_contacts', 'Private', 'TINYINT');\n\n    UPDATE temp_contacts\n    SET Private = CASE WHEN Remarks = 'Is anonymous' THEN 1 ELSE 0 END;\n    commit;\n\"\"\"\ninsert_proc(insert_private, 'insert_private', call=True)\n\nSQL executed successfully\nMySQL connection closed\nSQL executed successfully\nMySQL connection closed\nSQL executed successfully\nMySQL connection closed"
+  },
+  {
+    "objectID": "02_SQL_Solution.html#postal-code",
+    "href": "02_SQL_Solution.html#postal-code",
+    "title": "SQL Solution",
+    "section": "Postal Code",
+    "text": "Postal Code\n\nif address is present and is US, must be a valid zip code, either 12345 or 12345-1234   - Source Table: Contacts - Solution: - Create procedure to remove any postal codees that doesn’t match the approved format from the usps\n\nSuccess!  Creating Stored Procedure…"
+  },
+  {
+    "objectID": "02_SQL_Solution.html#isdeceased",
+    "href": "02_SQL_Solution.html#isdeceased",
+    "title": "SQL Solution",
+    "section": "IsDeceased",
+    "text": "IsDeceased\ncan only be TRUE or FALSE  - Source Table: Contacts  - Solution:  - Create procedure to update Deceased to TRUE/FALSE"
+  },
+  {
+    "objectID": "02_SQL_Solution.html#gifttype",
+    "href": "02_SQL_Solution.html#gifttype",
+    "title": "SQL Solution",
+    "section": "GiftType",
+    "text": "GiftType\nCan only be Cash, Check, Credit, Other, or Reversing Transaction  - Source Table: Gifts - Solution: - Identify Incorrect Gift Types - Create procedure to replace invalid gift types\nIt looks like there are several payment methods that don’t match the approved list. Additionally, the payment method ‘credit card’ will need to be mapped to ‘credit’"
+  },
+  {
+    "objectID": "02_SQL_Solution.html#creditcardtype",
+    "href": "02_SQL_Solution.html#creditcardtype",
+    "title": "SQL Solution",
+    "section": "CreditCardType",
+    "text": "CreditCardType\nCan only be Visa, Mastercard, AMEX, Discover   - Solution:  - Identify Incorrect Credit Types  - Create procedure to replace invalid credit types"
+  },
+  {
+    "objectID": "02_SQL_Solution.html#contacts",
+    "href": "02_SQL_Solution.html#contacts",
+    "title": "SQL Solution",
+    "section": "Contacts",
+    "text": "Contacts\nCreating the final contacts table  \n\nThe cleaning is done \nCreating contacts table and renaming various columns \n\n\npd.read_sql('SELECT * FROM temp_contacts', engine)\n\n\n\n\n\n\n\n\nNumber\nCompanyName\nFirstName\nLastName\nStreet\nCity\nState\nPostal\nPhone\nEMail\nRemarks\nDeceased\nSecondaryFirstName\nSecondaryLastName\nLegacyIndividualId\nSecondaryLegacyIndividualId\nContactName\nContactType\nPrivate\n\n\n\n\n0\n653377813-7\n\nKarita\nLumbers\n4 Bunting Parkway\nWashington\nDC\n\n\nkklumbers@yahoo.com\nIs anonymous\n0\nKelvin\nLumbers\n0\n1\nKarita & Kelvin Lumbers\nHousehold\n1\n\n\n1\n390551098-7\n\nHelga\nBenech\n48684 Jenifer Way\nLas Vegas\nNV\n89130\n\nebenech1@goodreads.com\n\n0\n\n\n2\n\nHelga Benech\nHousehold\n0\n\n\n2\n093004505-X\n\nMasha\nButt Gow\n353 Schmedeman Park\nIndianapolis\nIN\n\n\n\n\n0\n\n\n3\n\nMasha Butt Gow\nHousehold\n0\n\n\n3\n729707142-0\nA Company Co.\nCymbre\nCross\n2055 Lakewood Parkway\nCamden\nNJ\n\n\n\n\n0\n\n\n4\n\nCymbre Cross\nOrganization\n0\n\n\n4\n488464926-5\n\nHoyt\nCastille\n37 8th Trail\nGrand Rapids\nMI\n49560\n\nfcastille4@timesonline.co.uk\n\n0\n\n\n5\n\nHoyt Castille\nHousehold\n0\n\n\n5\n315297729-8\n\nBenedict\nOscar\n4225 Madison Ave\nBoise\nID\n\n\n\n\n0\nIdell\nMouncey\n6\n7\nBenedict Oscar & Idell Mouncey\nHousehold\n0\n\n\n6\n848348568-0\n\nMannie\nTurpin\n\n\nNV\n\n702-844-9524\n\nMet in person on 5/9/2018 at Annual Event\n1\n\n\n8\n\nMannie Turpin\nHousehold\n0\n\n\n7\n029456846-8\n\nRomy\nDoley\n608 Old Shore Alley\nMarietta\nGA\n30066\n\njdoley6@telegraph.co.uk\n\n0\n\n\n9\n\nRomy Doley\nHousehold\n0\n\n\n8\n687119652-8\n\nRuggiero\nMakepeace\n15 Sunbrook Center\nOmaha\nNE\n68164\n\ncmakepeace7@1688.com\nElectronic receipt only\n0\n\n\n10\n\nRuggiero Makepeace\nHousehold\n0\n\n\n9\n739131380-7\n\nRosemaria\nDimond\n\nJuneau\nAK\n\n\n\n\n0\nRogelio\nDimond\n11\n12\nRosemaria & Rogelio Dimond\nHousehold\n0\n\n\n10\n809975531-Y\n\nAdeline\nShakespeare\n\n\n\n\n\n\n\n0\n\n\n13\n\nAdeline Shakespeare\nHousehold\n0\n\n\n\n\n\n\n\n\npd.read_sql(\"\"\"\n            SELECT \n                `Number`,\n                `LegacyIndividualId`,\n                `ContactType`\n                `ContactName`,\n                `FirstName`,\n                `LastName`\n                `SecondaryLegacyIndividualId`,\n                `SecondaryFirstName`,\n                `SecondaryLastName`,\n                CASE WHEN\n                    temp_contact_methods.`Phone`  = '' \n                    THEN temp_contacts.`Phone`\n                    ELSE temp_contact_methods.`Phone`\n                END AS HomePhone,\n                CASE WHEN\n                    temp_contact_methods.`EMail`  = ''\n                    THEN temp_contacts.`EMail`\n                    ELSE temp_contact_methods.`EMail`\n                END AS HomeEmail,\n                `Street`,\n                `City`,\n                `State`,\n                `Postal`,\n                `Private`,\n                `Deceased`\n            FROM \n            temp_contacts\n            LEFT JOIN\n                temp_contact_methods ON temp_contact_methods.DonorNumber = temp_contacts.`Number`;\n            \"\"\",\n            engine\n            )\n\n\n\n\n\n\n\n\nNumber\nLegacyIndividualId\nContactName\nFirstName\nSecondaryLegacyIndividualId\nSecondaryFirstName\nSecondaryLastName\nHomePhone\nHomeEmail\nStreet\nCity\nState\nPostal\nPrivate\nDeceased\n\n\n\n\n0\n653377813-7\n0\nHousehold\nKarita\nLumbers\nKelvin\nLumbers\n832-442-4988\nkklumbers@yahoo.com\n4 Bunting Parkway\nWashington\nDC\n\n1\n0\n\n\n1\n390551098-7\n2\nHousehold\nHelga\nBenech\n\n\n\nebenech1@goodreads.com\n48684 Jenifer Way\nLas Vegas\nNV\n89130\n0\n0\n\n\n2\n093004505-X\n3\nHousehold\nMasha\nButt Gow\n\n\n818-323-9865\n\n353 Schmedeman Park\nIndianapolis\nIN\n\n0\n0\n\n\n3\n729707142-0\n4\nOrganization\nCymbre\nCross\n\n\n\n\n2055 Lakewood Parkway\nCamden\nNJ\n\n0\n0\n\n\n4\n488464926-5\n5\nHousehold\nHoyt\nCastille\n\n\n\nfcastille4@timesonline.co.uk\n37 8th Trail\nGrand Rapids\nMI\n49560\n0\n0\n\n\n5\n315297729-8\n6\nHousehold\nBenedict\nOscar\nIdell\nMouncey\n\ndmouncey9@cnn.com\n4225 Madison Ave\nBoise\nID\n\n0\n0\n\n\n6\n315297729-8\n6\nHousehold\nBenedict\nOscar\nIdell\nMouncey\n\n\n4225 Madison Ave\nBoise\nID\n\n0\n0\n\n\n7\n848348568-0\n8\nHousehold\nMannie\nTurpin\n\n\n702-844-9524\n\n\n\nNV\n\n0\n1\n\n\n8\n029456846-8\n9\nHousehold\nRomy\nDoley\n\n\n\njdoley6@telegraph.co.uk\n608 Old Shore Alley\nMarietta\nGA\n30066\n0\n0\n\n\n9\n687119652-8\n10\nHousehold\nRuggiero\nMakepeace\n\n\n\ncmakepeace7@1688.com\n15 Sunbrook Center\nOmaha\nNE\n68164\n0\n0\n\n\n10\n739131380-7\n11\nHousehold\nRosemaria\nDimond\nRogelio\nDimond\n\n\n\nJuneau\nAK\n\n0\n0\n\n\n11\n809975531-Y\n13\nHousehold\nAdeline\nShakespeare\n\n\nNone\nNone\n\n\n\n\n0\n0\n\n\n\n\n\n\n\n\nproc = \"\"\"\n\n\nCREATE TABLE IF NOT EXISTS contacts (\n    `LegacyContactId` VARCHAR(255),\n    `LegacyIndividualId` VARCHAR(255),\n    `ContactType` VARCHAR(255),\n    `ContactName` VARCHAR(255),\n    `FirstName` VARCHAR(255),\n    `LastName` VARCHAR(255),\n    `SecondaryLegacyIndividualId` VARCHAR(255),\n    `SecondaryFirstName` VARCHAR(255),\n    `SecondaryLastName` VARCHAR(255),\n    `HomePhone` VARCHAR(255),\n    `HomeEmail` VARCHAR(255),\n    `Address1` VARCHAR(255),\n    `City` VARCHAR(255),\n    `State` VARCHAR(255),\n    `PostalCode` VARCHAR(255),\n    `IsPrivate` VARCHAR(255),\n    `IsDeceased` VARCHAR(255)\n);\ninsert into contacts\nSELECT \n    `Number` AS `LegacyContactId`,\n    `LegacyIndividualId`,\n    `ContactType`,\n    `ContactName`,\n    `FirstName`,\n    `LastName`,\n    `SecondaryLegacyIndividualId`,\n    `SecondaryFirstName`,\n    `SecondaryLastName`,\n    CASE WHEN\n        temp_contact_methods.`Phone`  = '' \n        THEN temp_contacts.`Phone`\n        ELSE temp_contact_methods.`Phone`\n    END AS HomePhone,\n    CASE WHEN\n        temp_contact_methods.`EMail`  = ''\n        THEN temp_contacts.`EMail`\n        ELSE temp_contact_methods.`EMail`\n    END AS HomeEmail,\n    `Street` AS `Address1`,\n    `City`,\n    `State`,\n    `Postal` AS `PostalCode`,\n    `Private` AS `IsPrivate`,\n    `Deceased` AS `IsDeceased`\nFROM \ntemp_contacts\nLEFT JOIN\n    temp_contact_methods ON temp_contact_methods.DonorNumber = temp_contacts.`Number`;\n    \ncommit;\n\"\"\"\ninsert_proc(proc, 'create_contacts', call=True)\n\nSQL executed successfully\nMySQL connection closed\nSQL executed successfully\nMySQL connection closed\nSQL executed successfully\nMySQL connection closed\n\n\n\npd.read_sql('select * from contacts limit 5', engine)\n\n\n\n\n\n\n\n\nLegacyContactId\nLegacyIndividualId\nContactType\nContactName\nFirstName\nLastName\nSecondaryLegacyIndividualId\nSecondaryFirstName\nSecondaryLastName\nHomePhone\nHomeEmail\nAddress1\nCity\nState\nPostalCode\nIsPrivate\nIsDeceased\n\n\n\n\n0\n653377813-7\n0\nHousehold\nKarita & Kelvin Lumbers\nKarita\nLumbers\n1\nKelvin\nLumbers\n832-442-4988\nkklumbers@yahoo.com\n4 Bunting Parkway\nWashington\nDC\n\n1\n0\n\n\n1\n390551098-7\n2\nHousehold\nHelga Benech\nHelga\nBenech\n\n\n\n\nebenech1@goodreads.com\n48684 Jenifer Way\nLas Vegas\nNV\n89130\n0\n0\n\n\n2\n093004505-X\n3\nHousehold\nMasha Butt Gow\nMasha\nButt Gow\n\n\n\n818-323-9865\n\n353 Schmedeman Park\nIndianapolis\nIN\n\n0\n0\n\n\n3\n729707142-0\n4\nOrganization\nCymbre Cross\nCymbre\nCross\n\n\n\n\n\n2055 Lakewood Parkway\nCamden\nNJ\n\n0\n0\n\n\n4\n488464926-5\n5\nHousehold\nHoyt Castille\nHoyt\nCastille\n\n\n\n\nfcastille4@timesonline.co.uk\n37 8th Trail\nGrand Rapids\nMI\n49560\n0\n0"
+  },
+  {
+    "objectID": "02_SQL_Solution.html#gifts",
+    "href": "02_SQL_Solution.html#gifts",
+    "title": "SQL Solution",
+    "section": "Gifts",
+    "text": "Gifts\nCreating the final gifts column \n\nThe cleaning is done \nCreating the gifts table and renaming some columns \n\n\nproc = \"\"\"\nCREATE TABLE IF NOT EXISTS gifts (\n    LegacyContactId VARCHAR(255),\n    LegacyGiftId INTEGER,\n    GiftType TEXT,\n    GiftDate TEXT,\n    GiftAmount REAL,\n    Notes TEXT,\n    CreditCardType TEXT,\n    Project1Code TEXT,\n    Project2Code TEXT,\n    LegacyPledgeID INTEGER\n);\n\ninsert into gifts\nselect \n    DonorNumber as LegacyContactId,\n    LegacyGiftId,\n    PaymentMethod as GiftType,\n    GiftDate,\n    AmountReceived as GiftAmount,\n    Notes,\n    CreditCardType,\n    Project1Code,\n    Project2Code,\n    LegacyPledgeID\nfrom temp_gifts;\n\ncommit;\n\"\"\"\ninsert_proc(proc, 'create_gifts', call=True)\n\nSQL executed successfully\nMySQL connection closed\nSQL executed successfully\nMySQL connection closed\nSQL executed successfully\nMySQL connection closed\n\n\n\npd.read_sql('select * from gifts limit 5', engine)\n\n\n\n\n\n\n\n\nLegacyContactId\nLegacyGiftId\nGiftType\nGiftDate\nGiftAmount\nNotes\nCreditCardType\nProject1Code\nProject2Code\nLegacyPledgeID\n\n\n\n\n0\n848348568-0\n95196378\nOther\n2019-03-04 00:00:00\n4.1500\n\n\n\nNone\n0\n\n\n1\n729707142-0\n95196889\nCheck\n2019-03-05 00:00:00\n2.3648\n\n\nChildSponsorship\nNone\n1\n\n\n2\n687119652-8\n95197689\nCash\n2019-03-07 00:00:00\n1.3100\n\n\n\nNone\n2\n\n\n3\n653377813-7\n95198998\nCredit\n2019-03-10 00:00:00\n2.0400\nIn honor of Mannie Turpin\nAMEX\n\nNone\n3\n\n\n4\n390551098-7\n95198999\nCash\n2019-01-10 00:00:00\n5.8000\n\n\n\nNone\n89752384"
+  },
+  {
+    "objectID": "02_SQL_Solution.html#contact-methods",
+    "href": "02_SQL_Solution.html#contact-methods",
+    "title": "SQL Solution",
+    "section": "Contact Methods",
+    "text": "Contact Methods\nProcedure to create contact_methods table \n\nCreating a contact_methods \nInserting distinct values from the contacts table \n\n\npd.read_sql(\"\"\"\n    SELECT DISTINCT\n        contacts.`LegacyContactId` AS LegacyContactId,\n        contacts.`HomePhone` AS HomePhone,\n        contacts.`HomeEmail` AS HomeEmail,\n        temp_contact_methods.Fax AS fax\n    FROM \n        contacts\n    JOIN\n        temp_contact_methods ON temp_contact_methods.DonorNumber = contacts.`LegacyContactId`;\n            \"\"\", engine)\n\n\n\n\n\n\n\n\nLegacyContactId\nHomePhone\nHomeEmail\nfax\n\n\n\n\n0\n653377813-7\n832-442-4988\nkklumbers@yahoo.com\n\n\n\n1\n390551098-7\n\nebenech1@goodreads.com\n\n\n\n2\n093004505-X\n818-323-9865\n\n818-156-7985\n\n\n3\n729707142-0\n\n\n\n\n\n4\n488464926-5\n\nfcastille4@timesonline.co.uk\n\n\n\n5\n315297729-8\n\ndmouncey9@cnn.com\n\n\n\n6\n315297729-8\n\n\n\n\n\n7\n848348568-0\n702-844-9524\n\n\n\n\n8\n029456846-8\n\njdoley6@telegraph.co.uk\n\n\n\n9\n687119652-8\n\ncmakepeace7@1688.com\n\n\n\n10\n739131380-7\n\n\n626-981-3874\n\n\n\n\n\n\n\n\npd.read_sql('select * from contact_methods order by LegacyContactId', con=engine)\n\n\n\n\n\n\n\n\nLegacyContactId\nType\nValue\n\n\n\n\n0\n029456846-8\nHomeEmail\njdoley6@telegraph.co.uk\n\n\n1\n029456846-8\nHomeEmail\njdoley6@telegraph.co.uk\n\n\n2\n029456846-8\nHomeEmail\njdoley6@telegraph.co.uk\n\n\n3\n093004505-X\nHomePhone\n818-323-9865\n\n\n4\n093004505-X\nFax\n818-156-7985\n\n\n5\n093004505-X\nFax\n818-156-7985\n\n\n6\n093004505-X\nHomePhone\n818-323-9865\n\n\n7\n093004505-X\nHomePhone\n818-323-9865\n\n\n8\n093004505-X\nFax\n818-156-7985\n\n\n9\n315297729-8\nHomeEmail\ndmouncey9@cnn.com\n\n\n10\n315297729-8\nHomeEmail\ndmouncey9@cnn.com\n\n\n11\n315297729-8\nHomeEmail\ndmouncey9@cnn.com\n\n\n12\n390551098-7\nHomeEmail\nebenech1@goodreads.com\n\n\n13\n390551098-7\nHomeEmail\nebenech1@goodreads.com\n\n\n14\n390551098-7\nHomeEmail\nebenech1@goodreads.com\n\n\n15\n488464926-5\nHomeEmail\nfcastille4@timesonline.co.uk\n\n\n16\n488464926-5\nHomeEmail\nfcastille4@timesonline.co.uk\n\n\n17\n488464926-5\nHomeEmail\nfcastille4@timesonline.co.uk\n\n\n18\n653377813-7\nHomePhone\n832-442-4988\n\n\n19\n653377813-7\nHomePhone\n832-442-4988\n\n\n20\n653377813-7\nHomeEmail\nkklumbers@yahoo.com\n\n\n21\n653377813-7\nHomeEmail\nkklumbers@yahoo.com\n\n\n22\n653377813-7\nHomePhone\n832-442-4988\n\n\n23\n653377813-7\nHomeEmail\nkklumbers@yahoo.com\n\n\n24\n687119652-8\nHomeEmail\ncmakepeace7@1688.com\n\n\n25\n687119652-8\nHomeEmail\ncmakepeace7@1688.com\n\n\n26\n687119652-8\nHomeEmail\ncmakepeace7@1688.com\n\n\n27\n739131380-7\nFax\n626-981-3874\n\n\n28\n739131380-7\nFax\n626-981-3874\n\n\n29\n739131380-7\nFax\n626-981-3874\n\n\n30\n848348568-0\nHomePhone\n702-844-9524\n\n\n31\n848348568-0\nHomePhone\n702-844-9524\n\n\n32\n848348568-0\nHomePhone\n702-844-9524"
+  },
+  {
+    "objectID": "03_Pandas_Solution.html",
+    "href": "03_Pandas_Solution.html",
+    "title": "Python Solution",
+    "section": "",
+    "text": "Pandas :)\n\n\nDoes someone want to be private   - Source Table: Contacts Table - Solution: - Create procedure to add new column Private\nLooking for notes\n\ncontacts.Remarks[~contacts.Remarks.isin([''])]\n\n0                                 Is anonymous\n6    Met in person on 5/9/2018 at Annual Event\n8                      Electronic receipt only\nName: Remarks, dtype: object\n\n\n\ncontacts['Private'] = contacts.Remarks.apply(lambda x: True if x == 'Is anonymous' else False)\n\n\n\n\nis required and can only be Household or Organization   - Source Table: Contacts Table - Solution: - Create procedure to add new column ContactType\n\n\n\nif address is present and is US, must be a valid zip code, either 12345 or 12345-1234   - Source Table: Contacts  - Solution:  - Create procedure to remove any postal codees that doesn’t match the approved format from the usps\n\n\n\ncan only be TRUE or FALSE   - Source Table: Contacts  - Solution:  - Create procedure to update Deceased to TRUE/FALSE\n\n\n\nCan only be Cash, Check, Credit, Other, or Reversing Transaction   - Source Table: Gifts  - Solution:  - Identify Incorrect Gift Types  - Create procedure to replace invalid gift types \n\nsource\n\n\n\n clean_payment_type (row)\n\n\n\n\n\nCan only be Visa, Mastercard, AMEX, Discover   - Solution:  - Identify Incorrect Credit Types  - Create procedure to replace invalid credit types\nCreating functions to validate each of the credit card types\n\nsource\n\n\n\n validate_credit_card (string)\n\n\nsource\n\n\n\n\n validate_discover (string)\n\n\nsource\n\n\n\n\n validate_visa (string)\n\n\nsource\n\n\n\n\n validate_amex (string)\n\n\nsource\n\n\n\n\n validate_mastercard (string)"
+  },
+  {
+    "objectID": "03_Pandas_Solution.html#private",
+    "href": "03_Pandas_Solution.html#private",
+    "title": "Python Solution",
+    "section": "",
+    "text": "Does someone want to be private   - Source Table: Contacts Table - Solution: - Create procedure to add new column Private\nLooking for notes\n\ncontacts.Remarks[~contacts.Remarks.isin([''])]\n\n0                                 Is anonymous\n6    Met in person on 5/9/2018 at Annual Event\n8                      Electronic receipt only\nName: Remarks, dtype: object\n\n\n\ncontacts['Private'] = contacts.Remarks.apply(lambda x: True if x == 'Is anonymous' else False)"
+  },
+  {
+    "objectID": "03_Pandas_Solution.html#contacttype",
+    "href": "03_Pandas_Solution.html#contacttype",
+    "title": "Python Solution",
+    "section": "",
+    "text": "is required and can only be Household or Organization   - Source Table: Contacts Table - Solution: - Create procedure to add new column ContactType"
+  },
+  {
+    "objectID": "03_Pandas_Solution.html#postal-code",
+    "href": "03_Pandas_Solution.html#postal-code",
+    "title": "Python Solution",
+    "section": "",
+    "text": "if address is present and is US, must be a valid zip code, either 12345 or 12345-1234   - Source Table: Contacts  - Solution:  - Create procedure to remove any postal codees that doesn’t match the approved format from the usps"
+  },
+  {
+    "objectID": "03_Pandas_Solution.html#isdeceased",
+    "href": "03_Pandas_Solution.html#isdeceased",
+    "title": "Python Solution",
+    "section": "",
+    "text": "can only be TRUE or FALSE   - Source Table: Contacts  - Solution:  - Create procedure to update Deceased to TRUE/FALSE"
+  },
+  {
+    "objectID": "03_Pandas_Solution.html#gifttype",
+    "href": "03_Pandas_Solution.html#gifttype",
+    "title": "Python Solution",
+    "section": "",
+    "text": "Can only be Cash, Check, Credit, Other, or Reversing Transaction   - Source Table: Gifts  - Solution:  - Identify Incorrect Gift Types  - Create procedure to replace invalid gift types \n\nsource\n\n\n\n clean_payment_type (row)"
+  },
+  {
+    "objectID": "03_Pandas_Solution.html#creditcardtype",
+    "href": "03_Pandas_Solution.html#creditcardtype",
+    "title": "Python Solution",
+    "section": "",
+    "text": "Can only be Visa, Mastercard, AMEX, Discover   - Solution:  - Identify Incorrect Credit Types  - Create procedure to replace invalid credit types\nCreating functions to validate each of the credit card types\n\nsource\n\n\n\n validate_credit_card (string)\n\n\nsource\n\n\n\n\n validate_discover (string)\n\n\nsource\n\n\n\n\n validate_visa (string)\n\n\nsource\n\n\n\n\n validate_amex (string)\n\n\nsource\n\n\n\n\n validate_mastercard (string)"
+  },
+  {
+    "objectID": "03_Pandas_Solution.html#contact-methods",
+    "href": "03_Pandas_Solution.html#contact-methods",
+    "title": "Python Solution",
+    "section": "Contact Methods",
+    "text": "Contact Methods\nTable of constituent contact information\nMerging Contact and Contact Methods Tables To get ALL the contact information\nPivoting the Data, converting the HomePhone, HomeEmail, And Fax values to individual Type : Value pairs\n\ncontacts_v = contacts_wide.melt(id_vars=['LegacyContactId'], value_vars=['HomePhone', 'HomeEmail', 'Fax', 'Phone', 'EMail'], var_name='Type', value_name='Value')\n\nCreating a function to safley check for nan values\n\ndef is_nan(x):\n    try:\n        return np.isnan(x)\n    except TypeError:\n        return False\n\n\nfinal_contact_methods = contacts_v[~((contacts_v.Value == '') | (contacts_v.Value.apply(is_nan)))].reset_index(drop=True).copy()\n\n\ndef clean_contact_type(s):\n    if s == 'Phone':\n        return 'HomePhone'\n    elif s == 'EMail':\n        return 'HomeEmail'\n    else:\n        return s\n\n\nfinal_contact_methods['Type'] = final_contact_methods.Type.apply(clean_contact_type)\n\n\nfinal_contact_methods.drop_duplicates(inplace=True)\n\n\nfinal_contact_methods.sort_values('LegacyContactId').reset_index(drop=True)\n\n\n\n\n\n\n\n\nLegacyContactId\nType\nValue\n\n\n\n\n0\n029456846-8\nHomeEmail\njdoley6@telegraph.co.uk\n\n\n1\n093004505-X\nFax\n818-156-7985\n\n\n2\n093004505-X\nHomePhone\n818-323-9865\n\n\n3\n315297729-8\nHomeEmail\ndmouncey9@cnn.com\n\n\n4\n390551098-7\nHomeEmail\nebenech1@goodreads.com\n\n\n5\n488464926-5\nHomeEmail\nfcastille4@timesonline.co.uk\n\n\n6\n653377813-7\nHomeEmail\nkklumbers@yahoo.com\n\n\n7\n653377813-7\nHomePhone\n832-442-4988\n\n\n8\n687119652-8\nHomeEmail\ncmakepeace7@1688.com\n\n\n9\n739131380-7\nFax\n626-981-3874\n\n\n10\n848348568-0\nHomePhone\n702-844-9524\n\n\n\n\n\n\n\n\nfinal_contact_methods.to_csv('data/final_contact_methods.csv', index=False)"
+  },
+  {
+    "objectID": "03_Pandas_Solution.html#contacts",
+    "href": "03_Pandas_Solution.html#contacts",
+    "title": "Python Solution",
+    "section": "Contacts",
+    "text": "Contacts\nTable of constituent contact information\nChecking for any missing contacts\n\ndef is_empty(x):\n    if str(x) == '' or str(x) == 'nan':\n        return True\n    else:\n        return False\n\n\ndef format_string(x):\n    if is_empty(x):\n        return ''\n    else: \n        return x\n\n\ncontacts_wide['HomePhone'] = np.where(contacts_wide['HomePhone'].apply(is_empty), format_string(contacts_wide['Phone']), format_string(contacts_wide['HomePhone']))\ncontacts_wide['HomeEmail'] = np.where(contacts_wide['HomeEmail'].apply(is_empty), format_string(contacts_wide['EMail']), format_string(contacts_wide['HomeEmail']))\n\n\ncontacts_wide = contacts_wide[['LegacyContactId', 'HomePhone', 'HomeEmail']].fillna('').copy()\n\n\ncontacts_wide = contacts_wide[~((contacts_wide.HomePhone == '') & (contacts_wide.HomeEmail == ''))].copy()\n\n\ncontacts = (contacts\n            .drop(['Phone', 'EMail'], axis=1)\n            .merge(contacts_wide,\n                   left_on='Number',\n                   right_on='LegacyContactId',\n                   how='left',\n            )\n            .drop('LegacyContactId', axis=1)\n            )\n\n\ncolumns = [\n    'LegacyContactId', 'LegacyIndividualId', 'ContactType', 'ContactName',\n    'FirstName', \n    'LastName', 'SecondaryLegacyIndividualId', 'SecondaryFirstName',\n    'SecondaryLastName', 'HomePhone', 'HomeEmail', 'Address1', \n    'City', 'State', 'PostalCode', 'IsPrivate', 'IsDeceased',\n    ]\n\n\ncontacts.rename(columns={\n    'Number':'LegacyContactId',\n    'Street': 'Address1',\n    'Postal': 'PostalCode',\n    'Private': 'IsPrivate',\n    'Deceased': 'IsDeceased',\n}, inplace=True)\n\n\nfinal_contacts = contacts[columns].fillna('')\n\n\nfinal_contacts\n\n\n\n\n\n\n\n\nLegacyContactId\nLegacyIndividualId\nContactType\nContactName\nFirstName\nLastName\nSecondaryLegacyIndividualId\nSecondaryFirstName\nSecondaryLastName\nHomePhone\nHomeEmail\nAddress1\nCity\nState\nPostalCode\nIsPrivate\nIsDeceased\n\n\n\n\n0\n653377813-7\n0\nHousehold\nKarita & Kelvin Lumbers\nKarita\nLumbers\n1\nKelvin\nLumbers\n832-442-4988\nkklumbers@yahoo.com\n4 Bunting Parkway\nWashington\nDC\n\nTrue\nFalse\n\n\n1\n390551098-7\n2\nHousehold\nHelga Benech\nHelga\nBenech\n\n\n\n\nebenech1@goodreads.com\n48684 Jenifer Way\nLas Vegas\nNV\n89130\nFalse\nFalse\n\n\n2\n093004505-X\n3\nHousehold\nMasha Butt Gow\nMasha\nButt Gow\n\n\n\n818-323-9865\n\n353 Schmedeman Park\nIndianapolis\nIN\n\nFalse\nFalse\n\n\n3\n729707142-0\n4\nOrganization\nCymbre Cross\nCymbre\nCross\n\n\n\n\n\n2055 Lakewood Parkway\nCamden\nNJ\n\nFalse\nFalse\n\n\n4\n488464926-5\n5\nHousehold\nHoyt Castille\nHoyt\nCastille\n\n\n\n\nfcastille4@timesonline.co.uk\n37 8th Trail\nGrand Rapids\nMI\n49560\nFalse\nFalse\n\n\n5\n315297729-8\n6\nHousehold\nBenedict Oscar & Idell Mouncey\nBenedict\nOscar\n7\nIdell\nMouncey\n\ndmouncey9@cnn.com\n4225 Madison Ave\nBoise\nID\n\nFalse\nFalse\n\n\n6\n848348568-0\n8\nHousehold\nMannie Turpin\nMannie\nTurpin\n\n\n\n702-844-9524\n\n\n\nNV\n\nFalse\nTrue\n\n\n7\n029456846-8\n9\nHousehold\nRomy Doley\nRomy\nDoley\n\n\n\n\njdoley6@telegraph.co.uk\n608 Old Shore Alley\nMarietta\nGA\n30066\nFalse\nFalse\n\n\n8\n687119652-8\n10\nHousehold\nRuggiero Makepeace\nRuggiero\nMakepeace\n\n\n\n\ncmakepeace7@1688.com\n15 Sunbrook Center\nOmaha\nNE\n68164\nFalse\nFalse\n\n\n9\n739131380-7\n11\nHousehold\nRosemaria & Rogelio Dimond\nRosemaria\nDimond\n12\nRogelio\nDimond\n\n\n\nJuneau\nAK\n\nFalse\nFalse\n\n\n10\n809975531-Y\n13\nHousehold\nAdeline Shakespeare\nAdeline\nShakespeare\n\n\n\n\n\n\n\n\n\nFalse\nFalse\n\n\n\n\n\n\n\n\nfinal_contacts.to_csv('data/final_contacts.csv', index=False)"
+  },
+  {
+    "objectID": "03_Pandas_Solution.html#gifts",
+    "href": "03_Pandas_Solution.html#gifts",
+    "title": "Python Solution",
+    "section": "Gifts",
+    "text": "Gifts\nTable with gift history\n\ncolumns = ['LegacyContactId', 'LegacyGiftId', 'GiftType', 'GiftDate',\n           'GiftAmount', 'Notes', 'CreditCardType', 'Project1Code',\n           'Project2Code', 'LegacyPledgeID']\n\n\ngifts.rename(columns={\n    'DonorNumber': 'LegacyContactId',\n    'PaymentMethod': 'GiftType',\n    'AmountReceived': 'GiftAmount',\n}, inplace=True)\n\n\ngifts[columns]\n\n\n\n\n\n\n\n\nLegacyContactId\nLegacyGiftId\nGiftType\nGiftDate\nGiftAmount\nNotes\nCreditCardType\nProject1Code\nProject2Code\nLegacyPledgeID\n\n\n\n\n0\n848348568-0\n95196378\nOther\n2019-03-04\n4.1500\n\n\n\nNone\n0\n\n\n1\n729707142-0\n95196889\nCheck\n2019-03-05\n2.3648\n\n\nChildSponsorship\nNone\n1\n\n\n2\n687119652-8\n95197689\nCash\n2019-03-07\n1.3100\n\n\n\nNone\n2\n\n\n3\n653377813-7\n95198998\nCredit\n2019-03-10\n2.0400\nIn honor of Mannie Turpin\nAMEX\n\nNone\n3\n\n\n4\n390551098-7\n95198999\nCash\n2019-01-10\n5.8000\n\n\n\nNone\n89752384\n\n\n5\n848348568-0\n95296677\nOther\n2019-03-20\n9.2800\n\n\nGeneral\nReliefFund\n5\n\n\n6\n029456846-8\n95298831\nCheck\n2019-03-24\n5.0000\nACH check #7687\n\n\nNone\n6\n\n\n7\n093004505-X\n95298845\nCheck\n2019-04-09\n4.8300\n\n\n\nNone\n7\n\n\n8\n315297729-8\n95298997\nCheck\n2019-04-12\n7.0000\n\n\nSchoolSupplies2019\nNone\n8\n\n\n9\n809975531-Y\n9\nCredit\n2019-08-14\n8.4800\n\nAMEX\n\nNone\n9\n\n\n10\n739131380-7\n95329966\nCredit\n2019-04-13\n5.8400\n\nVisa\n\nNone\n10\n\n\n11\n739131380-7\n95330011\nOther\n2019-04-13\n7.4500\n\n\n\nNone\n11\n\n\n12\n029456846-8\n95330012\nCheck\n2019-04-17\n8.1300\n\n\nMentorship2023\nNone\n12\n\n\n13\n315297729-8\n95330110\nReversing Transaction\n2019-04-19\n-3.0100\n\n\n\nNone\n13\n\n\n14\n739131380-7\n95330662\nOther\n2019-05-10\n3.4000\n\n\n\nNone\n14\n\n\n15\n687119652-8\n95419562\nOther\n2019-06-04\n5.0700\n\n\n\nNone\n15\n\n\n16\n488464926-5\n95422266\nCash\n2019-06-05\n5.4200\n\n\nGeneralFund\nNone\n16\n\n\n17\n848348568-0\n95485564\nOther\n2019-06-10\n6.8000\n\n\n\nNone\n57398862\n\n\n18\n390551098-7\n95496635\nOther\n2019-06-11\n6.7800\n\n\n\nNone\n18\n\n\n19\n729707142-0\n95497782\nOther\n2019-06-20\n5.2700\n\n\n\nNone\n19\n\n\n20\n315297729-8\n20\nCheck\n2019-06-20\n5.5900\n\n\n\nNone\n65139856\n\n\n21\n390551098-7\n95763575\nCredit\n2019-07-01\n4.2100\n\nMastercard\n\nNone\n21\n\n\n22\n488464926-5\n95798342\nCash\n2019-07-18\n9.2800\n\n\n\nNone\n22\n\n\n23\n848348568-0\n95798343\nOther\n2019-07-01\n2.7400\n\n\n\nNone\n23\n\n\n24\n029456846-8\n95801563\nOther\n2019-08-01\n9.0000\n\n\n\nNone\n24\n\n\n25\n729707142-0\n95801564\nCash\n2019-08-03\n1.8800\n\n\n\nNone\n25\n\n\n26\n687119652-8\n95835492\nReversing Transaction\n2019-08-12\n-6.7600\n\n\n\nNone\n26\n\n\n27\n809975531-Y\n27\nCredit\n2019-08-14\n7.5800\n\nMastercard\nColor run\nChildSponsorship\n27\n\n\n28\n653377813-7\n28\nCash\n2019-08-26\n5.4900\n\n\n\nNone\n28\n\n\n29\n739131380-7\n96638462\nOther\n2019-09-01\n8.9300\n\n\nReliefFund\nNone\n29\n\n\n30\n093004505-X\n96638468\nCredit\n2019-09-06\n2.6200\n\nDiscover\n\nNone\n30\n\n\n\n\n\n\n\n\nfinal_gifts = gifts[columns].copy()\n\n\nfinal_gifts.shape\n\n(31, 10)\n\n\n\nfinal_gifts.to_csv('data/final_gifts.csv', index=False)"
+  },
+  {
+    "objectID": "01_Setup.html",
+    "href": "01_Setup.html",
+    "title": "Virtuous Interview Exam",
+    "section": "",
+    "text": "Virtuous Data Schema, changes that require ETL have been highlighted\n\n\n\n\nalternative text\n\n\n\n\nI need to perform a ETL of 3 spreadsheets into SQL tables that match the Virtuous schema - Contacts: A table of contacts, with 1 or 2 constituents per row - Gifts: Donations from individual constituents - Contact Methods: Contact information for individual constituents"
+  },
+  {
+    "objectID": "01_Setup.html#summary",
+    "href": "01_Setup.html#summary",
+    "title": "Virtuous Interview Exam",
+    "section": "",
+    "text": "I need to perform a ETL of 3 spreadsheets into SQL tables that match the Virtuous schema - Contacts: A table of contacts, with 1 or 2 constituents per row - Gifts: Donations from individual constituents - Contact Methods: Contact information for individual constituents"
+  },
+  {
+    "objectID": "01_Setup.html#housekeeping-1",
+    "href": "01_Setup.html#housekeeping-1",
+    "title": "Virtuous Interview Exam",
+    "section": "Housekeeping 1",
+    "text": "Housekeeping 1\nFormat Column Names \n\nNothing worse than malformed column names, amiright?\n\n\nto_camel_case\nApply Camel Casing to a string\n\nsource\n\n\nto_camel_case\n\n to_camel_case (s)\n\n\n\ntransform_cnames\nRename DF cnames in place\n\nsource\n\n\ntransform_cnames\n\n transform_cnames (df, func=&lt;function to_camel_case&gt;)"
+  },
+  {
+    "objectID": "01_Setup.html#housekeeping-2",
+    "href": "01_Setup.html#housekeeping-2",
+    "title": "Virtuous Interview Exam",
+    "section": "Housekeeping 2",
+    "text": "Housekeeping 2\nCleaning the column types\nI identified 2 columns on the gift table that should be ints, replacing those values\nLooks like AmountRecieved should really be a float, I’m removing any special characters (besides dashes and periods) and converting to a float :)\nReplacing 0 with unique id\n\ngifts\n\n\n\n\n\n\n\n\nDonorNumber\nGiftId\nFirstName\nLastName\nAmountReceived\nDate\nFundId\nCreditCardType\nPaymentMethod\nPledgeNumber\nNotes\n\n\n\n\n0\n848348568-0\n95196378\nMannie\nTurpin\n4.1500\n3/4/2019\n\n\nPayPal\n0\n\n\n\n1\n729707142-0\n95196889\nCymbre\nCross\n2.3648\n3/5/2019\nChildSponsorship\n\ncheck\n0\n\n\n\n2\n687119652-8\n95197689\nRuggiero\nMakepeace\n1.3100\n3/7/2019\n\n\ncash\n0\n\n\n\n3\n653377813-7\n95198998\nKarita\nLumbers\n2.0400\n3/10/2019\n\nAmerican Ex\ncredit card\n0\nIn honor of Mannie Turpin\n\n\n4\n390551098-7\n95198999\nHelga\nBenech\n5.8000\n2019/1/10\n\n\ncash\n89752384\n\n\n\n5\n848348568-0\n95296677\nMannie\nTurpin\n9.2800\n3/20/2019\nGeneral, ReliefFund\n\nPayPal\n0\n\n\n\n6\n029456846-8\n95298831\nRomy\nDoley\n5.0000\n3/24/2019\n\n\ncheck\n0\nACH check #7687\n\n\n7\n093004505-X\n95298845\nMasha\nButt Gow\n4.8300\n4/9/2019\n\n\ncheck\n0\n\n\n\n8\n315297729-8\n95298997\nIdell\nMouncey\n7.0000\n4/12/2019\nSchoolSupplies2019\n\ncheck\n0\n\n\n\n9\n809975531-Y\n0\nAdeline\nShakespeare\n8.4800\n8/14/2019\n\nAMEX\ncredit card\n0\n\n\n\n10\n739131380-7\n95329966\nRosemaria\nDimond\n5.8400\n4/13/2019\n\nVisa\ncredit card\n0\n\n\n\n11\n739131380-7\n95330011\nRosemaria\nDimond\n7.4500\n4/13/2019\n\n\nPayPal\n0\n\n\n\n12\n029456846-8\n95330012\nRomy\nDoley\n8.1300\n4/17/2019\nMentorship2023\n\ncheck\n0\n\n\n\n13\n315297729-8\n95330110\nIdell\nMouncey\n-3.0100\n4/19/2019\n\n\nPayPal\n0\n\n\n\n14\n739131380-7\n95330662\nRosemaria\nDimond\n3.4000\n5/10/2019\n\n\n\n0\n\n\n\n15\n687119652-8\n95419562\nRuggiero\nMakepeace\n5.0700\n6/4/2019\n\n\nmoney order\n0\n\n\n\n16\n488464926-5\n95422266\nHoyt\nCastille\n5.4200\n6/5/2019\nGeneralFund\n\ncash\n0\n\n\n\n17\n848348568-0\n95485564\nMannie\nTurpin\n6.8000\n2019/06/10\n\n\nmoney order\n57398862\n\n\n\n18\n390551098-7\n95496635\nHelga\nBenech\n6.7800\n6/11/2019\n\n\nmoney order\n0\n\n\n\n19\n729707142-0\n95497782\nCymbre\n\n5.2700\n6/20/2019\n\n\nmoney order\n0\n\n\n\n20\n315297729-8\n0\nIdell\nMouncey\n5.5900\n6/20/2019\n\n\ncheck\n65139856\n\n\n\n21\n390551098-7\n95763575\nHelga\nBenech\n4.2100\n7/1/2019\n\nMaster card\ncredit card\n0\n\n\n\n22\n488464926-5\n95798342\nHoyt\nCastille\n9.2800\n7/18/2019\n\n\ncash\n0\n\n\n\n23\n848348568-0\n95798343\nMannie\nTurpin\n2.7400\n2019/07/01\n\n\nPayPal\n0\n\n\n\n24\n029456846-8\n95801563\nRomy\nDoley\n9.0000\n8/1/2019\n\n\nmoney order\n0\n\n\n\n25\n729707142-0\n95801564\nCymbre\nCross\n1.8800\n8/3/2019\n\n\ncash\n0\n\n\n\n26\n687119652-8\n95835492\nRuggiero\nMakepeace\n-6.7600\n8/12/2019\n\n\ncheck\n0\n\n\n\n27\n809975531-Y\n0\nAdeline\nShakespeare\n7.5800\n8/14/2019\nColor run, ChildSponsorship\nMastercard\ncredit card\n0\n\n\n\n28\n653377813-7\n0\nKarita\nLumbers\n5.4900\n8/26/2019\n\n\ncash\n0\n\n\n\n29\n739131380-7\n96638462\nRosemaria\nDimond\n8.9300\n9/1/2019\nReliefFund\n\nmoney order\n0\n\n\n\n30\n093004505-X\n96638468\nMasha\nButt Gow\n2.6200\n9/6/2019\n\nDiscover\ncredit card\n0"
+  },
+  {
+    "objectID": "01_Setup.html#housekeeping-3",
+    "href": "01_Setup.html#housekeeping-3",
+    "title": "Virtuous Interview Exam",
+    "section": "Housekeeping 3",
+    "text": "Housekeeping 3\n\nIdentify and clean any pieces of data in the wrong column\n\nCreating a function that uses regular expressions to identify a string as a phone or a email\n\nsource\n\nclassify_phone_email\n\n classify_phone_email (value)\n\nLooping over phone & email records.  If a phone and/or email are identified in the wrong column, they will be swapped"
+  },
+  {
+    "objectID": "01_Setup.html#housekeeping-4",
+    "href": "01_Setup.html#housekeeping-4",
+    "title": "Virtuous Interview Exam",
+    "section": "Housekeeping 4",
+    "text": "Housekeeping 4\nConsolidating contacts table  - Searching for missing users  - Splitting / joining households\n\nChecking for Missing records \nChecking for any DonorNumbers that are NOT IN contacts Number…\nFound 1!   Doing the same for contact_methods\nDidn’t find any there  Going to extract the missing records from the gifts table\nAdding to Shakespeare to our contacts!"
+  },
+  {
+    "objectID": "01_Setup.html#spliting-rows-with-multiple-people",
+    "href": "01_Setup.html#spliting-rows-with-multiple-people",
+    "title": "Virtuous Interview Exam",
+    "section": "Spliting rows with Multiple People",
+    "text": "Spliting rows with Multiple People\nSplit the names on ’ & ’ or ’ and ’, then expand the resulting lists into new rows\nAditionally, going to look for any records where there’s a duplicated Number   I’m assuming Number is a primary key for a household or organization\nRemoving duplicates from contacts before joining\nAdding dupliates as secondary contacts\nAdding Secondary Last Name for the appropriate users\nInitializing new columns\nAdding id since none was provided"
+  },
+  {
+    "objectID": "01_Setup.html#housekeeping-5",
+    "href": "01_Setup.html#housekeeping-5",
+    "title": "Virtuous Interview Exam",
+    "section": "Housekeeping 5",
+    "text": "Housekeeping 5\nCleaning Records with blank first or last names\nChecking for records where FirstName and/or LastName is blank\nPreviewing the blank name records\n\ncontacts.loc[((contacts.FirstName == '') | (contacts.LastName == '')), :]\n\n\n\n\n\n\n\n\nNumber\nCompanyName\nFirstName\nLastName\nStreet\nCity\nState\nPostal\nPhone\nEMail\nRemarks\nDeceased\nSecondaryFirstName\nSecondaryLastName\nLegacyIndividualId\nSecondaryLegacyIndividualId\n\n\n\n\n2\n093004505-X\n\nMasha\n\n353 Schmedeman Park\nIndianapolis\nIN\n\n577-374-96523\n\n\n\n\n\n3\n\n\n\n3\n729707142-0\nA Company Co.\n\n\n2055 Lakewood Parkway\nCamden\nNJ\n8104\n\n\n\nNo\n\n\n4\n\n\n\n7\n029456846-8\n\n\n\n608 Old Shore Alley\nMarietta\nGA\n30066\n\njdoley6@telegraph.co.uk\n\n\n\n\n9\n\n\n\n\n\n\n\n\nBefore I delete the records I’m going to check if the names are present on the gift table   I’m going to start by getting the unique Numbers that the records belong too\n\ngifts.loc[gifts.DonorNumber.isin(blank_name_numbers), ['DonorNumber', 'FirstName', 'LastName']].drop_duplicates().head(5)\n\n\n\n\n\n\n\n\nDonorNumber\nFirstName\nLastName\n\n\n\n\n1\n729707142-0\nCymbre\nCross\n\n\n6\n029456846-8\nRomy\nDoley\n\n\n7\n093004505-X\nMasha\nButt Gow\n\n\n19\n729707142-0\nCymbre\n\n\n\n\n\n\n\n\nThe names are present on the gifts table!\nRemoving the invalid record\nUpdating the records that previousuly had a blank first or last name\nAll the records valid names now!\n\ncontacts.loc[blank_name_records, :]\n\n\n\n\n\n\n\n\nNumber\nCompanyName\nFirstName\nLastName\nStreet\nCity\nState\nPostal\nPhone\nEMail\nRemarks\nDeceased\nSecondaryFirstName\nSecondaryLastName\nLegacyIndividualId\nSecondaryLegacyIndividualId\n\n\n\n\n2\n093004505-X\n\nMasha\nButt Gow\n353 Schmedeman Park\nIndianapolis\nIN\n\n577-374-96523\n\n\n\n\n\n3\n\n\n\n3\n729707142-0\nA Company Co.\nCymbre\nCross\n2055 Lakewood Parkway\nCamden\nNJ\n8104\n\n\n\nNo\n\n\n4\n\n\n\n7\n029456846-8\n\nRomy\nDoley\n608 Old Shore Alley\nMarietta\nGA\n30066\n\njdoley6@telegraph.co.uk\n\n\n\n\n9"
+  },
+  {
+    "objectID": "01_Setup.html#housekeeping-6",
+    "href": "01_Setup.html#housekeeping-6",
+    "title": "Virtuous Interview Exam",
+    "section": "Housekeeping 6",
+    "text": "Housekeeping 6\nAdding Contact Name\n\ncontacts.head(3)\n\n\n\n\n\n\n\n\nNumber\nCompanyName\nFirstName\nLastName\nStreet\nCity\nState\nPostal\nPhone\nEMail\nRemarks\nDeceased\nSecondaryFirstName\nSecondaryLastName\nLegacyIndividualId\nSecondaryLegacyIndividualId\n\n\n\n\n0\n653377813-7\n\nKarita\nLumbers\n4 Bunting Parkway\nWashington\nDC\n20535-871\n\nkklumbers@ yahoo.co\nIs anonymous\n\nKelvin\nLumbers\n0\n1\n\n\n1\n390551098-7\n\nHelga\nBenech\n48684 Jenifer Way\nLas Vegas\nNV\n89130\n\nebenech1@goodreads.com\n\n\n\n\n2\n\n\n\n2\n093004505-X\n\nMasha\nButt Gow\n353 Schmedeman Park\nIndianapolis\nIN\n\n577-374-96523\n\n\n\n\n\n3\n\n\n\n\n\n\n\n\nCreating a function to update the contact name depending on the individuals on the household record\n\nsource\n\nset_contact_name\n\n set_contact_name (row)"
+  },
+  {
+    "objectID": "01_Setup.html#housekeeping-7",
+    "href": "01_Setup.html#housekeeping-7",
+    "title": "Virtuous Interview Exam",
+    "section": "Housekeeping 7",
+    "text": "Housekeeping 7\nSplitting Project Codes"
+  },
+  {
+    "objectID": "01_Setup.html#housekeeping-8",
+    "href": "01_Setup.html#housekeeping-8",
+    "title": "Virtuous Interview Exam",
+    "section": "Housekeeping 8",
+    "text": "Housekeeping 8\nFormating date\n\ndf['Date'].head(7)\n\n0     3/4/2019\n1     3/5/2019\n2     3/7/2019\n3    3/10/2019\n4    2019/1/10\n5    3/20/2019\n6    3/24/2019\nName: Date, dtype: object\n\n\nSince Dates are in different formats I’m going to create a custom parser\n\nsource\n\ncustom_parser\n\n custom_parser (date_str)\n\nApplying parser\nDropping old date columns"
+  },
+  {
+    "objectID": "01_Setup.html#housekeeping-9",
+    "href": "01_Setup.html#housekeeping-9",
+    "title": "Virtuous Interview Exam",
+    "section": "Housekeeping 9",
+    "text": "Housekeeping 9\nValidate emails\nPreviewing the Email column\n\ncontacts.EMail.head(1)\n\n0    kklumbers@ yahoo.co\nName: EMail, dtype: object\n\n\nIt looks like the first email ‘kklumbers@ yahoo.co’ is invalid and should be fixed   I’m going to write a function to validate emails and fix common mistakes\n\nsource\n\nvalid_email\n\n valid_email (s)\n\n\nsource\n\n\nfix_email\n\n fix_email (email)\n\nTesting the email validator\n\ncontacts.EMail.apply(fix_email)\n\n0              kklumbers@yahoo.com\n1           ebenech1@goodreads.com\n2                                 \n3                                 \n4     fcastille4@timesonline.co.uk\n5                                 \n6                                 \n7          jdoley6@telegraph.co.uk\n8             cmakepeace7@1688.com\n9                                 \n10                                \nName: EMail, dtype: object\n\n\nSaving the change"
+  },
+  {
+    "objectID": "01_Setup.html#housekeeping-10",
+    "href": "01_Setup.html#housekeeping-10",
+    "title": "Virtuous Interview Exam",
+    "section": "Housekeeping 10",
+    "text": "Housekeeping 10\nFix phone numbers\nThere appears to be a invalid phone number\n\ncontacts.loc[2, 'Phone']\n\n'577-374-96523'\n\n\nWriting a function to validate US phone numbers, assuming the phone numbers provided are from the US\n\nsource\n\nvalidate_us_phone_number\n\n validate_us_phone_number (phone_number)"
+  },
+  {
+    "objectID": "00_Core.html",
+    "href": "00_Core.html",
+    "title": "virtuous_inverview",
+    "section": "",
+    "text": "# default export core"
+  },
+  {
+    "objectID": "04_Gpt_Solution.html#gptprompt",
+    "href": "04_Gpt_Solution.html#gptprompt",
+    "title": "GPT Solution",
+    "section": "GptPrompt",
+    "text": "GptPrompt\nClass For sending messages to Open AI  \nSimple class to make reusing a prompt easier\n\nsource\n\nGptPrompt\n\n GptPrompt (messages)\n\nInitialize self. See help(type(self)) for accurate signature.\n\n\nto_csl\nFormats pd series to a comma seperated list of unique values\n\nsource\n\n\nto_csl\n\n to_csl (pd_series)"
+  },
+  {
+    "objectID": "04_Gpt_Solution.html#creditcardtype",
+    "href": "04_Gpt_Solution.html#creditcardtype",
+    "title": "GPT Solution",
+    "section": "CreditCardType",
+    "text": "CreditCardType\nCan only be Visa, Mastercard, AMEX, Discover  - Solution:  - Asking Chat GPT to format the unique CreditCardTypes into the pre-approved list of values \n\nvalues_to_replace\n\n{'American Ex': 'AMEX', 'Master card': 'Mastercard', '': ''}"
+  },
+  {
+    "objectID": "04_Gpt_Solution.html#gifttype",
+    "href": "04_Gpt_Solution.html#gifttype",
+    "title": "GPT Solution",
+    "section": "GiftType",
+    "text": "GiftType\nCan only be Cash, Check, Credit, Other, or Reversing Transaction   - Solution:  - Asking Chat GPT to format the unique GiftTypes into the pre-approved list of values  - Replace ‘Reversing Transaction’ using simple logic in Python \n\nvalues_to_replace\n\n{'PayPal': 'Other',\n 'check': 'Check',\n 'cash': 'Cash',\n 'credit card': 'Credit',\n 'money order': 'Other',\n '': 'Other'}"
+  },
+  {
+    "objectID": "04_Gpt_Solution.html#contacttype",
+    "href": "04_Gpt_Solution.html#contacttype",
+    "title": "GPT Solution",
+    "section": "ContactType",
+    "text": "ContactType\n`is required and can only be Household or Organization   - Source Table: Contacts Table  - Solution:  - Create procedure to add new column ContactType"
+  },
+  {
+    "objectID": "04_Gpt_Solution.html#postal-code",
+    "href": "04_Gpt_Solution.html#postal-code",
+    "title": "GPT Solution",
+    "section": "Postal Code",
+    "text": "Postal Code\nif address is present and is US, must be a valid zip code, either 12345 or 12345-1234   - Source Table: Contacts - Solution: - Create procedure to remove any postal codees that doesn’t match the approved format from the usps\n\ncontacts[['Postal']]\n\n\n\n\n\n\n\n\nPostal\n\n\n\n\n0\n20535-871\n\n\n1\n89130\n\n\n2\n\n\n\n3\n8104\n\n\n4\n49560\n\n\n5\n837016\n\n\n6\n\n\n\n7\n30066\n\n\n8\n68164\n\n\n9\n\n\n\n10"
+  },
+  {
+    "objectID": "04_Gpt_Solution.html#isdeceased",
+    "href": "04_Gpt_Solution.html#isdeceased",
+    "title": "GPT Solution",
+    "section": "IsDeceased",
+    "text": "IsDeceased\ncan only be TRUE or FALSE   - Source Table: Contacts  - Solution:  - Create procedure to update Deceased to TRUE/FALSE \n\ngpt_response.Deceased.unique()\n\narray(['', 'No', 'Yes'], dtype=object)"
+  },
+  {
+    "objectID": "05_Test.html",
+    "href": "05_Test.html",
+    "title": "Testing",
+    "section": "",
+    "text": "source\n\n\n\n missing_no_required_fields (df:pandas.core.frame.DataFrame, columns:list)\n\n\nsource\n\n\n\n\n email_is_valid (s)\n\n\nsource\n\n\n\n\n number_is_valid (s)\n\n\nsource\n\n\n\n\n zip_is_valid (p)"
+  },
+  {
+    "objectID": "05_Test.html#validating-required-fields-are-not-missing",
+    "href": "05_Test.html#validating-required-fields-are-not-missing",
+    "title": "Testing",
+    "section": "Validating Required Fields Are Not Missing",
+    "text": "Validating Required Fields Are Not Missing\n\nsource\n\ntest_contact_required_fields\n\n test_contact_required_fields ()\n\n\ntest_contact_required_fields()"
+  },
+  {
+    "objectID": "05_Test.html#validating-contacttype",
+    "href": "05_Test.html#validating-contacttype",
+    "title": "Testing",
+    "section": "Validating ContactType",
+    "text": "Validating ContactType\n\nsource\n\ntest_contacts_contact_type\n\n test_contacts_contact_type ()\n\n\ntest_contacts_contact_type()"
+  },
+  {
+    "objectID": "05_Test.html#validating-email",
+    "href": "05_Test.html#validating-email",
+    "title": "Testing",
+    "section": "Validating Email",
+    "text": "Validating Email\n\nsource\n\ntest_contact_email\n\n test_contact_email ()\n\n\ntest_contact_email()"
+  },
+  {
+    "objectID": "05_Test.html#validating-phone-number",
+    "href": "05_Test.html#validating-phone-number",
+    "title": "Testing",
+    "section": "Validating Phone Number",
+    "text": "Validating Phone Number\n\nsource\n\ntest_contact_phone_number_valid\n\n test_contact_phone_number_valid ()\n\n\ntest_contact_phone_number_valid()"
+  },
+  {
+    "objectID": "05_Test.html#validating-postal",
+    "href": "05_Test.html#validating-postal",
+    "title": "Testing",
+    "section": "Validating Postal",
+    "text": "Validating Postal\n\nsource\n\ntest_contact_valid_zip\n\n test_contact_valid_zip ()\n\n\ntest_contact_valid_zip()"
+  },
+  {
+    "objectID": "05_Test.html#validating-deceased",
+    "href": "05_Test.html#validating-deceased",
+    "title": "Testing",
+    "section": "Validating Deceased",
+    "text": "Validating Deceased\n\ndef test_contact_deceased():\n    assert final_contacts.IsDeceased.isin([True, False]).all()\n\n\ntest_contact_deceased()"
+  },
+  {
+    "objectID": "05_Test.html#validating-required-fields-are-not-missing-1",
+    "href": "05_Test.html#validating-required-fields-are-not-missing-1",
+    "title": "Testing",
+    "section": "Validating Required Fields Are Not Missing",
+    "text": "Validating Required Fields Are Not Missing\n\nsource\n\ntest_gift_required_fields\n\n test_gift_required_fields ()\n\n\ntest_gift_required_fields()"
+  },
+  {
+    "objectID": "05_Test.html#validating-gifttype",
+    "href": "05_Test.html#validating-gifttype",
+    "title": "Testing",
+    "section": "Validating GiftType",
+    "text": "Validating GiftType\n\ndef test_gift_type():\n    assert final_gifts.GiftType.isin(['Cash', 'Check', 'Credit', 'Other',  'Reversing Transaction']).all()\n\n\ntest_gift_type()"
+  },
+  {
+    "objectID": "05_Test.html#validating-giftamount",
+    "href": "05_Test.html#validating-giftamount",
+    "title": "Testing",
+    "section": "Validating GiftAmount",
+    "text": "Validating GiftAmount\n\nsource\n\ntest_gift_amount_is_float\n\n test_gift_amount_is_float ()\n\n\ntest_gift_amount_is_float()"
+  },
+  {
+    "objectID": "05_Test.html#validating-creditcardtype",
+    "href": "05_Test.html#validating-creditcardtype",
+    "title": "Testing",
+    "section": "Validating CreditCardType",
+    "text": "Validating CreditCardType\n\ndef test_credit_card_type():\n    assert final_gifts.CreditCardType.isin(['Visa', 'Mastercard', 'AMEX', 'Discover', '']).all()\n\n\ntest_credit_card_type()"
+  },
+  {
+    "objectID": "05_Test.html#validating-pledgeid",
+    "href": "05_Test.html#validating-pledgeid",
+    "title": "Testing",
+    "section": "Validating PledgeId",
+    "text": "Validating PledgeId\n\ndef test_gift_pledge_id():\n    assert len(final_gifts) == len(final_gifts.LegacyPledgeID.unique())\n\n\ntest_gift_pledge_id()"
+  },
+  {
+    "objectID": "05_Test.html#validating-required-fields-are-not-missing-2",
+    "href": "05_Test.html#validating-required-fields-are-not-missing-2",
+    "title": "Testing",
+    "section": "Validating Required Fields Are Not Missing",
+    "text": "Validating Required Fields Are Not Missing\n\nsource\n\ntest_contact_method_required_fields\n\n test_contact_method_required_fields ()\n\n\ntest_contact_method_required_fields()"
+  },
+  {
+    "objectID": "05_Test.html#validating-type",
+    "href": "05_Test.html#validating-type",
+    "title": "Testing",
+    "section": "Validating Type",
+    "text": "Validating Type\n\nsource\n\ntest_contact_method_type\n\n test_contact_method_type ()\n\n\ntest_contact_method_type()"
+  },
+  {
+    "objectID": "01_SQL_Cleanup.html",
+    "href": "01_SQL_Cleanup.html",
+    "title": "virtuous_interview",
+    "section": "",
+    "text": "import mysql.connector\nfrom mysql.connector import Error\n\n\n\ntry:\n    connection = mysql.connector.connect(user='root', host='localhost')\n    cursor = connection.cursor()\n    cursor.execute(\"\"\"\n    USE exam_db;\n    DROP TABLE temp_contact_methods;\n    DROP TABLE temp_contacts;\n    DROP TABLE temp_gifts;\n    DROP TABLE contact_methods;\n    DROP TABLE contacts;\n    DROP TABLE gifts;\n    \"\"\")\nexcept Error as e:\n    print(f\"Error: {e}\")\nfinally:\n    if connection.is_connected():\n        cursor.close()\n        connection.close()"
+  }
+]
