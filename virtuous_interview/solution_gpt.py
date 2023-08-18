@@ -14,6 +14,9 @@ from dotenv import dotenv_values, load_dotenv
 from .utils import contacts, contact_methods, gifts
 from nbdev.showdoc import *
 
+# %% ../03_Gpt_Solution.ipynb 4
+load_dotenv()
+
 # %% ../03_Gpt_Solution.ipynb 5
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
