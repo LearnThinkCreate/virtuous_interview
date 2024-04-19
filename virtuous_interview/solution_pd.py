@@ -83,17 +83,17 @@ def validate_credit_card(string):
 # %% ../02_Pandas_Solution.ipynb 49
 gifts['CreditCardType'] = gifts.CreditCardType.apply(validate_credit_card)
 
-# %% ../02_Pandas_Solution.ipynb 54
+# %% ../02_Pandas_Solution.ipynb 53
 temp_contacts = contacts[['Number', 'Phone', 'EMail']].rename(columns={
     'Number': 'LegacyContactId',
     'Phone': 'HomePhone',
     'EMail': 'HomeEmail'
 }).copy()
 
-# %% ../02_Pandas_Solution.ipynb 55
+# %% ../02_Pandas_Solution.ipynb 54
 temp_contact_methods = contact_methods.rename(columns={'DonorNumber':'LegacyContactId'})
 
-# %% ../02_Pandas_Solution.ipynb 56
+# %% ../02_Pandas_Solution.ipynb 55
 contacts_wide = temp_contacts.merge(temp_contact_methods,
                                 how='left',
                                 on='LegacyContactId',

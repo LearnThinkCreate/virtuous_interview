@@ -21,7 +21,7 @@ def to_camel_case(s):
     """Converts a string to camel case."""
     # Remove all non-alphanumeric characters and replace with a space
     s = re.sub(r'[^a-zA-Z0-9]', ' ', s)
-    
+
     # Split by space and capitalize the first letter of each word
     words = s.split()
     return ''.join(word.capitalize() for word in words)
@@ -43,17 +43,20 @@ for df in [contact_methods, contacts, gifts]:
 int_cols = ['GiftId', 'PledgeNumber']
 
 # %% ../00_Setup.ipynb 25
-gifts[int_cols] = gifts[int_cols].replace({'':0}).astype(int)
+gifts[int_cols] = gifts[int_cols].replace({'': 0}).astype(int)
 
 # %% ../00_Setup.ipynb 27
-gifts['AmountReceived'] = gifts.AmountReceived.apply(lambda x: float(re.sub(r'[^a-zA-Z0-9\.-]', '', x)))
+gifts['AmountReceived'] = gifts.AmountReceived.apply(
+    lambda x: float(re.sub(r'[^a-zA-Z0-9\.-]', '', x)))
 
 # %% ../00_Setup.ipynb 31
-gifts.loc[ gifts.PledgeNumber == 0, 'PledgeNumber'] = gifts[gifts.PledgeNumber == 0].index
-gifts.loc[ gifts.GiftId == 0, 'GiftId'] = gifts[gifts.GiftId == 0].index
+gifts.loc[gifts.PledgeNumber == 0,
+          'PledgeNumber'] = gifts[gifts.PledgeNumber == 0].index
+gifts.loc[gifts.GiftId == 0, 'GiftId'] = gifts[gifts.GiftId == 0].index
 
 # %% ../00_Setup.ipynb 34
-gifts = gifts.rename(columns={'PledgeNumber': 'LegacyPledgeID', 'GiftId': 'LegacyGiftId'})
+gifts = gifts.rename(
+    columns={'PledgeNumber': 'LegacyPledgeID', 'GiftId': 'LegacyGiftId'})
 
 # %% ../00_Setup.ipynb 38
 def classify_phone_email(value):
@@ -78,7 +81,8 @@ for index, row in contacts.iterrows():
         contacts.at[index, 'EMail'] = ''
 
 # %% ../00_Setup.ipynb 56
-donors_not_in_contacts = gifts.loc[~gifts.DonorNumber.isin(contacts.Number.unique()), :]
+donors_not_in_contacts = gifts.loc[~gifts.DonorNumber.isin(
+    contacts.Number.unique()), :]
 
 # %% ../00_Setup.ipynb 59
 contacts = pd.concat([
@@ -92,23 +96,27 @@ contacts = pd.concat([
 ])
 
 # %% ../00_Setup.ipynb 63
-contacts[['FirstName', 'SecondaryFirstName']] = contacts['FirstName'].str.split(' & | and ', expand=True).fillna('')
+contacts[['FirstName', 'SecondaryFirstName']] = contacts['FirstName'].str.split(
+    ' & | and ', expand=True).fillna('')
 
 # %% ../00_Setup.ipynb 65
-records_to_join = contacts.loc[contacts.Number.duplicated(), :].to_dict(orient='records')
+records_to_join = contacts.loc[contacts.Number.duplicated(), :].to_dict(
+    orient='records')
 
 # %% ../00_Setup.ipynb 67
 contacts = contacts.loc[~contacts.Number.duplicated(), :]
 
 # %% ../00_Setup.ipynb 69
 for record in records_to_join:
-    contacts.loc[contacts.Number.isin([record['Number']]), ['SecondaryFirstName', 'SecondaryLastName']] = [record['FirstName'], record['LastName']]
+    contacts.loc[contacts.Number.isin([record['Number']]), [
+        'SecondaryFirstName', 'SecondaryLastName']] = [record['FirstName'], record['LastName']]
 
 # %% ../00_Setup.ipynb 70
 contacts['SecondaryLastName'] = contacts.SecondaryLastName.fillna('')
 
 # %% ../00_Setup.ipynb 72
-contacts['SecondaryLastName'] = contacts.apply(lambda x: x['LastName'] if x['SecondaryLastName'] == '' and x['SecondaryFirstName'] != '' else x['SecondaryLastName'], axis=1)
+contacts['SecondaryLastName'] = contacts.apply(
+    lambda x: x['LastName'] if x['SecondaryLastName'] == '' and x['SecondaryFirstName'] != '' else x['SecondaryLastName'], axis=1)
 
 # %% ../00_Setup.ipynb 75
 contacts[['LegacyIndividualId', 'SecondaryLegacyIndividualId']] = None
@@ -125,7 +133,6 @@ for index, row in contacts.iterrows():
         contacts.loc[index, 'SecondaryLegacyIndividualId'] = id
         id += 1
 
-
 # %% ../00_Setup.ipynb 79
 contacts.fillna('', inplace=True)
 
@@ -133,18 +140,21 @@ contacts.fillna('', inplace=True)
 blank_name_records = ((contacts.FirstName == '') | (contacts.LastName == ''))
 
 # %% ../00_Setup.ipynb 86
-blank_name_numbers= contacts.loc[blank_name_records, 'Number']
+blank_name_numbers = contacts.loc[blank_name_records, 'Number']
 
 # %% ../00_Setup.ipynb 89
-gift_name_records = gifts.loc[gifts.DonorNumber.isin(blank_name_numbers), ['DonorNumber', 'FirstName', 'LastName']].drop_duplicates()
+gift_name_records = gifts.loc[gifts.DonorNumber.isin(
+    blank_name_numbers), ['DonorNumber', 'FirstName', 'LastName']].drop_duplicates()
 
 # %% ../00_Setup.ipynb 91
-gift_name_records = gift_name_records.loc[((gift_name_records.FirstName != '') & (gift_name_records.LastName != '')), :]
+gift_name_records = gift_name_records.loc[(
+    (gift_name_records.FirstName != '') & (gift_name_records.LastName != '')), :]
 gift_name_records
 
 # %% ../00_Setup.ipynb 93
 for _, row in gift_name_records.iterrows():
-    contacts.loc[contacts['Number'] == row['DonorNumber'], ['FirstName', 'LastName']] = [row['FirstName'], row['LastName']]
+    contacts.loc[contacts['Number'] == row['DonorNumber'], [
+        'FirstName', 'LastName']] = [row['FirstName'], row['LastName']]
 
 # %% ../00_Setup.ipynb 99
 def set_contact_name(row):
@@ -152,7 +162,7 @@ def set_contact_name(row):
     if row['LastName'] == row['SecondaryLastName']:
         return row['FirstName'] + ' & ' + row['SecondaryFirstName'] + ' ' + row['LastName']
     elif row['SecondaryFirstName'] != '':
-        return row['FirstName'] +  ' ' + row['LastName'] + ' & ' + row['SecondaryFirstName'] + ' ' + row['SecondaryLastName']
+        return row['FirstName'] + ' ' + row['LastName'] + ' & ' + row['SecondaryFirstName'] + ' ' + row['SecondaryLastName']
     else:
         return row['FirstName'] + ' ' + row['LastName']
 
@@ -198,7 +208,7 @@ def fix_email(email):
     """Fixes common mistakes in email addresses."""
     if not email:
         return ''
-    
+
     email = re.sub(r'\s', '', email)
 
     # Check and fix common mistakes in top-level domain (TLD)
@@ -215,7 +225,6 @@ def fix_email(email):
 
     return ''
 
-
 # %% ../00_Setup.ipynb 146
 contacts['EMail'] = contacts.EMail.apply(fix_email)
 
@@ -227,7 +236,7 @@ def validate_us_phone_number(phone_number):
         r'^\+1\s?\d{3}-\d{3}-\d{4}$',
         r'^\(\d{3}\)\s?\d{3}-\d{4}$',
         r'^\d{3}-\d{3}-\d{4}$',
-        r'^\d{3}-\d{4}$' 
+        r'^\d{3}-\d{4}$'
     ]
 
     # Check if the phone number matches any of the patterns
